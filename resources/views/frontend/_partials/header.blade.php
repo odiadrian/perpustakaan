@@ -12,13 +12,13 @@
 					<div class="collapse navbar-collapse" id="navbarSupportedContent">
 						<ul class="navbar-nav ml-auto main-nav ">
 							<li class="nav-item">
-								<a class="nav-link" href="index.html">Beranda</a>
+								<a class="nav-link" href="{{ route ('frontend.home')}}">Beranda</a>
 							</li>
 							<li class="nav-item">
 								<a class="nav-link" href="dashboard.html">Tentang</a>
 							</li>
 							<li class="nav-item">
-								<a class="nav-link" href="dashboard.html">Kategori</a>
+								<a class="nav-link" href="{{ route ('frontend.kategori')}}">Kategori</a>
 							</li>
 							<li class="nav-item">
 								<a class="nav-link" href="dashboard.html">Semua Buku</a>
