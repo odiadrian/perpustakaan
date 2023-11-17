@@ -25,5 +25,11 @@ Route::group(['namespace' => 'App\Http\Controllers'], function() {
         Route::get('home', 'Backend\HomeController@index')->name('backend.home');
 
         Route::get('kategori', 'Backend\KategoriController@index')->name('backend.kategori');
+        Route::get('tambah-kategori', 'Backend\KategoriController@create')->name('backend.tambah.kategori');
+        Route::post('/store-kategori', 'Backend\KategoriController@store')->name('store_kategori');
+        Route::get('delete-kategori/{id}', 'Backend\KategoriController@destroy')->name('delete_kategori');
+        Route::get('edit-kategori/{id}', 'Backend\KategoriController@edit')->name('edit_kategori');
+        Route::post('/update-kategori/{id}', 'Backend\KategoriController@update')->name('update_kategori');
+
     // });
 });
