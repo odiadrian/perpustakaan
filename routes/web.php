@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,17 +14,22 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('/', function () {
+    return view('auth.login');
+});
 Route::group(['namespace' => 'App\Http\Controllers'], function() {
     // ROUTE FRONTEND
-    Route::get('/', 'Frontend\BerandaController@index')->name('frontend.home');
+    Route::get('home', 'Frontend\BerandaController@index')->name('frontend.home');
     Route::get('tentang', 'Frontend\TentangController@index')->name('frontend.tentang');
 
 
     // SEMUA YANG ADA DI DALAM GROUP MIDDLEWARE ITU HARUS MELALUI PROSES LOGIN
-    // Route::group(['middleware' => ['auth']], function() {
+    Route::group(['middleware' => ['auth']], function() {
         // ROUTE BACKEND
         Route::get('home', 'Backend\HomeController@index')->name('backend.home');
 
         Route::get('kategori', 'Backend\KategoriController@index')->name('backend.kategori');
-    // });
+    });
 });
+
+Auth::routes();
