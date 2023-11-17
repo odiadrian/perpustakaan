@@ -1,31 +1,32 @@
 @extends('frontend.app')
 
 @section('content')
-<section class="hero-area bg-1 text-center overly">
+<section class="hero-area bg-1 text-center overly" style="background: url('assets/frontend/images/perpus.jpg');">
 	<!-- Container Start -->
 	<div class="container">
 		<div class="row">
 			<div class="col-md-12">
 				<!-- Header Contetnt -->
 				<div class="content-block">
-					<h1>Buy & Sell Near You </h1>
-					<p>Join the millions who buy and sell from each other <br> everyday in local communities around the world</p>
+					<h1>Selamat Datang di Perpustakaan </h1>
+					<p>"Selamat datang di Aplikasi Perpustakaan Terbaru! <br> Jelajahi dunia literasi dengan sentuhan ujung jari Anda. Temukan keajaiban pengetahuan dan pelajaran yang tak terbatas. Mari bersama-sama membangun budaya membaca yang lebih cemerlang" 
+						<br> Selamat menikmati petualangan literasi Anda!</p>
 					<div class="short-popular-category-list text-center">
 						<h2>Popular Category</h2>
 						<ul class="list-inline">
 							<li class="list-inline-item">
-								<a href=""><i class="fa fa-bed"></i> Hotel</a></li>
+								<a href=""><i class="fa fa-bed"></i> Dongeng</a></li>
 							<li class="list-inline-item">
-								<a href=""><i class="fa fa-grav"></i> Fitness</a>
+								<a href=""><i class="fa fa-grav"></i> Olahraga</a>
 							</li>
 							<li class="list-inline-item">
-								<a href=""><i class="fa fa-car"></i> Cars</a>
+								<a href=""><i class="fa fa-car"></i> Kendaraan</a>
 							</li>
 							<li class="list-inline-item">
-								<a href=""><i class="fa fa-cutlery"></i> Restaurants</a>
+								<a href=""><i class="fa fa-cutlery"></i> Makanan</a>
 							</li>
 							<li class="list-inline-item">
-								<a href=""><i class="fa fa-coffee"></i> Cafe</a>
+								<a href=""><i class="fa fa-coffee"></i> Minuman</a>
 							</li>
 						</ul>
 					</div>
@@ -36,14 +37,10 @@
 					<form action="#">
 						<div class="row">
 							<!-- Store Search -->
-							<div class="col-lg-6 col-md-12">
+							
+							<div class="col-lg-12 col-md-12">
 								<div class="block d-flex">
-									<input type="text" class="form-control mb-2 mr-sm-2 mb-sm-0" id="search" placeholder="Search for store">
-								</div>
-							</div>
-							<div class="col-lg-6 col-md-12">
-								<div class="block d-flex">
-									<input type="text" class="form-control mb-2 mr-sm-2 mb-sm-0" id="search" placeholder="Search for store">
+									<input type="text" class="form-control mb-2 mr-sm-2 mb-sm-0" id="search" placeholder="Search for book">
 									<!-- Search Button -->
 									<button class="btn btn-main">SEARCH</button>
 								</div>
@@ -73,7 +70,7 @@
 		<div class="row">
 			<div class="col-md-12">
 				<div class="section-title">
-					<h2>Trending Ads</h2>
+					<h2>Trending Buku</h2>
 					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas, magnam.</p>
 				</div>
 			</div>
