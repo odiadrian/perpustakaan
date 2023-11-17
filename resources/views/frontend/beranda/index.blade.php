@@ -84,17 +84,17 @@
 		<div class="thumb-content">
 			<!-- <div class="price">$200</div> -->
 			<a href="">
-				<img class="card-img-top img-fluid" src="images/products/products-1.jpg" alt="Card image cap">
+				<img class="card-img-top img-fluid" src="{{ url('assets/frontend/images/buku3.jpg') }}" alt="Card image cap">
 			</a>
 		</div>
 		<div class="card-body">
-		    <h4 class="card-title"><a href="">11inch Macbook Air</a></h4>
+		    <h4 class="card-title"><a href="">Novel Horor</a></h4>
 		    <ul class="list-inline product-meta">
 		    	<li class="list-inline-item">
 		    		<a href=""><i class="fa fa-folder-open-o"></i>Electronics</a>
 		    	</li>
 		    	<li class="list-inline-item">
-		    		<a href=""><i class="fa fa-calendar"></i>26th December</a>
+		    		<a href=""><i class="fa fa-calendar"></i>15th December</a>
 		    	</li>
 		    </ul>
 		    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo, aliquam!</p>
@@ -121,11 +121,11 @@
 		<div class="thumb-content">
 			<!-- <div class="price">$200</div> -->
 			<a href="">
-				<img class="card-img-top img-fluid" src="images/products/products-2.jpg" alt="Card image cap">
+				<img class="card-img-top img-fluid" src="{{ url('assets/frontend/images/buku1.jpg') }}" alt="Card image cap">
 			</a>
 		</div>
 		<div class="card-body">
-		    <h4 class="card-title"><a href="">Full Study Table Combo</a></h4>
+		    <h4 class="card-title"><a href="">Novel Religi</a></h4>
 		    <ul class="list-inline product-meta">
 		    	<li class="list-inline-item">
 		    		<a href=""><i class="fa fa-folder-open-o"></i>Furnitures</a>
@@ -158,11 +158,11 @@
 		<div class="thumb-content">
 			<!-- <div class="price">$200</div> -->
 			<a href="">
-				<img class="card-img-top img-fluid" src="images/products/products-3.jpg" alt="Card image cap">
+				<img class="card-img-top img-fluid" src="{{ url('assets/frontend/images/buku4.jpg') }}" alt="Card image cap">
 			</a>
 		</div>
 		<div class="card-body">
-		    <h4 class="card-title"><a href="">11inch Macbook Air</a></h4>
+		    <h4 class="card-title"><a href="">Novel Cinta</a></h4>
 		    <ul class="list-inline product-meta">
 		    	<li class="list-inline-item">
 		    		<a href=""><i class="fa fa-folder-open-o"></i>Electronics</a>

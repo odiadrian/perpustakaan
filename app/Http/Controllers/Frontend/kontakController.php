@@ -9,6 +9,6 @@ class kontakController extends Controller
 {
     public function index()
     {
-        return view('frontend.beranda.kontak');
+        return view('frontend.kontak.index');
     }
 }
