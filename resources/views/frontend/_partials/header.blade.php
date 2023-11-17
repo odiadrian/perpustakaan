@@ -24,7 +24,7 @@
 								<a class="nav-link" href="dashboard.html">Semua Buku</a>
 							</li>
 							<li class="nav-item">
-								<a class="nav-link" href="dashboard.html">Kontak</a>
+								<a class="nav-link" href="{{ route ('frontend.kontak')}}">Kontak</a>
 							</li>
 						</ul>
 						<ul class="navbar-nav ml-auto mt-10">
