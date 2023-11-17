@@ -5,10 +5,10 @@ namespace App\Http\Controllers\Frontend;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class BerandaController extends Controller
+class kontakController extends Controller
 {
     public function index()
     {
-        return view('frontend.beranda.index');
+        return view('frontend.kontak.index');
     }
 }
