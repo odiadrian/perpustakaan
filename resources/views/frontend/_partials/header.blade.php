@@ -15,7 +15,7 @@
 								<a class="nav-link" href="index.html">Beranda</a>
 							</li>
 							<li class="nav-item">
-								<a class="nav-link" href="dashboard.html">Tentang</a>
+								<a class="nav-link" href="{{ route ('frontend.tentang') }}">Tentang</a>
 							</li>
 							<li class="nav-item">
 								<a class="nav-link" href="dashboard.html">Kategori</a>
