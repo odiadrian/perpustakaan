@@ -1,4 +1,4 @@
-@extends('front.app')
+@extends('frontend.app')
 @section('title', 'Home')
 @section('content')
 
@@ -37,8 +37,8 @@
             <div class="col-lg-4 mb-4 mb-lg-0">
               <div class="card h-100">
                 <div class="card-body px-5">
-                  <h5 class="mb-3">Melbourne Office</h5>
-                  <p class="mb-0 text-1100"> 121 King Street,<br />Melbourne 1200,<br />Australia</p>
+                  <h5 class="mb-3">Pustaka Office</h5>
+                  <p class="mb-0 text-1100"> @pustaka_support FOLLOWS YOU,<br />we're here to help.,<br />Sukarame.BandarLampung.supoort.pustaka.com</p>
                 </div>
               </div>
             </div>
@@ -67,6 +67,7 @@
       </div>
     </div>
   </div>
+</div>
 </div>
 </div>
 </div>

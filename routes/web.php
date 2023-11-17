@@ -16,8 +16,8 @@ use Illuminate\Support\Facades\Route;
 Route::group(['namespace' => 'App\Http\Controllers'], function() {
     // ROUTE FRONTEND
     Route::get('/', 'Frontend\BerandaController@index')->name('frontend.home');
-    Route::get('tentang', 'Frontend\TentangController@index')->name('frontend.tentang');
-    Route::get('kotak', 'Frontend\kontakController@index')->name('frontend.kontak');
+    Route::get('/tentang', 'Frontend\TentangController@index')->name('frontend.tentang');
+    Route::get('/kontak', 'Frontend\kontakController@index')->name('frontend.kontak');
 
 
     // SEMUA YANG ADA DI DALAM GROUP MIDDLEWARE ITU HARUS MELALUI PROSES LOGIN
