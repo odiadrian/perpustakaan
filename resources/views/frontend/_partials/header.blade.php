@@ -21,6 +21,9 @@
 								<a class="nav-link" href="dashboard.html">Kategori</a>
 							</li>
 							<li class="nav-item">
+								<a class="nav-link" href="dashboard.html">Semua Buku</a>
+							</li>
+							<li class="nav-item">
 								<a class="nav-link" href="dashboard.html">Kontak</a>
 							</li>
 						</ul>
