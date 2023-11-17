@@ -14,12 +14,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('auth.login');
-});
 Route::group(['namespace' => 'App\Http\Controllers'], function() {
     // ROUTE FRONTEND
-    Route::get('home', 'Frontend\BerandaController@index')->name('frontend.home');
+    Route::get('/', 'Frontend\BerandaController@index')->name('frontend.home');
     Route::get('tentang', 'Frontend\TentangController@index')->name('frontend.tentang');
     Route::get('kategoris', 'Frontend\KategoriController@index')->name('frontend.kategori');
 
