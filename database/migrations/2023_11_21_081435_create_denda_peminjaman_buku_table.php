@@ -13,12 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('detail_transakasi', function (Blueprint $table) {
+        Schema::create('denda_peminjaman_buku', function (Blueprint $table) {
             $table->id();
-            $table->string('buku');
-            $table->string('telat_pengembalian');
-            $table->string('denda');
-            $table->foreignId('id_transaksi')->notNull()->references('id')->on('transaksi')->onUpdate('cascade')->onDelete('cascade');
+            $table->string('biaya_denda');
             $table->timestamps();
         });
     }
@@ -30,6 +27,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('detail_transakasi');
+        Schema::dropIfExists('denda_peminjaman_buku');
     }
 };

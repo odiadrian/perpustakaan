@@ -5,7 +5,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6"><br>
-                    <h2>Tambah User</h2>
+                    <h2>Edit User</h2>
                 </div>
 
             </div>
@@ -74,7 +74,7 @@
     // Ambil elemen img pratinjau
     var imagePreview = document.getElementById('image-preview');
 
-    // Tambahkan event listener untuk perubahan pada input file
+    // Editkan event listener untuk perubahan pada input file
     inputImage.addEventListener('change', function() {
         // Pastikan ada file yang dipilih
         if (inputImage.files && inputImage.files[0]) {

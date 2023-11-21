@@ -38,9 +38,11 @@ Route::group(['namespace' => 'App\Http\Controllers'], function () {
 
         // Route Kategori
         // Route::get('kategori', 'Backend\KategoriController@index')->name('backend.kategori');
-        
+
         // Route Buku
         Route::get('buku', 'Backend\BukuController@index')->name('backend.buku');
+        Route::get('create_buku', 'Backend\BukuController@create')->name('backend-buku-create');
+        Route::get('store_buku', 'Backend\BukuController@store')->name('backend-buku-store');
     });
 });
 
