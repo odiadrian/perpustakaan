@@ -22,7 +22,7 @@
                         <select class="form-select form-select-sm mt-2" id="kategori_id" name="kategori_id">
                             <option value="{{ old('kategori_id') }}" disabled selected>Pilih Kategori Buku</option>
                             @foreach($kategoriBuku as $kategori)
-                            <option value="{{ $kategori->id }}">{{ $kategori->nama_kategori }}</option>
+                            <option value="{{ $kategori->id }}">{{ $kategori->nama }}</option>
                             @endforeach
                         </select>
                     </div>
@@ -61,7 +61,9 @@
                     </div>
                     <div class="form-group mb-4">
                         <label for="tahggal_terbit">Tanggal Terbit</label>
-                        <input type="date" name="tahggal_terbit" value="{{ old('tahggal_terbit') }}" id="tahggal_terbit" class="form-control mt-2" required>
+                        <span>
+                            <input type="date" name="tahggal_terbit" value="{{ old('tahggal_terbit') }}" id="tahggal_terbit" class="form-control mt-2 " required><i class="fas fa-calendar"></i>
+                        </span>
                     </div>
                     <div class="form-group mb-4">
                         <label for="isbn">ISBN</label>
