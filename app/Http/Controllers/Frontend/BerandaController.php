@@ -9,6 +9,6 @@ class BerandaController extends Controller
 {
     public function index()
     {
-        return view('frontend.app');
+        return view('frontend.beranda.index');
     }
 }
