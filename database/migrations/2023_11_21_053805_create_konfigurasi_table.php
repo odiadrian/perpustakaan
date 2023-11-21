@@ -13,13 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('konfigurasi', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('username');
-            $table->string('email')->unique();
-            $table->string('password');
-            $table->string('image')->nullable();
+            $table->string('email')->nullable();
+            $table->string('no_telepon')->nullable();
+            $table->string('alamat')->nullable();
+            $table->longText('maps')->nullable();
+            $table->string('logo_perpus')->nullable();
             $table->timestamps();
         });
     }
@@ -31,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('konfigurasi');
     }
 };

@@ -20,10 +20,11 @@
         <form method="post" action="{{route('backend.show_penulis', $detailPenulis->id)}}" enctype="multipart/form-data">
             @csrf
             <div class="row">
-                <div class="col-md-4">
-                    <!-- Foto -->
-                    <td><img src="" width="300" height="300" alt=""></td>
-                </div>
+            <div class="col-md-4">
+    <!-- Foto -->
+    <img src="{{ url('/assets/backend/img/' . $detailPenulis->gambar) }}" width="300" height="300" alt="">
+</div>
+
                 <div class="col-md-8">
                     <table class="table">
                         <tbody>

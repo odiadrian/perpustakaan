@@ -149,8 +149,21 @@ class PenulisController extends Controller
     public function show($id)
     {
         $detailPenulis = DB::table('penulis')
-            ->select('penulis.*', 'detail_penulis.domsili', 'detail_penulis.agama', 'detail_penulis.email', 'detail_penulis.facebook', 'detail_penulis.instagram', 'detail_penulis.twtter', 'detail_penulis.linked_in', 'detail_penulis.blog', 'detail_penulis.youtube')
+            ->select(
+                'penulis.*', 
+                'detail_penulis.domsili', 
+                'detail_penulis.agama', 
+                'detail_penulis.email', 
+                'detail_penulis.facebook', 
+                'detail_penulis.instagram', 
+                'detail_penulis.twtter', 
+                'detail_penulis.linked_in', 
+                'detail_penulis.blog', 
+                'detail_penulis.youtube',
+                'users.image as gambar'
+                )
             ->join('detail_penulis', 'penulis.id', '=', 'detail_penulis.id_penulis')
+            ->join('users', 'users.id', 'penulis.created_by')
             ->where('penulis.id', $id)
             ->first();
 
