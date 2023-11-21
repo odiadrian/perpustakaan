@@ -18,6 +18,8 @@ return new class extends Migration
             $table->string('buku');
             $table->string('harga');
             $table->foreignId('id_transaksi')->notNull()->references('id')->on('transaksi')->onUpdate('cascade')->onDelete('cascade');
+            $table->string('created_by');
+            $table->string('updated_by');
             $table->timestamps();
         });
     }
