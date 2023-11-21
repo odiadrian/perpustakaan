@@ -71,7 +71,9 @@
 			<div class="col-md-12">
 				<div class="section-title">
 					<h2>Trending Buku</h2>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas, magnam.</p>
+					<p>Kalau kamu masih kebingungan memilih buku untuk dibaca, jangan khawatir... 
+					<br>Kami hadir dengan rekomendasi buku-buku Tranding Tahun 2023 yang siap untuk menjadi favorit kamu di tahun ini! 
+					<br>Kamu juga bisa terus scroll untuk mendapatkan rekomendasi buku Tranding ditahun sebelumnya, ya!</p>
 				</div>
 			</div>
 		</div>
@@ -91,13 +93,13 @@
 		    <h4 class="card-title"><a href="">Novel Horor</a></h4>
 		    <ul class="list-inline product-meta">
 		    	<li class="list-inline-item">
-		    		<a href=""><i class="fa fa-folder-open-o"></i>Electronics</a>
+		    		<a href=""><i class="fa fa-folder-open-o"></i>Buku</a>
 		    	</li>
 		    	<li class="list-inline-item">
 		    		<a href=""><i class="fa fa-calendar"></i>15th December</a>
 		    	</li>
 		    </ul>
-		    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo, aliquam!</p>
+		    <p class="card-text">Film horor Indonesia semakin berkembang sejak beberapa tahun terakhir. Hal ini didukung oleh besarnya peminat film horor dalam negeri sehingga terjadi produksi film besar-besaran.</p>
 		    <div class="product-ratings">
 		    	<ul class="list-inline">
 		    		<li class="list-inline-item selected"><i class="fa fa-star"></i></li>
@@ -128,13 +130,13 @@
 		    <h4 class="card-title"><a href="">Novel Religi</a></h4>
 		    <ul class="list-inline product-meta">
 		    	<li class="list-inline-item">
-		    		<a href=""><i class="fa fa-folder-open-o"></i>Furnitures</a>
+		    		<a href=""><i class="fa fa-folder-open-o"></i>Buku</a>
 		    	</li>
 		    	<li class="list-inline-item">
-		    		<a href=""><i class="fa fa-calendar"></i>26th December</a>
+		    		<a href=""><i class="fa fa-calendar"></i>15th December</a>
 		    	</li>
 		    </ul>
-		    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo, aliquam!</p>
+		    <p class="card-text">Religi dan falsafat yang berkembang di Indonesia, tentu saja dalam bentuk ikhtisar yang ringkas namun dapat di harapkan di apresiasikan oleh pembaca." </p>
 		    <div class="product-ratings">
 		    	<ul class="list-inline">
 		    		<li class="list-inline-item selected"><i class="fa fa-star"></i></li>
@@ -165,13 +167,13 @@
 		    <h4 class="card-title"><a href="">Novel Cinta</a></h4>
 		    <ul class="list-inline product-meta">
 		    	<li class="list-inline-item">
-		    		<a href=""><i class="fa fa-folder-open-o"></i>Electronics</a>
+		    		<a href=""><i class="fa fa-folder-open-o"></i>Buku</a>
 		    	</li>
 		    	<li class="list-inline-item">
-		    		<a href=""><i class="fa fa-calendar"></i>26th December</a>
+		    		<a href=""><i class="fa fa-calendar"></i>15th December</a>
 		    	</li>
 		    </ul>
-		    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo, aliquam!</p>
+		    <p class="card-text">Cinta adalah suatu emosi dari afeksi yang kuat dan ketertarikan pribadi. Cinta juga dapat diartikan sebagai suatu perasaan dalam diri seseorang akibat faktor pembentuknya.</p>
 		    <div class="product-ratings">
 		    	<ul class="list-inline">
 		    		<li class="list-inline-item selected"><i class="fa fa-star"></i></li>
@@ -207,8 +209,8 @@
 			<div class="col-12">
 				<!-- Section title -->
 				<div class="section-title">
-					<h2>All Categories</h2>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis, provident!</p>
+					<h2>Semua Kategori</h2>
+					<p>Terdapat 12 subkategori seluruhnya dalam kategori ini.</p>
 				</div>
 				<div class="row">
 					<!-- Category list -->
