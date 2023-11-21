@@ -3,19 +3,19 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller; //load post model
-use App\Models\Kategori;
+use App\Models\Peminjam;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 
-class KategoriController extends Controller
+class PeminjamController extends Controller
 {
     public function index() {
-        $kategori = Kategori::latest()->paginate(7);
-        return view('backend.kategori.index', compact('kategori'));
+        $peminjam = Peminjam::latest()->paginate(7);
+        return view('backend.peminjam.index', compact('peminjam'));
     }
     public function create() {
-        return view('backend.kategori.create');
+        return view('backend.peminjam.create');
     }
     public function store(Request $request) {
         // Tipe data $request adalah object
@@ -23,39 +23,41 @@ class KategoriController extends Controller
         // DD (die dump untuk memeriksa apakah ada value atau record di dalam variable $request yang diambil dari form inputan)
          // dd($request->all());
 
-        DB::table('kategori')->insert([
+        DB::table('peminjam')->insert([
             'nama' => $request->nama,
-            'keterangan' => $request->keterangan,
-            'slug' => $request->nama,
+            'alamat' => $request->alamat,
+            'telphone' => $request->telphone,
             'created_at' => \Carbon\Carbon::now(),
             'updated_at' => \Carbon\Carbon::now(),
         ]);
 
-        return redirect()->route('backend.kategori')->with('message', 'Kategori Berhasil Disimpan');
+        return redirect()->route('backend.peminjam')->with('message', 'Peminjam Berhasil Disimpan');
         
     }
     public function destroy($id) {
-        DB::table('kategori')->where('id', $id)->delete();
+        DB::table('peminjam')->where('id', $id)->delete();
 
-        return redirect()->route('backend.kategori')->with('message', 'Data Barang Berhasil Dihapus');
+        return redirect()->route('backend.peminjam')->with('message', 'Data Peminjam Berhasil Dihapus');
     }
     public function edit($id) {
         // apa tipe data dari $id ? tipe datanya string dengan value integer, example "8"
         // Menggunakan first karena kita mau ngambil data hanya 1 yang sesuai dengan ID
 
-        $editKategori =DB::table('kategori')->where('id', $id)->first();
+        $editPeminjam =DB::table('peminjam')->where('id', $id)->first();
 
-        return view('backend.kategori.edit', compact('editKategori'));
+        return view('backend.peminjam.edit', compact('editPeminjam'));
     }
     public function update(Request $request,$id) {
-        DB::table('kategori')->where('id',$id)->update([
+        DB::table('peminjam')->where('id',$id)->update([
             'nama' => $request->nama,
-            'keterangan' => $request->keterangan,
+            'alamat' => $request->alamat,
+            'telphone' => $request->telphone,
             'updated_at' => \Carbon\Carbon::now(),
         ]);
 
-        return redirect()->route('backend.kategori')->with('message', 'Data Kategori di Update');      
+        return redirect()->route('backend.peminjam')->with('message', 'Data Peminjam di Update');      
 
     }
 
 }
+

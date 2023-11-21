@@ -36,6 +36,14 @@ Route::group(['namespace' => 'App\Http\Controllers'], function() {
         Route::get('edit-kategori/{id}', 'Backend\KategoriController@edit')->name('edit_kategori');
         Route::post('/update-kategori/{id}', 'Backend\KategoriController@update')->name('update_kategori');
 
+         // Route Peminjam
+         Route::get('peminjam', 'Backend\PeminjamController@index')->name('backend.peminjam');
+         Route::get('tambah-peminjam', 'Backend\PeminjamController@create')->name('backend.tambah.peminjam');
+         Route::post('/store-peminjam', 'Backend\PeminjamController@store')->name('store_peminjam');
+         Route::get('delete-peminjam/{id}', 'Backend\PeminjamController@destroy')->name('delete_peminjam');
+         Route::get('edit-peminjam/{id}', 'Backend\PeminjamController@edit')->name('edit_peminjam');
+         Route::post('/update-peminjam/{id}', 'Backend\PeminjamController@update')->name('update_peminjam');
+
         // Route Buku
         Route::get('buku', 'Backend\BukuController@index')->name('backend.buku');
     });

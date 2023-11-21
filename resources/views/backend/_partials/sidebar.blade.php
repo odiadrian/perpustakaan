@@ -19,6 +19,7 @@
             <a href="{{ route('backend.kategori')}}" class="nav-item nav-link {{ (request()->is('kategori_buku*')) ? 'active' : '' }}"><i class="fa fa-book-open me-2"></i>Kategori Buku</a>
             <a href="{{('buku')}}" class="nav-item nav-link {{ (request()->is('buku*')) ? 'active' : '' }}"><i class="fa fa-book me-2"></i>Buku</a>
             <a href="penulis.html" class="nav-item nav-link {{ (request()->is('penulis*')) ? 'active' : '' }}"><i class="fa fa-pen me-2"></i>Penulis</a>
+            <a href="{{ route('backend.peminjam')}}" class="nav-item nav-link {{ (request()->is('peminjam*')) ? 'active' : '' }}"><i class="fa-solid fa-layer-group"></i> Peminjam</a>
             <a href="peminjaman.html" class="nav-item nav-link {{ (request()->is('peminjaman*')) ? 'active' : '' }}"><i class="fa fa-user-friends me-2"></i>Peminjaman</a>
             <a href="user.html" class="nav-item nav-link {{ (request()->is('user*')) ? 'active' : '' }}"><i class="fa fa-user me-2"></i>User</a>
         </div>
