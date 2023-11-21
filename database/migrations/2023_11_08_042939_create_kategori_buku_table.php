@@ -17,8 +17,8 @@ return new class extends Migration
             $table->id();
             $table->string('nama_kategori');
             $table->string('deskripsi');
-            $table->string('created_by');
-            $table->string('updated_by');
+            $table->foreignId('created_by')->notNull()->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreignId('updated_by')->notNull()->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');
             $table->timestamps();
         });
     }
