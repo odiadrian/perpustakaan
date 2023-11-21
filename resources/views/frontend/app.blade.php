@@ -6,7 +6,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Calssimax</title>
+  <title>Perpustakaan</title>
   
   <!-- PLUGINS CSS STYLE -->
   <link href="{{ url('assets/frontend/plugins/jquery-ui/jquery-ui.min.css') }}" rel="stylesheet">

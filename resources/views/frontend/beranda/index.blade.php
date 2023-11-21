@@ -1,31 +1,32 @@
 @extends('frontend.app')
 
 @section('content')
-<section class="hero-area bg-1 text-center overly">
+<section class="hero-area bg-1 text-center overly" style="background: url('assets/frontend/images/perpus.jpg');">
 	<!-- Container Start -->
 	<div class="container">
 		<div class="row">
 			<div class="col-md-12">
 				<!-- Header Contetnt -->
 				<div class="content-block">
-					<h1>Buy & Sell Near You </h1>
-					<p>Join the millions who buy and sell from each other <br> everyday in local communities around the world</p>
+					<h1>Selamat Datang di Perpustakaan </h1>
+					<p>"Selamat datang di Aplikasi Perpustakaan Terbaru! <br> Jelajahi dunia literasi dengan sentuhan ujung jari Anda. Temukan keajaiban pengetahuan dan pelajaran yang tak terbatas. Mari bersama-sama membangun budaya membaca yang lebih cemerlang" 
+						<br> Selamat menikmati petualangan literasi Anda!</p>
 					<div class="short-popular-category-list text-center">
 						<h2>Popular Category</h2>
 						<ul class="list-inline">
 							<li class="list-inline-item">
-								<a href=""><i class="fa fa-bed"></i> Hotel</a></li>
+								<a href=""><i class="fa fa-bed"></i> Dongeng</a></li>
 							<li class="list-inline-item">
-								<a href=""><i class="fa fa-grav"></i> Fitness</a>
+								<a href=""><i class="fa fa-grav"></i> Olahraga</a>
 							</li>
 							<li class="list-inline-item">
-								<a href=""><i class="fa fa-car"></i> Cars</a>
+								<a href=""><i class="fa fa-car"></i> Kendaraan</a>
 							</li>
 							<li class="list-inline-item">
-								<a href=""><i class="fa fa-cutlery"></i> Restaurants</a>
+								<a href=""><i class="fa fa-cutlery"></i> Makanan</a>
 							</li>
 							<li class="list-inline-item">
-								<a href=""><i class="fa fa-coffee"></i> Cafe</a>
+								<a href=""><i class="fa fa-coffee"></i> Minuman</a>
 							</li>
 						</ul>
 					</div>
@@ -36,14 +37,10 @@
 					<form action="#">
 						<div class="row">
 							<!-- Store Search -->
-							<div class="col-lg-6 col-md-12">
+							
+							<div class="col-lg-12 col-md-12">
 								<div class="block d-flex">
-									<input type="text" class="form-control mb-2 mr-sm-2 mb-sm-0" id="search" placeholder="Search for store">
-								</div>
-							</div>
-							<div class="col-lg-6 col-md-12">
-								<div class="block d-flex">
-									<input type="text" class="form-control mb-2 mr-sm-2 mb-sm-0" id="search" placeholder="Search for store">
+									<input type="text" class="form-control mb-2 mr-sm-2 mb-sm-0" id="search" placeholder="Search for book">
 									<!-- Search Button -->
 									<button class="btn btn-main">SEARCH</button>
 								</div>
@@ -73,8 +70,10 @@
 		<div class="row">
 			<div class="col-md-12">
 				<div class="section-title">
-					<h2>Trending Ads</h2>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas, magnam.</p>
+					<h2>Trending Buku</h2>
+					<p>Kalau kamu masih kebingungan memilih buku untuk dibaca, jangan khawatir... 
+					<br>Kami hadir dengan rekomendasi buku-buku Tranding Tahun 2023 yang siap untuk menjadi favorit kamu di tahun ini! 
+					<br>Kamu juga bisa terus scroll untuk mendapatkan rekomendasi buku Tranding ditahun sebelumnya, ya!</p>
 				</div>
 			</div>
 		</div>
@@ -87,20 +86,20 @@
 		<div class="thumb-content">
 			<!-- <div class="price">$200</div> -->
 			<a href="">
-				<img class="card-img-top img-fluid" src="images/products/products-1.jpg" alt="Card image cap">
+				<img class="card-img-top img-fluid" src="{{ url('assets/frontend/images/buku3.jpg') }}" alt="Card image cap">
 			</a>
 		</div>
 		<div class="card-body">
-		    <h4 class="card-title"><a href="">11inch Macbook Air</a></h4>
+		    <h4 class="card-title"><a href="">Novel Horor</a></h4>
 		    <ul class="list-inline product-meta">
 		    	<li class="list-inline-item">
-		    		<a href=""><i class="fa fa-folder-open-o"></i>Electronics</a>
+		    		<a href=""><i class="fa fa-folder-open-o"></i>Buku</a>
 		    	</li>
 		    	<li class="list-inline-item">
-		    		<a href=""><i class="fa fa-calendar"></i>26th December</a>
+		    		<a href=""><i class="fa fa-calendar"></i>15th December</a>
 		    	</li>
 		    </ul>
-		    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo, aliquam!</p>
+		    <p class="card-text">Film horor Indonesia semakin berkembang sejak beberapa tahun terakhir. Hal ini didukung oleh besarnya peminat film horor dalam negeri sehingga terjadi produksi film besar-besaran.</p>
 		    <div class="product-ratings">
 		    	<ul class="list-inline">
 		    		<li class="list-inline-item selected"><i class="fa fa-star"></i></li>
@@ -124,20 +123,20 @@
 		<div class="thumb-content">
 			<!-- <div class="price">$200</div> -->
 			<a href="">
-				<img class="card-img-top img-fluid" src="images/products/products-2.jpg" alt="Card image cap">
+				<img class="card-img-top img-fluid" src="{{ url('assets/frontend/images/buku1.jpg') }}" alt="Card image cap">
 			</a>
 		</div>
 		<div class="card-body">
-		    <h4 class="card-title"><a href="">Full Study Table Combo</a></h4>
+		    <h4 class="card-title"><a href="">Novel Religi</a></h4>
 		    <ul class="list-inline product-meta">
 		    	<li class="list-inline-item">
-		    		<a href=""><i class="fa fa-folder-open-o"></i>Furnitures</a>
+		    		<a href=""><i class="fa fa-folder-open-o"></i>Buku</a>
 		    	</li>
 		    	<li class="list-inline-item">
-		    		<a href=""><i class="fa fa-calendar"></i>26th December</a>
+		    		<a href=""><i class="fa fa-calendar"></i>15th December</a>
 		    	</li>
 		    </ul>
-		    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo, aliquam!</p>
+		    <p class="card-text">Religi dan falsafat yang berkembang di Indonesia, tentu saja dalam bentuk ikhtisar yang ringkas namun dapat di harapkan di apresiasikan oleh pembaca." </p>
 		    <div class="product-ratings">
 		    	<ul class="list-inline">
 		    		<li class="list-inline-item selected"><i class="fa fa-star"></i></li>
@@ -161,20 +160,20 @@
 		<div class="thumb-content">
 			<!-- <div class="price">$200</div> -->
 			<a href="">
-				<img class="card-img-top img-fluid" src="images/products/products-3.jpg" alt="Card image cap">
+				<img class="card-img-top img-fluid" src="{{ url('assets/frontend/images/buku4.jpg') }}" alt="Card image cap">
 			</a>
 		</div>
 		<div class="card-body">
-		    <h4 class="card-title"><a href="">11inch Macbook Air</a></h4>
+		    <h4 class="card-title"><a href="">Novel Cinta</a></h4>
 		    <ul class="list-inline product-meta">
 		    	<li class="list-inline-item">
-		    		<a href=""><i class="fa fa-folder-open-o"></i>Electronics</a>
+		    		<a href=""><i class="fa fa-folder-open-o"></i>Buku</a>
 		    	</li>
 		    	<li class="list-inline-item">
-		    		<a href=""><i class="fa fa-calendar"></i>26th December</a>
+		    		<a href=""><i class="fa fa-calendar"></i>15th December</a>
 		    	</li>
 		    </ul>
-		    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo, aliquam!</p>
+		    <p class="card-text">Cinta adalah suatu emosi dari afeksi yang kuat dan ketertarikan pribadi. Cinta juga dapat diartikan sebagai suatu perasaan dalam diri seseorang akibat faktor pembentuknya.</p>
 		    <div class="product-ratings">
 		    	<ul class="list-inline">
 		    		<li class="list-inline-item selected"><i class="fa fa-star"></i></li>
@@ -210,8 +209,8 @@
 			<div class="col-12">
 				<!-- Section title -->
 				<div class="section-title">
-					<h2>All Categories</h2>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis, provident!</p>
+					<h2>Semua Kategori</h2>
+					<p>Terdapat 12 subkategori seluruhnya dalam kategori ini.</p>
 				</div>
 				<div class="row">
 					<!-- Category list -->
