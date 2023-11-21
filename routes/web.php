@@ -22,9 +22,16 @@ Route::group(['namespace' => 'App\Http\Controllers'], function() {
 
     Route::get('show-kategori/{slug_kategori}', 'Frontend\KategoriController@show')->name('frontend.show.kategori');
 
-
     // SEMUA YANG ADA DI DALAM GROUP MIDDLEWARE ITU HARUS MELALUI PROSES LOGIN
-    Route::group(['middleware' => ['auth']], function() {
+    Route::group(['middleware' => ['auth']], function () {
+        //Users
+        Route::get('users', 'Backend\UserBackendController@index')->name('backend-index-user');
+        Route::get('tambah_user', 'Backend\UserBackendController@create')->name('backend-create-user');
+        Route::POST('store_user', 'Backend\UserBackendController@store')->name('backend-store-user');
+        Route::get('/edit_user/{id}', 'Backend\UserBackendController@edit')->name('backend-edit-user');
+        Route::post('/update_user/{id}', 'Backend\UserBackendController@update')->name('backend-update-user');
+        Route::get('/delete_user/{id}', 'Backend\UserBackendController@destroy')->name('backend-delete-user');
+
         // ROUTE BACKEND
         Route::get('home', 'Backend\HomeController@index')->name('backend.home');
 
