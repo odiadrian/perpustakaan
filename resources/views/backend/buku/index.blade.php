@@ -30,7 +30,6 @@
                     <th scope="row">1</th>
                     <td>Novel</td>
                     <td>Matahari Terbenam di Pantai Timur</td>
-
                     <td>
                         <span class="rating">
                             <i class="fa fa-star star-yellow"></i> 5
