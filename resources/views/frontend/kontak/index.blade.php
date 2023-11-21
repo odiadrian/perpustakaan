@@ -1,5 +1,5 @@
 @extends('frontend.app')
-@section('title', 'Home')
+@section('title', 'Kontak')
 @section('content')
 
 
