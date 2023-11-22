@@ -9,6 +9,7 @@
             <div class="mb-3">
                 <label for="nama" class="form-label">Nama</label>
                 <input type="text" class="form-control" value="{{ old('nama',$datapenulis->nama)}}" name="nama" id="nama">
+                <input type="hidden" class="form-control" value="{{ old('user_id',$datapenulis->user_id)}}" name="user_id" id="user_id">
             </div>
             <div class="mb-3">
                 <label for="alamat" class="form-label">Alamat</label>
@@ -20,7 +21,7 @@
             </div>
             <div class="mb-3">
                 <label for="telphone" class="form-label">Telphone</label>
-                <input type="text" class="form-control" value="{{ old('telphone',$datapenulis->telphone)}}" name="telphone"  id="telphone">
+                <input type="text" class="form-control" value="{{ old('telphone',$datapenulis->telphone)}}" name="telphone" id="telphone">
             </div>
             <div class="mb-3">
                 <label for="domsili" class="form-label">Domsili</label>
