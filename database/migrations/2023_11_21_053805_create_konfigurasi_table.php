@@ -13,13 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('detail_transakasi', function (Blueprint $table) {
+        Schema::create('konfigurasi', function (Blueprint $table) {
             $table->id();
-            $table->string('buku');
-            $table->string('harga');
-            $table->foreignId('id_transaksi')->notNull()->references('id')->on('transaksi')->onUpdate('cascade')->onDelete('cascade');
-            $table->string('created_by');
-            $table->string('updated_by');
+            $table->string('email')->nullable();
+            $table->string('no_telepon')->nullable();
+            $table->string('alamat')->nullable();
+            $table->longText('maps')->nullable();
+            $table->string('logo_perpus')->nullable();
             $table->timestamps();
         });
     }
@@ -31,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('detail_transakasi');
+        Schema::dropIfExists('konfigurasi');
     }
 };

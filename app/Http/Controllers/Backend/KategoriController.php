@@ -37,7 +37,7 @@ class KategoriController extends Controller
     public function destroy($id) {
         DB::table('kategori')->where('id', $id)->delete();
 
-        return redirect()->route('backend.kategori')->with('message', 'Data Barang Berhasil Dihapus');
+        return redirect()->route('backend.kategori')->with('message', 'Data Konfigurasi Berhasil Dihapus');
     }
     public function edit($id) {
         // apa tipe data dari $id ? tipe datanya string dengan value integer, example "8"
