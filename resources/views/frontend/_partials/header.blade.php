@@ -7,7 +7,7 @@
 						<img src="{{ url('assets/frontend/images/logo-eperpus.png') }}" alt="" style="width: 180px;">
 					</a>
 					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-					<span class="navbar-toggler-icon"></span>
+						<span class="navbar-toggler-icon"></span>
 					</button>
 					<div class="collapse navbar-collapse" id="navbarSupportedContent">
 						<ul class="navbar-nav ml-auto main-nav ">
@@ -15,7 +15,7 @@
 								<a class="nav-link" href="{{ route ('frontend.home')}}">Beranda</a>
 							</li>
 							<li class="nav-item">
-								<a class="nav-link" href="dashboard.html">Tentang</a>
+								<a class="nav-link" href="{{ route ('frontend.tentang') }}">Tentang</a>
 							</li>
 							<li class="nav-item">
 								<a class="nav-link" href="{{ route ('frontend.kategori')}}">Kategori</a>
@@ -28,7 +28,7 @@
 							</li>
 						</ul>
 						<ul class="navbar-nav ml-auto mt-10">
-							
+
 							<li class="nav-item">
 								<a class="nav-link add-button" href="{{ route('login') }}"><i class="fa fa-plus-circle"></i> Login</a>
 							</li>

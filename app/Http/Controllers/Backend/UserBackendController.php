@@ -59,8 +59,8 @@ class UserBackendController extends Controller
             'email' => $request->email,
             'password' => bcrypt($request->password),
             'image' => $imageName,
-            'created_at' => now(),
-            'updated_at' => now(),
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now(),
         ]);
 
         return redirect()->route('backend-index-user')->with('message', 'Users Berhasil Disimpan!');
@@ -83,8 +83,8 @@ class UserBackendController extends Controller
             'name' => $request->name,
             'username' => $request->username,
             'email' => $request->email,
-            'created_at' => now(),
-            'updated_at' => now(),
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now(),
         ];
 
         if (!empty($request->password)) {
