@@ -24,13 +24,13 @@
 								<a class="nav-link" href="dashboard.html">Semua Buku</a>
 							</li>
 							<li class="nav-item">
-								<a class="nav-link" href="{{ route ('frontend.kontak')}}">Kontak</a>
+								<a class="nav-link" href="">Kontak</a>
 							</li>
 						</ul>
 						<ul class="navbar-nav ml-auto mt-10">
 							
 							<li class="nav-item">
-								<a class="nav-link add-button" href="#"><i class="fa fa-plus-circle"></i> Login</a>
+								<a class="nav-link add-button" href="{{ route('login') }}"><i class="fa fa-plus-circle"></i> Login</a>
 							</li>
 						</ul>
 					</div>
