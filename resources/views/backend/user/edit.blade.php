@@ -14,6 +14,15 @@
 
     <div class="container-fluid pt-4 px-4">
         <div class="col-sm-12 col-xl-12">
+            @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+            @endif
             <div class="bg-secondary rounded h-100 p-4">
                 <form method="POST" action="{{ route('backend-update-user', $edituser->id) }}" enctype="multipart/form-data">
                     @csrf
@@ -38,6 +47,7 @@
                     <div class="form-group">
                         <label for="deskripsi">Password</label>
                         <input type="password" class="form-control mb-3" value="{{ old('password')}}" id="password" name="password" placeholder="">
+
                     </div>
 
                     <div class="form-group">

@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('nama');
             $table->string('alamat');
             $table->string('telphone',(13));
+            $table->foreignId('user_id')->notNull()->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');
             $table->foreignId('created_by')->notNull()->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');
             $table->foreignId('updated_by')->notNull()->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');
             $table->timestamps();
