@@ -13,6 +13,15 @@
                     </style>
                     <thead>
             </div>
+            @if(Session::has('message'))
+                <div class="alert alert-success alert-dismissible">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                    <h5>
+                        <i class="icon fas fa-check"></i> Sukses!
+                    </h5>
+                    {{ Session('message') }}
+                </div>
+                @endif
             <div class="mt-4 mb-3">
                 <a href="" class="btn btn-primary">Tambah Buku</a>
             </div>

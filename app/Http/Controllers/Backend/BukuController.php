@@ -40,4 +40,24 @@ class BukuController extends Controller
     {
         return view('backend.buku.edit');
     }
+    public function show($id)
+    {
+        $detailBuku = DB::table('buku')
+            ->select(
+                'buku.*', 
+                'detail_buku.sinopsis', 
+                'detail_buku.penerbit', 
+                'detail_buku.image', 
+                'detail_buku.jumlah_halaman', 
+                'detail_buku.tahggal_terbit', 
+                'detail_buku.isbn', 
+                'detail_buku.bahasa', 
+                'detail_buku.id_buku', 
+                )
+            ->join('detail_buku', 'buku.id', '=', 'detail_buku.id_buku')
+            ->where('buku.id', $id)
+            ->first();
+
+        return view('backend.buku.show', compact('detailbuku'));
+    }
 }

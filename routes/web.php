@@ -50,6 +50,7 @@ Route::group(['namespace' => 'App\Http\Controllers'], function() {
         Route::get('buku', 'Backend\BukuController@index')->name('backend.buku');
         Route::get('create_buku', 'Backend\BukuController@create')->name('backend.create_buku');
         Route::get('update_buku', 'Backend\BukuController@update')->name('backend.update_buku');
+        Route::get('show_buku/{id}', 'Backend\BukuController@show')->name('backend.show_buku');
 
         // Route Penulis
         Route::get('penulis', 'Backend\PenulisController@index')->name('backend.penulis');
