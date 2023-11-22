@@ -29,7 +29,7 @@ class UsersUpdateRequest extends FormRequest
             'email' => 'required|string|email', // Validasi email dan memastikan email unik
             'password' => 'nullable|string|min:8|max:10|confirmed',
             'password_confirmation' => 'nullable|string|min:8|max:10|confirmed',
-            'image' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
+            'image' => 'image|mimes:jpeg,png,jpg,gif|max:5048',
         ];
     }
 
@@ -49,7 +49,7 @@ class UsersUpdateRequest extends FormRequest
             'image.required' => 'Gambar harus diunggah.',
             'image.image' => 'File yang diunggah harus berupa gambar.',
             'image.mimes' => 'File gambar harus berformat jpeg, png, jpg, atau gif.',
-            'image.max' => 'Ukuran file gambar tidak boleh lebih dari 2MB.',
+            'image.max' => 'Ukuran file gambar tidak boleh lebih dari 5MB.',
         ];
     }
 }

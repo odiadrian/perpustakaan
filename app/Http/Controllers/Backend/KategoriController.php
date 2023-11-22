@@ -23,7 +23,7 @@ class KategoriController extends Controller
         // DD (die dump untuk memeriksa apakah ada value atau record di dalam variable $request yang diambil dari form inputan)
          // dd($request->all());
 
-        DB::table('kategori')->insert([
+        DB::table('kategori_buku')->insert([
             'nama' => $request->nama,
             'keterangan' => $request->keterangan,
             'slug' => $request->nama,
@@ -35,7 +35,7 @@ class KategoriController extends Controller
         
     }
     public function destroy($id) {
-        DB::table('kategori')->where('id', $id)->delete();
+        DB::table('kategori_buku')->where('id', $id)->delete();
 
         return redirect()->route('backend.kategori')->with('message', 'Data Konfigurasi Berhasil Dihapus');
     }
@@ -48,7 +48,7 @@ class KategoriController extends Controller
         return view('backend.kategori.edit', compact('editKategori'));
     }
     public function update(Request $request,$id) {
-        DB::table('kategori')->where('id',$id)->update([
+        DB::table('kategori_buku')->where('id',$id)->update([
             'nama' => $request->nama,
             'keterangan' => $request->keterangan,
             'updated_at' => \Carbon\Carbon::now(),
