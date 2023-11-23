@@ -22,6 +22,15 @@
             {{ Session('message')}}
         </div>
         @endif
+        @if(Session::has('error'))
+        <div class="alert alert-danger alert-dismissible">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+            <h5>
+                <i class="icon fas fa-check"></i> Sukses!
+            </h5>
+            {{ Session('error')}}
+        </div>
+        @endif
 
         <div class="mt-4 mb-3">
             <a href="{{route('backend-create-peminjam')}}" class="btn btn-primary">Tambah Peminjam</a>
@@ -31,6 +40,7 @@
             <th scope="col">Name</th>
             <th scope="col">Alamat</th>
             <th scope="col">Buat pada</th>
+            <th scope="col">Perbarui pada</th>
             <th scope="col">Aksi</th>
 
         </tr>
@@ -47,6 +57,7 @@
                 <td>{{$user->nama}}</td>
                 <td>{{$user->alamat}}</td>
                 <td>{{$jenis->created_at ?? \Carbon\Carbon::now() }}</td>
+                <td>{{$jenis->updated_at ?? \Carbon\Carbon::now() }}</td>
 
 
                 <td>

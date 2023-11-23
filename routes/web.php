@@ -35,7 +35,7 @@ Route::group(['namespace' => 'App\Http\Controllers'], function () {
         Route::post('/update_user/{id}', 'Backend\UserBackendController@update')->name('backend-update-user');
         Route::get('/delete_user/{id}', 'Backend\UserBackendController@destroy')->name('backend-delete-user');
 
-        // ROUTE BACKEND
+        // ROUTE home
         Route::get('home', 'Backend\HomeController@index')->name('backend.home');
 
         // Route Kategori
@@ -66,7 +66,7 @@ Route::group(['namespace' => 'App\Http\Controllers'], function () {
         Route::get('create_peminjam', 'Backend\PeminjamBackendController@create')->name('backend-create-peminjam');
         Route::post('store_peminjam', 'Backend\PeminjamBackendController@store')->name('backend-store-peminjam');
         Route::get('edit_peminjam/{id}', 'Backend\PeminjamBackendController@edit')->name('backend-edit-peminjam');
-        Route::post('update_peminjam', 'Backend\PeminjamBackendController@update')->name('backend-update-peminjam');
+        Route::post('update_peminjam/{id}', 'Backend\PeminjamBackendController@update')->name('backend-update-peminjam');
         Route::get('delete_peminjam/{id}', 'Backend\PeminjamBackendController@destroy')->name('backend-delete-peminjam');
     });
 });
