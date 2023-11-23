@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Auth;
 class KategoriController extends Controller
 {
     public function index() {
-        $kategori = Kategori::latest()->get();
+        $kategori = Kategori::latest()->paginate(7);
         return view('backend.kategori.index', compact('kategori'));
     }
     public function create() {
@@ -37,7 +37,7 @@ class KategoriController extends Controller
     public function destroy($id) {
         DB::table('kategori_buku')->where('id', $id)->delete();
 
-        return redirect()->route('backend.kategori')->with('message', 'Data Barang Berhasil Dihapus');
+        return redirect()->route('backend.kategori')->with('message', 'Data Konfigurasi Berhasil Dihapus');
     }
     public function edit($id) {
         // apa tipe data dari $id ? tipe datanya string dengan value integer, example "8"

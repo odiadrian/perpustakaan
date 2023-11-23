@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
+use App\Models\Buku;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\auth;
@@ -38,7 +39,7 @@ class BukuController extends Controller
 
     public function store(Request $request)
     {
-
+// dd($request->all());
 
         DB::beginTransaction();
 
@@ -199,5 +200,5 @@ class BukuController extends Controller
         return redirect()->route('backend.buku')->with('message', 'Buku Berhasil Dihapus');
     }
 
-    
+
 }
