@@ -23,7 +23,6 @@
                 <div class="col-md-4">
                     <!-- Foto -->
                     <img src="{{ url('/assets/backend/img/' . $detailPenulis->gambar) }}" width="300" alt="">
-
                 </div>
 
                 <div class="col-md-8">

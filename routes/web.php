@@ -68,7 +68,10 @@ Route::group(['namespace' => 'App\Http\Controllers'], function () {
         Route::get('buku', 'Backend\BukuController@index')->name('backend.buku');
         Route::get('create_buku', 'Backend\BukuController@create')->name('backend-buku-create');
         Route::post('store_buku', 'Backend\BukuController@store')->name('backend-buku-store');
-        Route::get('update_buku', 'Backend\BukuController@update')->name('backend.update_buku');
+        Route::get('edit_buku/{id}', 'Backend\BukuController@edit')->name('backend.edit_buku');
+        Route::post('update_buku/{id}', 'Backend\BukuController@update')->name('backend.update_buku');
+        Route::get('show_buku/{id}', 'Backend\BukuController@show')->name('backend.show_buku');
+        Route::get('delete_buku/{id}', 'Backend\BukuController@destroy')->name('backend.delete_buku');
 
         // Route Penulis
         Route::get('penulis', 'Backend\PenulisController@index')->name('backend.penulis');

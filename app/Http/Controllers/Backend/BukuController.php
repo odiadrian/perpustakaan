@@ -85,6 +85,120 @@ class BukuController extends Controller
             return redirect()->back()->withInput()->with('error', 'Terjadi kesalahan: ' . $e->getMessage());
         }
     }
+    public function edit($id)
+    {
+        $databuku = DB::table('buku')
+            ->select('buku.*', 'detail_buku.sinopsis', 'detail_buku.penerbit', 'detail_buku.image', 'detail_buku.jumlah_halaman', 'detail_buku.tahggal_terbit', 'detail_buku.isbn', 'detail_buku.bahasa', 'detail_buku.id_buku')
+            ->join('detail_buku', 'buku.id', '=', 'detail_buku.id_buku')
+            ->where('buku.id', $id)
+            ->first();
+
+            $kategoriBuku = DB::table('kategori_buku')->get();
+            $penulisBuku = DB::table('penulis')->get();
+
+        if (!$databuku) {
+            return redirect()->route('backend.buku')->with('error', 'Data buku tidak ditemukan');
+        }
+
+        return view('backend.buku.edit', compact('databuku', 'kategoriBuku', 'penulisBuku'));
+    }
+    public function update(Request $request, $id)
+    {
+        DB::beginTransaction();
+    
+        try {
+            $buku = DB::table('buku')->where('id', $id)->first();
+    
+            if (!$buku) {
+                return redirect()->route('backend.edit_buku', $id)->with('error', 'Data buku tidak ditemukan');
+            }
+    
+            DB::table('buku')->where('id', $id)->update([
+                'kode_kategori' => $request->kategori_id,
+                'judul' => $request->judul,
+                'rating' => $request->rating,
+                'id_penulis' => $request->penulis_id,
+                'updated_by' => auth()->user()->id,
+                'updated_at' => \Carbon\Carbon::now(),
+            ]);
+    
+            $detailBuku = DB::table('detail_buku')->where('id_buku', $id)->first();
+    
+            if (!$detailBuku) {
+                return redirect()->route('backend.edit_buku', $id)->with('error', 'Detail buku tidak ditemukan');
+            }
+    
+            $data = [
+                'sinopsis' => $request->sinopsis,
+                'penerbit' => $request->penerbit,
+                'jumlah_halaman' => $request->jumlah_halaman,
+                'tahggal_terbit' => $request->tahggal_terbit,
+                'isbn' => $request->isbn,
+                'bahasa' => $request->bahasa,
+                'updated_at' => \Carbon\Carbon::now(),
+            ];
+    
+            if ($request->hasFile('image')) {
+                $oldImageName = $detailBuku->image;
+    
+                $image = $request->file('image');
+                $imageName = time() . '.' . $image->getClientOriginalExtension();
+                $image->move(public_path('assets/backend/img'), $imageName);
+    
+                if ($oldImageName) {
+                    $oldImagePath = public_path('assets/backend/img') . '/' . $oldImageName;
+                    if (file_exists($oldImagePath)) {
+                        unlink($oldImagePath);
+                    }
+                }
+    
+                $data['image'] = $imageName;
+            }
+    
+            DB::table('detail_buku')->where('id_buku', $id)->update($data);
+    
+            DB::commit();
+            return redirect()->route('backend.buku')->with('message', 'Buku Berhasil Diedit');
+        } catch (\Exception $e) {
+            DB::rollback();
+            return redirect()->route('backend.edit_buku', $id)->with('error', 'Gagal memperbarui data: ' . $e->getMessage())->withErrors($e->getMessage());
+        }
+    }
+    
+    public function show($id)
+    {
+        $detailBuku = DB::table('buku')
+            ->select(
+                'buku.*',
+                'detail_buku.sinopsis',
+                'detail_buku.penerbit',
+                'detail_buku.jumlah_halaman',
+                'detail_buku.tahggal_terbit',
+                'detail_buku.isbn',
+                'detail_buku.bahasa',
+                'detail_buku.id_buku',
+                'penulis.nama',
+                'detail_buku.image as gambar',
+            )
+            ->join('detail_buku', 'buku.id', '=', 'detail_buku.id_buku')
+            ->join('penulis', 'penulis.id', '=', 'buku.id_penulis')
+            ->where('buku.id', $id)
+            ->first();
+
+        if ($detailBuku) {
+            return view('backend.buku.show', compact('detailBuku'));
+        } else {
+            return redirect()->route('backend.buku')->with('error', 'Data buku tidak ditemukan');
+        }
+    }
+
+
+    public function destroy($id)
+    {
+        DB::table('buku')->where('id', $id)->delete();
+
+        return redirect()->route('backend.buku')->with('message', 'Buku Berhasil Dihapus');
+    }
 
 
 }
