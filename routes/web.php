@@ -16,11 +16,12 @@ use Illuminate\Support\Facades\Route;
 
 Route::group(['namespace' => 'App\Http\Controllers'], function() {
     // ROUTE FRONTEND
-    Route::get('/beranda', 'Frontend\BerandaController@index')->name('frontend.home');
+    Route::get('/', 'Frontend\BerandaController@index')->name('frontend.home');
     Route::get('tentang', 'Frontend\TentangController@index')->name('frontend.tentang');
     Route::get('kategoris', 'Frontend\KategoriController@index')->name('frontend.kategori');
 
     Route::get('show-kategori/{slug_kategori}', 'Frontend\KategoriController@show')->name('frontend.show.kategori');
+    Route::get('/detail-buku', 'Frontend\BukuController@show')->name('detailbuku.show');
 
 
     // SEMUA YANG ADA DI DALAM GROUP MIDDLEWARE ITU HARUS MELALUI PROSES LOGIN

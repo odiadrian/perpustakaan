@@ -12,19 +12,19 @@
 					<div class="collapse navbar-collapse" id="navbarSupportedContent">
 						<ul class="navbar-nav ml-auto main-nav ">
 							<li class="nav-item">
-								<a class="nav-link" href="{{ route ('frontend.home')}}">Beranda</a>
+								<a class="nav-link" href="">Beranda</a>
 							</li>
 							<li class="nav-item">
 								<a class="nav-link" href="dashboard.html">Tentang</a>
 							</li>
 							<li class="nav-item">
-								<a class="nav-link" href="{{ route ('frontend.kategori')}}">Kategori</a>
+								<a class="nav-link" href="">Kategori</a>
 							</li>
 							<li class="nav-item">
 								<a class="nav-link" href="dashboard.html">Semua Buku</a>
 							</li>
 							<li class="nav-item">
-								<a class="nav-link" href="{{ route ('frontend.kontak')}}">Kontak</a>
+								<a class="nav-link" href="">Kontak</a>
 							</li>
 						</ul>
 						<ul class="navbar-nav ml-auto mt-10">
