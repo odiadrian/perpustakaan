@@ -19,6 +19,8 @@ return new class extends Migration
             $table->date('tanggal_kembali');
             $table->string('total');
             $table->foreignId('id_peminjam')->notNull()->references('id')->on('peminjam')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreignId('created_by')->notNull()->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreignId('updated_by')->notNull()->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');
             $table->timestamps();
         });
     }

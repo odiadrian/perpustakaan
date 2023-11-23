@@ -15,15 +15,15 @@ return new class extends Migration
     {
         Schema::create('detail_penulis', function (Blueprint $table) {
             $table->id();
-            $table->string('domsili');
-            $table->string('agama');
-            $table->string('email');
-            $table->string('facebook');
-            $table->string('instagram');
-            $table->string('twtter');
-            $table->string('linked_in');
-            $table->string('blog');
-            $table->string('youtube');
+            $table->string('domsili')->nullable();
+            $table->string('agama')->nullable();
+            $table->string('email')->nullable();
+            $table->string('facebook')->nullable();
+            $table->string('instagram')->nullable();
+            $table->string('twtter')->nullable();
+            $table->string('linked_in')->nullable();
+            $table->string('blog')->nullable();
+            $table->string('youtube')->nullable();
             $table->foreignId('id_penulis')->notNull()->references('id')->on('penulis')->onUpdate('cascade')->onDelete('cascade');
             $table->timestamps();
         });
