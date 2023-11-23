@@ -6,7 +6,7 @@
 		<div class="row">
 			<div class="col-md-12">
 				<div class="search-result bg-gray">
-					<h2>Hasil Pencarian dari "Biografi"</h2>
+					<h2>Hasil Pencarian dari </h2>
 
 				</div>
 			</div>
@@ -33,24 +33,24 @@
 						<div class="col-sm-12 col-lg-4 col-md-6">
 							<!-- product card -->
 							<div class="product-item bg-light">
-								<div class="card">
+								<div class="card" >
 									<div class="thumb-content">
 										<!-- <div class="price">$200</div> -->
 										<a href="">
-											<img class="card-img-top img-fluid" src="{{ url('assets/frontend/images/ahmad dahlan.jpg') }}" alt="Card image cap">
+											<img class="card-img-top img-fluid" src="{{ url('assets/backend/img/'. $book->image) }}" alt="Card image cap">
 										</a>
 									</div>
 									<div class="card-body">
-										<h4 class="card-title"><a href="">K.H. AHMAD DAHLAN</a></h4>
+										<h4 class="card-title"><a href="">{{$book->nama_penulis}}</a></h4>
 										<ul class="list-inline product-meta">
 											<li class="list-inline-item">
-												<a href=""><i class="fa fa-folder-open-o"></i>Biografi</a>
+												<a href=""><i class="fa fa-folder-open-o"></i>{{$book->nama}}</a>
 											</li>
 											<li class="list-inline-item">
-												<a href=""><i class="fa fa-calendar"></i>26th December</a>
+												<a href=""><i class="fa fa-calendar"></i>{{$book->created_at}}</a>
 											</li>
 										</ul>
-										<p class="card-text">K.H. Ahmad Dahlan: Biografi Singkat 1868-1923</p>
+										<p class="card-text">{{($book->sinopsis)}}</p>
 										<div class="product-ratings">
 											<ul class="list-inline">
 												<li class="list-inline-item selected"><i class="fa fa-star"></i></li>
