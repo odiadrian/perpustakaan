@@ -16,10 +16,10 @@
         </div>
         <div class="navbar-nav w-100">
             <a href="{{route('backend.home')}}" class="nav-item nav-link {{ (request()->is('home*')) ? 'active' : '' }}"><i class="fa fa-chart-bar me-2"></i>Dashboard</a>
-            <a href="{{route('backend.kategori')}}" class="nav-item nav-link {{ (request()->is('kategori_buku*')) ? 'active' : '' }}"><i class="fa fa-book-open me-2"></i>Kategori Buku</a>
+            <a href="{{route('backend.kategori')}}" class="nav-item nav-link {{ (request()->is('kategori*')) ? 'active' : '' }}"><i class="fa fa-book-open me-2"></i>Kategori Buku</a>
             <a href="{{route('backend.buku')}}" class="nav-item nav-link {{ (request()->is('buku*')) ? 'active' : '' }}"><i class="fa fa-book me-2"></i>Buku</a>
             <a href="{{route('backend.penulis')}}" class="nav-item nav-link {{ (request()->is('penulis*')) ? 'active' : '' }}"><i class="fa fa-pen me-2"></i>Penulis</a>
-            <a href="peminjaman.html" class="nav-item nav-link {{ (request()->is('peminjaman*')) ? 'active' : '' }}"><i class="fa fa-users me-2"></i>Peminjaman</a>
+            <a href="" class="nav-item nav-link {{ (request()->is('peminjaman*')) ? 'active' : '' }}"><i class="fa fa-users me-2"></i>Peminjaman</a>
             <a href="{{route('backend-index-user')}}" class="nav-item nav-link {{ (request()->is('peminjam*')) ? 'active' : '' }}"><i class="fa fa-user-friends me-2"></i>Peminjam</a>
             <a href="{{route('backend-index-user')}}" class="nav-item nav-link {{ (request()->is('user*')) ? 'active' : '' }}"><i class="fa fa-user me-2"></i>User</a>
         </div>

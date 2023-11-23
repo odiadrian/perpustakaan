@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('detail_buku', function (Blueprint $table) {
             $table->id();
-            $table->string('sinopsis');
+            $table->text('sinopsis');
             $table->string('penerbit');
             $table->string('image');
             $table->string('jumlah_halaman');
@@ -23,8 +23,6 @@ return new class extends Migration
             $table->string('isbn');
             $table->string('bahasa');
             $table->foreignId('id_buku')->notNull()->references('id')->on('buku')->onUpdate('cascade')->onDelete('cascade');
-            $table->string('created_by');
-            $table->string('updated_by');
             $table->timestamps();
         });
     }

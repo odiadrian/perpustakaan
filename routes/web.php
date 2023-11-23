@@ -14,9 +14,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::group(['namespace' => 'App\Http\Controllers'], function() {
+Route::group(['namespace' => 'App\Http\Controllers'], function () {
     // ROUTE FRONTEND
-    Route::get('/beranda', 'Frontend\BerandaController@index')->name('frontend.home');
+    Route::get('/', 'Frontend\BerandaController@index')->name('frontend.home');
     Route::get('tentang', 'Frontend\TentangController@index')->name('frontend.tentang');
     Route::get('kategoris', 'Frontend\KategoriController@index')->name('frontend.kategori');
     Route::get('kontak', 'Frontend\KontakController@index')->name('frontend.kontak');
@@ -48,9 +48,12 @@ Route::group(['namespace' => 'App\Http\Controllers'], function() {
 
         // Route Buku
         Route::get('buku', 'Backend\BukuController@index')->name('backend.buku');
-        Route::get('create_buku', 'Backend\BukuController@create')->name('backend.create_buku');
-        Route::get('update_buku', 'Backend\BukuController@update')->name('backend.update_buku');
+        Route::get('create_buku', 'Backend\BukuController@create')->name('backend-buku-create');
+        Route::post('store_buku', 'Backend\BukuController@store')->name('backend-buku-store');
+        Route::get('edit_buku/{id}', 'Backend\BukuController@edit')->name('backend.edit_buku');
+        Route::post('update_buku/{id}', 'Backend\BukuController@update')->name('backend.update_buku');
         Route::get('show_buku/{id}', 'Backend\BukuController@show')->name('backend.show_buku');
+        Route::get('delete_buku/{id}', 'Backend\BukuController@destroy')->name('backend.delete_buku');
 
         // Route Penulis
         Route::get('penulis', 'Backend\PenulisController@index')->name('backend.penulis');
@@ -60,7 +63,6 @@ Route::group(['namespace' => 'App\Http\Controllers'], function() {
         Route::get('delete_penulis/{id}', 'Backend\PenulisController@destroy')->name('backend.delete_penulis');
         Route::post('update_penulis/{id}', 'Backend\PenulisController@update')->name('backend.update_penulis');
         Route::get('show_penulis/{id}', 'Backend\PenulisController@show')->name('backend.show_penulis');
-
     });
 });
 

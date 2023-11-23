@@ -25,8 +25,6 @@ return new class extends Migration
             $table->string('blog')->nullable();
             $table->string('youtube')->nullable();
             $table->foreignId('id_penulis')->notNull()->references('id')->on('penulis')->onUpdate('cascade')->onDelete('cascade');
-            $table->string('created_by');
-            $table->string('updated_by');
             $table->timestamps();
         });
     }

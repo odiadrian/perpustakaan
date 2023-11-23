@@ -15,10 +15,9 @@ return new class extends Migration
     {
         Schema::create('kategori_buku', function (Blueprint $table) {
             $table->id();
-            $table->string('nama_kategori');
-            $table->string('deskripsi');
-            $table->foreignId('created_by')->notNull()->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');
-            $table->foreignId('updated_by')->notNull()->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');
+            $table->string('nama');
+            $table->text('keterangan');
+            $table->string('slug');
             $table->timestamps();
         });
     }

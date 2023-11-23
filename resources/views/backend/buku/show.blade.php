@@ -3,7 +3,7 @@
 @section('content')
 <div class="container-fluid pt-4 px-4">
     <div class="bg-secondary rounded h-100 p-4">
-        <h6 class="mb-4">Detail Buku</h6>
+        <h3 class="mb-6">Detail Buku</h3><br>
         <style>
             .dark-input {
                 background-color: #252525;
@@ -17,72 +17,58 @@
                 border: 1px solid #555;
             }
         </style>
-        <form method="post" action="{{route('backend.show_buku', $detailPenulis->id)}}" enctype="multipart/form-data">
+        <form method="post" action="{{route('backend.show_buku', $detailBuku->id)}}" enctype="multipart/form-data">
             @csrf
             <div class="row">
                 <div class="col-md-4">
                     <!-- Foto -->
-                    <img src="" width="300" alt="">
+                    <img src="{{ url('/assets/backend/img/' . $detailBuku->gambar) }}" width="300" alt="">
                 </div>
 
                 <div class="col-md-8">
                     <table class="table">
                         <tbody>
                             <tr>
-                                <th scope="row">Nama</th>
-                                <td><input type="text" class="form-control dark-input" value="{{ old('nama',$detailPenulis->nama)}}" name="nama" id="nama" readonly></td>
+                                <th scope="row">Penulis</th>
+                                <td><input type="text" class="form-control dark-input" value="{{ old('',$detailBuku->nama)}}" name="nama" id="nama" readonly></td>
                             </tr>
                             <tr>
-                                <th scope="row">Alamat</th>
-                                <td><input type="text" class="form-control dark-input" value="{{ old('alamat',$detailPenulis->alamat)}}" name="alamat" id="alamat" readonly></td>
+                                <th scope="row">Judul</th>
+                                <td><input type="text" class="form-control dark-input" value="{{ old('judul',$detailBuku->judul)}}" name="judul" id="judul" readonly></td>
                             </tr>
                             <tr>
-                                <th scope="row">Tanggal Lahir</th>
-                                <td><input type="text" class="form-control dark-input" value="{{ old('tanggal_lahir',$detailPenulis->tanggal_lahir)}}" name="tanggal_lahir" id="tanggal_lahir" readonly></td>
+                                <th scope="row">Rating</th>
+                                <td><input type="text" class="form-control dark-input" value="{{ old('rating',$detailBuku->rating)}}" name="rating" id="rating" readonly></td>
                             </tr>
                             <tr>
-                                <th scope="row">Telphone</th>
-                                <td><input type="text" class="form-control dark-input" value="{{ old('telphone',$detailPenulis->telphone)}}" name="telphone" id="telphone" readonly></td>
+                                <th scope="row">Sinopsis</th>
+                                <td>
+                                    <textarea rows="10" class="form-control dark-input" name="sinopsis" id="sinopsis" readonly>{{ $detailBuku->sinopsis }}</textarea>
+                                </td>
                             </tr>
                             <tr>
-                                <th scope="row">Domsili</th>
-                                <td><input type="text" class="form-control dark-input" value="{{ old('domsili',$detailPenulis->domsili)}}" name="domsili" id="domsili" readonly></td>
+                                <th scope="row">Penerbit</th>
+                                <td><input type="text" class="form-control dark-input" value="{{ old('penerbit',$detailBuku->penerbit)}}" name="penerbit" id="penerbit" readonly></td>
                             </tr>
                             <tr>
-                                <th scope="row">Agama</th>
-                                <td><input type="text" class="form-control dark-input" value="{{ old('agama',$detailPenulis->agama)}}" name="agama" id="agama" readonly></td>
+                                <th scope="row">Jumlah Halaman</th>
+                                <td><input type="text" class="form-control dark-input" value="{{ old('jumlah_halaman',$detailBuku->jumlah_halaman)}}" name="jumlah_halaman" id="jumlah_halaman" readonly></td>
                             </tr>
                             <tr>
-                                <th scope="row">Email</th>
-                                <td><input type="text" class="form-control dark-input" value="{{ old('email',$detailPenulis->email)}}" name="email" id="email" readonly></td>
+                                <th scope="row">Tanggal Terbit</th>
+                                <td><input type="text" class="form-control dark-input" value="{{ old('tahggal_terbit',$detailBuku->tahggal_terbit)}}" name="tahggal_terbit" id="tahggal_terbit" readonly></td>
                             </tr>
                             <tr>
-                                <th scope="row">Facebook</th>
-                                <td><input type="text" class="form-control dark-input" value="{{ old('facebook',$detailPenulis->facebook)}}" name="facebook" id="facebook" readonly></td>
+                                <th scope="row">ISBN</th>
+                                <td><input type="text" class="form-control dark-input" value="{{ old('isbn',$detailBuku->isbn)}}" name="isbn" id="isbn" readonly></td>
                             </tr>
                             <tr>
-                                <th scope="row">Instagram</th>
-                                <td><input type="text" class="form-control dark-input" value="{{ old('instagram',$detailPenulis->instagram)}}" name="instagram" id="instagram" readonly></td>
-                            </tr>
-                            <tr>
-                                <th scope="row">Twitter</th>
-                                <td><input type="text" class="form-control dark-input" value="{{ old('twtter',$detailPenulis->twtter)}}" name="twtter" id="twtter" readonly></td>
-                            </tr>
-                            <tr>
-                                <th scope="row">Linked In</th>
-                                <td><input type="text" class="form-control dark-input" value="{{ old('linked_in',$detailPenulis->linked_in)}}" name="linked_in" id="linked_in" readonly></td>
-                            </tr>
-                            <tr>
-                                <th scope="row">Blog</th>
-                                <td><input type="text" class="form-control dark-input" value="{{ old('blog',$detailPenulis->blog)}}" name="blog" id="blog" readonly></td>
-                            </tr>
-                            <tr>
-                                <th scope="row">Youtube</th>
-                                <td><input type="text" class="form-control dark-input" value="{{ old('youtube',$detailPenulis->youtube)}}" name="youtube" id="youtube" readonly></td>
+                                <th scope="row">Bahasa</th>
+                                <td><input type="text" class="form-control dark-input" value="{{ old('bahasa',$detailBuku->bahasa)}}" name="bahasa" id="bahasa" readonly></td>
                             </tr>
                         </tbody>
                     </table>
-                    <a href="{{ route('backend.penulis')}}" class="btn btn-info">Kembali</a>
+                    <a href="{{ route('backend.buku')}}" class="btn btn-info">Kembali</a>
         </form>
     </div>
 </div>
