@@ -16,8 +16,10 @@ class KategoriController extends Controller
 
     public function show($slug_kategori)
     {
-        $buku = DB::table('buku')
+        $buku = DB::table('buku')->select('penulis.nama as nama_penulis','detail_buku.image','kategori_buku.nama','buku.created_at','detail_buku.sinopsis')
             ->join('kategori_buku', 'kategori_buku.id', 'buku.kode_kategori')
+            ->join('detail_buku','detail_buku.id_buku','buku.id')
+            ->join('penulis','penulis.id','buku.id_penulis')
             ->where('slug', $slug_kategori)
             ->get();
 

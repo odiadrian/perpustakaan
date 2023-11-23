@@ -16,8 +16,8 @@
                 <div class="category-block">
                     <div class="header">
                         <i class="fa fa-laptop icon-bg-1"></i>
-                        <a href="">
-                            <h4>Biografi </h4>
+                        <a href="{{ route('frontend.show.kategori', $kate->slug) }}">
+                            <h4>{{($kate->nama)}} </h4>
                         </a>
                     </div>
                 </div>
