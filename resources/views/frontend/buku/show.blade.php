@@ -1,19 +1,18 @@
 @extends('frontend.app')
 
 @section('content')
-
     <!-- Section for Novel Religi -->
-    <div class="container">
+    <div class="container my-5">
         <div class="row">
             <div class="col-md-3">
                 <div class="img-box">
-                    <img class="card-img-top img-fluid" src="{{ url('assets/frontend/images/buku1.jpg') }}" alt="" data-category="religi">
+                    <img class="card-img-top img-fluid img-medium" src="{{ url('assets/frontend/images/buku1.jpg') }}" alt="" data-category="religi" width="50px" height="150px" >
                 </div>
             </div>
-            <div class="col-md-6">
-                <div class="detail-box">
-                    <div class="heading_container mb-6">
-                        <h2>
+            <div class="col-md-9">
+                <div class="detail-box bg-light p-4">
+                    <div class="heading_container mb-4">
+                        <h2 class="text-primary">
                             Detail Buku
                         </h2>
                     </div>
@@ -22,51 +21,26 @@
                             <!-- <div class="price">$200</div> -->
                         </div>
                         <div class="card-body">
-                            <h4 class="card-title"><a href="{{ route('detailbuku.show', ['category' => 'religi']) }}">Novel Religi</a></h4>
-                            <p class="card-text">Religi dan falsafat yang berkembang di Indonesia, tentu saja dalam bentuk ikhtisar yang ringkas namun dapat diharapkan diapresiasi oleh pembaca.</p>
-                            <div class="product-ratings">
-                                <ul class="list-inline">
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <a class="nav-link add-button" href="#">
-                        Baca
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
+                            <h4 class="card-title"><a href="{{ route('detailbuku.show', ['category' => 'religi']) }}" class="text-primary">Novel Religi</a></h4>
 
-    <!-- Section for Novel Horor -->
-    <div class="container">
-        <div class="row">
-            <div class="col-md-3">
-                <div class="img-box">
-                    <img class="card-img-top img-fluid" src="{{ url('assets/frontend/images/buku3.jpg') }}" alt="" data-category="horor">
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="detail-box">
-                    <div class="heading_container mb-6">
-                        <h2>
-                            Detail Buku
-                        </h2>
-                    </div>
-                    <div class="card">
-                        <div class="thumb-content">
-                            <!-- <div class="price">$200</div> -->
-                        </div>
-                        <div class="card-body">
-                            <h4 class="card-title"><a href="{{ route('detailbuku.show', ['category' => 'horor']) }}">Novel Horor</a></h4>
-                            <p class="card-text">Film horor Indonesia semakin berkembang sejak beberapa tahun terakhir. Hal ini didukung oleh besarnya peminat film horor dalam negeri sehingga terjadi produksi film besar-besaran.</p>
-                            <div class="product-ratings">
+                            <!-- Additional Book Details -->
+                            <ul class="list-unstyled">
+                                <li class="mb-2">Sinopsis: Religi dan falsafat yang berkembang di Indonesia, tentu saja dalam bentuk ikhtisar yang ringkas namun dapat diharapkan diapresiasi oleh pembaca.</li>
+                                <li class="mb-2">Penerbit: Nama Penerbit</li>
+                                <li class="mb-2">Jumlah Halaman: 300 halaman</li>
+                                <li class="mb-2">Tanggal Terbit: 01 Januari 2023</li>
+                                <li class="mb-2">ISBN: 1234567890</li>
+                                <li class="mb-2">Bahasa: Bahasa Indonesia</li>
+                            </ul>
+
+                            <div class="product-ratings mt-4">
                                 <ul class="list-inline">
+                                    <!-- Additional details if needed -->
                                 </ul>
                             </div>
                         </div>
                     </div>
-                    <a class="nav-link add-button" href="#">
+                    <a class="nav-link add-button btn btn-primary mt-3" href="#">
                         Baca
                     </a>
                 </div>
@@ -76,7 +50,7 @@
 
     <!-- JavaScript Section -->
     @section('scripts')
-        <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+        @parent
         <script>
             $(document).ready(function () {
                 $('.img-box img').on('click', function () {
@@ -86,5 +60,4 @@
             });
         </script>
     @endsection
-
 @endsection
