@@ -60,6 +60,14 @@ Route::group(['namespace' => 'App\Http\Controllers'], function () {
         Route::get('delete_penulis/{id}', 'Backend\PenulisController@destroy')->name('backend.delete_penulis');
         Route::post('update_penulis/{id}', 'Backend\PenulisController@update')->name('backend.update_penulis');
         Route::get('show_penulis/{id}', 'Backend\PenulisController@show')->name('backend.show_penulis');
+
+        // peminjam
+        Route::get('peminjam', 'Backend\PeminjamBackendController@index')->name('backend-index-Peminjam');
+        Route::get('create_peminjam', 'Backend\PeminjamBackendController@create')->name('backend-create-peminjam');
+        Route::post('store_peminjam', 'Backend\PeminjamBackendController@store')->name('backend-store-peminjam');
+        Route::get('edit_peminjam/{id}', 'Backend\PeminjamBackendController@edit')->name('backend-edit-peminjam');
+        Route::post('update_peminjam', 'Backend\PeminjamBackendController@update')->name('backend-update-peminjam');
+        Route::get('delete_peminjam/{id}', 'Backend\PeminjamBackendController@destroy')->name('backend-delete-peminjam');
     });
 });
 
