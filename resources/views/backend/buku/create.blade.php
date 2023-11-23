@@ -7,7 +7,15 @@
                 <div class="col-sm-6"><br>
                     <h2>Tambah Buku</h2>
                 </div>
-
+                <style>
+                    /* Gaya untuk dark mode */
+                    @media (prefers-color-scheme: dark) {
+                        input[type="date"] {
+                            background-color: #333;
+                            color: #fff;
+                        }
+                    }
+                </style>
             </div>
         </div>
     </section>
@@ -20,7 +28,7 @@
                     <div class="form-group mb-4">
                         <label for="kategori">Kategori Buku</label>
                         <select class="form-select form-select-sm mt-2" id="kategori_id" name="kategori_id">
-                            <option value="{{ old('kategori_id') }}" disabled selected>Pilih Kategori Buku</option>
+                            <option value="{{ old('kategori_id') }}" disabled selected>---Pilih Kategori Buku---</option>
                             @foreach($kategoriBuku as $kategori)
                             <option value="{{ $kategori->id }}">{{ $kategori->nama }}</option>
                             @endforeach
@@ -30,7 +38,7 @@
                     <div class="form-group mb-4">
                         <label for="peulis">Penulis</label>
                         <select class="form-select form-select-sm mt-2" id="penulis_id" name="penulis_id">
-                            <option value="{{ old('penulis_id') }}" disabled selected>Pilih penulis</option>
+                            <option value="{{ old('penulis_id') }}" disabled selected>---Pilih penulis---</option>
                             @foreach($penulisBuku as $penulis)
                             <option value="{{ $penulis->id }}">{{ $penulis->nama}}</option>
                             @endforeach
@@ -62,7 +70,7 @@
                     <div class="form-group mb-4">
                         <label for="tahggal_terbit">Tanggal Terbit</label>
                         <span>
-                            <input type="date" name="tahggal_terbit" value="{{ old('tahggal_terbit') }}" id="tahggal_terbit" class="form-control mt-2 " required><i class="fas fa-calendar"></i>
+                            <input type="date" name="tahggal_terbit" value="{{ old('tahggal_terbit') }}" id="tahggal_terbit" class="form-control fa fa-chart-date " required></i>
                         </span>
                     </div>
                     <div class="form-group mb-4">

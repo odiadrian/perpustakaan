@@ -64,9 +64,9 @@
                 <td>{{$book->nama_penulis}}</td>
 
                 <td>
-                    <a href="" class="btn btn-sm btn-warning">Edit</a>
-                    <a href="" class="btn btn-sm btn-info">Show</a>
-                    <a href="" onclick="return confirm('Are you sure?')" class="btn btn-sm btn-danger">Delete</a>
+                    <a href="{{ route('backend.edit_buku', $book->id)}}" class="btn btn-sm btn-warning">Edit</a>
+                    <a href="{{ route('backend.show_buku', $book->id)}}" class="btn btn-sm btn-info">Show</a>
+                    <a href="{{ route('backend.delete_buku', $book->id)}}" onclick="return confirm('Are you sure?')" class="btn btn-sm btn-danger">Delete</a>
                 </td>
                 </tr>
                 @endforeach
