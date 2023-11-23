@@ -20,7 +20,7 @@
                                     <tbody>
                                       @foreach($kategori as $kat)
                                         <tr>
-                                            <th scope="row">2</th>
+                                            <th scope="row">{{$kategori->firstItem() + $loop->index}}</th>
                                             <td>{{ $kat->nama }}</td>
                                             <td>{{ $kat->keterangan }}</td>
                                             <td>

@@ -11,12 +11,12 @@
         </div>
         <div class="row">
             <!-- Category list -->
-            @foreach($kategori as $kate)
+            @foreach($buku as $book)
             <div class="col-lg-3 offset-lg-0 col-md-5 offset-md-1 col-sm-6 col-6">
                 <div class="category-block">
                     <div class="header">
                         <i class="fa fa-laptop icon-bg-1"></i>
-                        <a href="{{ route('frontend.show.kategori', $kate->slug) }}">
+                        <a href="">
                             <h4>Biografi </h4>
                         </a>
                     </div>
