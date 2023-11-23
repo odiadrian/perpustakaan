@@ -24,6 +24,8 @@ Route::group(['namespace' => 'App\Http\Controllers'], function () {
     Route::post('pesan', 'Frontend\KontakController@store')->name('frontend.pesan');
 
     Route::get('show-kategori/{slug_kategori}', 'Frontend\KategoriController@show')->name('frontend.show.kategori');
+    Route::get('/detail-buku', 'Frontend\BukuController@show')->name('detailbuku.show');
+    Route::get('/buku/{category}', [BukuController::class, 'show'])->name('buku.show');
 
     // SEMUA YANG ADA DI DALAM GROUP MIDDLEWARE ITU HARUS MELALUI PROSES LOGIN
     Route::group(['middleware' => ['auth']], function () {
