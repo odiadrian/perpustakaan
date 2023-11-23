@@ -17,6 +17,7 @@
             @csrf
             <div class="mb-3">
                 <label for="nama" class="form-label">Nama</label>
+               
                 <input type="text" class="form-control" value="{{ old('nama')}}" id="nama" name="nama" required>
             </div>
             <div class="mb-3">

@@ -28,7 +28,7 @@ class PenulisController extends Controller
 
         try {
             // Create a new user
-            $user = User::create([
+            $user = User::insertGetId([
                 'name' => $request->nama,
                 'username' => $request->username,
                 'email' => $request->email,
@@ -44,7 +44,7 @@ class PenulisController extends Controller
                 'alamat' => $request->alamat,
                 'tanggal_lahir' => $request->tanggal_lahir,
                 'telphone' => $request->telphone,
-                'user_id' => $user->id, // Assign the user_id
+                'user_id' => $user, // Assign the user_id
                 'created_by' => Auth::user()->id,
                 'updated_by' => Auth::user()->id,
                 'created_at' => now(),
@@ -102,7 +102,7 @@ class PenulisController extends Controller
                     'alamat' => $request->alamat,
                     'tanggal_lahir' => $request->tanggal_lahir,
                     'telphone' => $request->telphone,
-                    'user_id' => $request->user_id,
+                    'user_id' => $request->id_user,
                     'created_by' => Auth::user()->id,
                     'updated_by' => Auth::user()->id,
                     'created_at' =>  \Carbon\Carbon::now(),

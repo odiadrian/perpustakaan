@@ -38,7 +38,7 @@ class BukuController extends Controller
 
     public function store(Request $request)
     {
-
+// dd($request->all());
 
         DB::beginTransaction();
 
@@ -85,5 +85,5 @@ class BukuController extends Controller
         }
     }
 
-    
+
 }
