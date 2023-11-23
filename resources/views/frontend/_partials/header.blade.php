@@ -21,7 +21,7 @@
 								<a class="nav-link" href="">Kategori</a>
 							</li>
 							<li class="nav-item">
-								<a class="nav-link" href="dashboard.html">Semua Buku</a>
+								<a class="nav-link" href="{{ route ('frontend.semuabuku')}}">Semua Buku</a>
 							</li>
 							<li class="nav-item">
 								<a class="nav-link" href="">Kontak</a>
@@ -30,7 +30,7 @@
 						<ul class="navbar-nav ml-auto mt-10">
 
 							<li class="nav-item">
-								<a class="nav-link add-button" href="{{ route('login') }}"><i class="fa fa-plus-circle"></i> Login</a>
+								<a class="nav-link add-button" href="{{route ('login') }}"><i class="fa fa-plus-circle"></i> Login</a>
 							</li>
 						</ul>
 					</div>
