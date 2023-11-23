@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('detail_buku', function (Blueprint $table) {
             $table->id();
-            $table->string('sinopsis');
+            $table->text('sinopsis');
             $table->string('penerbit');
             $table->string('image');
             $table->string('jumlah_halaman');
