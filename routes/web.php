@@ -20,8 +20,8 @@ Route::group(['namespace' => 'App\Http\Controllers'], function () {
     Route::get('tentang', 'Frontend\TentangController@index')->name('frontend.tentang');
     Route::get('kategoris', 'Frontend\KategoriController@index')->name('frontend.kategori');
     Route::get('kontak', 'Frontend\KontakController@index')->name('frontend.kontak');
-
     Route::post('pesan', 'Frontend\KontakController@store')->name('frontend.pesan');
+    Route::get('semua-buku', 'Frontend\SemuaBukuController@index')->name('frontend.semuabuku');
 
     Route::get('show-kategori/{slug_kategori}', 'Frontend\KategoriController@show')->name('frontend.show.kategori');
     Route::get('/detail-buku', 'Frontend\BukuController@show')->name('detailbuku.show');
