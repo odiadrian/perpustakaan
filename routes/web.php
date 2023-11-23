@@ -19,8 +19,7 @@ Route::group(['namespace' => 'App\Http\Controllers'], function() {
     Route::get('/', 'Frontend\BerandaController@index')->name('frontend.home');
     Route::get('tentang', 'Frontend\TentangController@index')->name('frontend.tentang');
     Route::get('kategoris', 'Frontend\KategoriController@index')->name('frontend.kategori');
-    // Route::get('kontak', 'Frontend\KontakController@index')->name('frontend.kontak');
-
+    Route::get('kontak', 'Frontend\KontakController@index')->name('frontend.kontak');
     Route::get('show-kategori/{slug_kategori}', 'Frontend\KategoriController@show')->name('frontend.show.kategori');
 
     // SEMUA YANG ADA DI DALAM GROUP MIDDLEWARE ITU HARUS MELALUI PROSES LOGIN
