@@ -6,8 +6,7 @@
 		<div class="row">
 			<div class="col-md-12">
 				<div class="search-result bg-gray">
-					<h2>Hasil Pencarian dari "Biografi"</h2>
-
+					<h2>Hasil Pencarian dari</h2>
 				</div>
 			</div>
 		</div>

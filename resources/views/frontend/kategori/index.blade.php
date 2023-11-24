@@ -17,11 +17,11 @@
                     <div class="header">
                         <i class="fa fa-laptop icon-bg-1"></i>
                         <a href="{{ route('frontend.show.kategori', $kate->slug) }}">
-                            <h4>Biografi </h4>
+                            <h4>{{($kate->nama)}} </h4>
                         </a>
                     </div>
                 </div>
-            </div> <!-- /Category List -->
+            </div>
             @endforeach
         </div>
 
