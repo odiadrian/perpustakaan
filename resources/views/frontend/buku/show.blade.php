@@ -6,7 +6,7 @@
         <div class="row">
             <div class="col-md-3">
                 <div class="img-box">
-                    <img class="card-img-top img-fluid img-medium" src="{{ url('assets/frontend/images/buku1.jpg') }}" alt="" data-category="religi" width="50px" height="150px" >
+                    <img class="card-img-top img-fluid img-medium" src="{{ url('assets/backend/img/'. $bukudetail->image) }}" alt="" data-category="religi" width="50px" height="150px" >
                 </div>
             </div>
             <div class="col-md-9">
@@ -21,16 +21,18 @@
                             <!-- <div class="price">$200</div> -->
                         </div>
                         <div class="card-body">
-                            <h4 class="card-title"><a href="{{ route('detailbuku.show', ['category' => 'religi']) }}" class="text-primary">Novel Religi</a></h4>
+                    <h4 class="card-title"><a href="" class="text-primary"> {{$bukudetail->judul}}</a></h4>
 
                             <!-- Additional Book Details -->
                             <ul class="list-unstyled">
-                                <li class="mb-2">Sinopsis: Religi dan falsafat yang berkembang di Indonesia, tentu saja dalam bentuk ikhtisar yang ringkas namun dapat diharapkan diapresiasi oleh pembaca.</li>
-                                <li class="mb-2">Penerbit: Nama Penerbit</li>
-                                <li class="mb-2">Jumlah Halaman: 300 halaman</li>
-                                <li class="mb-2">Tanggal Terbit: 01 Januari 2023</li>
-                                <li class="mb-2">ISBN: 1234567890</li>
-                                <li class="mb-2">Bahasa: Bahasa Indonesia</li>
+                                <li class="mb-2">Kategori : {{$bukudetail->nama}}</li>
+                                <li class="mb-2">Penulis : {{$bukudetail->nama_penulis}}</li>
+                                <li class="mb-2">Jumlah Halaman : {{$bukudetail->jumlah_halaman}}</li>
+                                <li class="mb-2">Tanggal Terbit : {{$bukudetail->tahggal_terbit}}</li>
+                                <li class="mb-2">Isbn : {{$bukudetail->isbn}}</li>
+                                <li class="mb-2">Bahasa : {{$bukudetail->bahasa}}</li>
+                                <li class="mb-2">Penerbit : {{$bukudetail->penerbit}}</li>
+                                <li class="mb-2">Sinopsis : {{$bukudetail->sinopsis}}</li>
                             </ul>
 
                             <div class="product-ratings mt-4">
@@ -55,7 +57,7 @@
             $(document).ready(function () {
                 $('.img-box img').on('click', function () {
                     var category = $(this).data('category');
-                    window.location.href = "{{ route('detailbuku.show', ['category' => '']) }}/" + category;
+                    window.location.href = "{{ route('detailbuku.show') }}/" + category;
                 });
             });
         </script>

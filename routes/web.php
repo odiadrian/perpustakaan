@@ -24,8 +24,11 @@ Route::group(['namespace' => 'App\Http\Controllers'], function () {
     Route::get('semua-buku', 'Frontend\SemuaBukuController@index')->name('frontend.semuabuku');
 
     Route::get('show-kategori/{slug_kategori}', 'Frontend\KategoriController@show')->name('frontend.show.kategori');
-    Route::get('/detail-buku', 'Frontend\BukuController@show')->name('detailbuku.show');
-    Route::get('/buku/{category}', [BukuController::class, 'show'])->name('buku.show');
+    Route::get('/show-buku/{id}', 'Frontend\KategoriController@showBuku')->name('show.buku');
+    Route::get('detailbuku', 'Frontend\BukuController@show')->name('detailbuku.show');
+
+
+    
 
     // SEMUA YANG ADA DI DALAM GROUP MIDDLEWARE ITU HARUS MELALUI PROSES LOGIN
     Route::group(['middleware' => ['auth']], function () {
