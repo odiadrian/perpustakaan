@@ -20,6 +20,7 @@
             <a href="{{ route('backend.buku')}}" class="nav-item nav-link {{ (request()->is('buku*')) ? 'active' : '' }}"><i class="fa fa-book me-2"></i>Buku</a>
             <a href="{{ route('backend.penulis')}}" class="nav-item nav-link {{ (request()->is('penulis*')) ? 'active' : '' }}"><i class="fa fa-pen me-2"></i>Penulis</a>
             <a href="{{route('backend-index-Peminjam')}}" class="nav-item nav-link {{ (request()->is('peminjam*')) ? 'active' : '' }}"><i class="fa fa-user me-2"></i>Peminjam</a>
+            <a href="{{route('backend-index-transaksi')}}" class="nav-item nav-link {{ (request()->is('transaksi*')) ? 'active' : '' }}"><i class="fa fa-user-friends me-2"></i>Peminjaman</a>
             <a href="{{route('backend-index-pesan')}}" class="nav-item nav-link {{ (request()->is('pesan*')) ? 'active' : '' }}"><i class="fa fa-user me-2"></i>Data Pesan</a>
             <a href="{{route('backend-index-konfigurasi')}}" class="nav-item nav-link {{ (request()->is('konfigurasi*')) ? 'active' : '' }}"><i class="fa fa-user me-2"></i>Konfigurasi</a>
             <a href="{{route('backend-index-user')}}" class="nav-item nav-link {{ (request()->is('user*')) ? 'active' : '' }}"><i class="fa fa-user me-2"></i>User</a>

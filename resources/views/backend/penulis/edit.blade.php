@@ -9,7 +9,7 @@
             <div class="mb-3">
                 <label for="nama" class="form-label">Nama</label>
                 <input type="text" class="form-control" value="{{ old('nama',$datapenulis->nama)}}" name="nama" id="nama">
-                <input type="hidden" class="form-control" value="{{ old('id_user',$datapenulis->id_user)}}" name="id_user" id="id_user">
+               
             </div>
             <div class="mb-3">
                 <label for="alamat" class="form-label">Alamat</label>
