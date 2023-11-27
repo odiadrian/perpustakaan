@@ -13,7 +13,7 @@
                                         <tr>
                                             <th scope="col">No</th>
                                             <th scope="col">Nama Kategori</th>
-                                            <th scope="col">Keterangan</th>
+                                            <th scope="col">Deskripsi</th>
                                             <th scope="col">Aksi</th>
                                         </tr>
                                     </thead>
@@ -21,8 +21,8 @@
                                       @foreach($kategori as $kat)
                                         <tr>
                                             <th scope="row">{{$kategori->firstItem() + $loop->index}}</th>
-                                            <td>{{ $kat->nama }}</td>
-                                            <td>{{ $kat->keterangan }}</td>
+                                            <td>{{ $kat->nama_kategori }}</td>
+                                            <td>{{ $kat->deskripsi }}</td>
                                             <td>
                                                 <a href=" {{ route('edit_kategori', $kat->id) }}" class="btn btn-sm btn-primary">Edit</a>
                                                 <a href=" {{ route('delete_kategori', $kat->id) }}" onclick="return confirm('Are you sure?')" class="btn btn-sm btn-danger">Hapus</a>
