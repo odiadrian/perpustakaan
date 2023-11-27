@@ -42,6 +42,9 @@ Route::group(['namespace' => 'App\Http\Controllers'], function () {
 
         // ROUTE home
         Route::get('home', 'Backend\HomeController@index')->name('backend.home');
+        Route::get('profil', 'Backend\HomeController@profile')->name('backend.profil');
+        // Route::get('my_profile', 'Backend\HomeController@profile')->name('backend.my_profile');
+
 
         // Route Kategori
         Route::get('kategori', 'Backend\KategoriController@index')->name('backend.kategori');

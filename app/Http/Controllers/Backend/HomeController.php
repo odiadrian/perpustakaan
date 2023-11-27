@@ -11,4 +11,8 @@ class HomeController extends Controller
     {
         return view('backend.home.index');
     }
+    public function profile()
+    {
+        return view('backend.home.profil');
+    }
 }
