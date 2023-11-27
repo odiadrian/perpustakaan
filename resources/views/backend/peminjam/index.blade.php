@@ -1,6 +1,7 @@
 @extends('backend.app')
 
 @section('content')
+
 <div class="container-fluid pt-4 px-4">
     <div class="bg-secondary rounded h-100 p-4">
         <h6 class="mb-1">Data Buku</h6>
@@ -79,5 +80,6 @@
             {{ $peminjam->links() }}
         </div>
     </div>
+</div>
 </div>
 @endsection

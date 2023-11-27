@@ -1,6 +1,7 @@
 @extends('backend.app')
 
 @section('content')
+
 <div class="container-fluid pt-4 px-4">
     <div class="bg-secondary rounded h-100 p-4">
         <h6 class="mb-4">Tambah Peminjam</h6>
@@ -55,6 +56,7 @@
             <button type="submit" class="btn btn-primary">Simpan</button>
             <a href="{{ route('backend-index-Peminjam')}}" class="btn btn-info">Kembali</a>
         </form>
+
     </div>
 </div>
 

@@ -92,6 +92,7 @@ class PeminjamBackendController extends Controller
 
         return redirect()->route('backend-index-Peminjam')->with('message', 'Data peminjam berhasil diupdate');
     }
+    
     public function destroy($id)
     {
         DB::table('peminjam')->where('id', $id)->delete();

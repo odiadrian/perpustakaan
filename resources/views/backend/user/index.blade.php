@@ -32,6 +32,7 @@
             <th scope="col">username</th>
             <th scope="col">email</th>
             <th scope="col">buat pada</th>
+            <th scope="col">Aksi</th>
 
         </tr>
         </thead>
@@ -62,5 +63,6 @@
             {{ $users->links() }}
         </div>
     </div>
+</div>
 </div>
 @endsection

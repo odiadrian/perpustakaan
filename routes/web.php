@@ -20,10 +20,12 @@ Route::group(['namespace' => 'App\Http\Controllers'], function () {
     Route::get('tentang', 'Frontend\TentangController@index')->name('frontend.tentang');
     Route::get('kategoris', 'Frontend\KategoriController@index')->name('frontend.kategori');
     Route::get('kontak', 'Frontend\KontakController@index')->name('frontend.kontak');
-
     Route::post('pesan', 'Frontend\KontakController@store')->name('frontend.pesan');
+    Route::get('semua-buku', 'Frontend\SemuaBukuController@index')->name('frontend.semuabuku');
 
     Route::get('show-kategori/{slug_kategori}', 'Frontend\KategoriController@show')->name('frontend.show.kategori');
+    Route::get('/detail-buku', 'Frontend\BukuController@show')->name('detailbuku.show');
+    Route::get('/buku/{category}', [BukuController::class, 'show'])->name('buku.show');
 
     // SEMUA YANG ADA DI DALAM GROUP MIDDLEWARE ITU HARUS MELALUI PROSES LOGIN
     Route::group(['middleware' => ['auth']], function () {
@@ -46,11 +48,22 @@ Route::group(['namespace' => 'App\Http\Controllers'], function () {
         Route::get('edit-kategori/{id}', 'Backend\KategoriController@edit')->name('edit_kategori');
         Route::post('/update-kategori/{id}', 'Backend\KategoriController@update')->name('update_kategori');
 
+        // Route Konfigurasi
+        Route::get('konfigurasi', 'Backend\KonfigurasiController@index')->name('backend-index-konfigurasi');
+        Route::get('tambah-konfigurasi', 'Backend\KonfigurasiController@create')->name('backend.tambah.konfigurasi');
+        Route::post('/store-konfigurasi', 'Backend\KonfigurasiController@store')->name('store_konfigurasi');
+        Route::get('delete-konfigurasi/{id}', 'Backend\KonfigurasiController@destroy')->name('delete_konfigurasi');
+        Route::get('edit-konfigurasi/{id}', 'Backend\KonfigurasiController@edit')->name('edit_konfigurasi');
+        Route::post('/update-konfigurasi/{id}', 'Backend\KonfigurasiController@update')->name('update_konfigurasi');
+
         // Route Buku
         Route::get('buku', 'Backend\BukuController@index')->name('backend.buku');
         Route::get('create_buku', 'Backend\BukuController@create')->name('backend-buku-create');
         Route::post('store_buku', 'Backend\BukuController@store')->name('backend-buku-store');
-        Route::get('update_buku', 'Backend\BukuController@update')->name('backend.update_buku');
+        Route::get('edit_buku/{id}', 'Backend\BukuController@edit')->name('backend.edit_buku');
+        Route::post('update_buku/{id}', 'Backend\BukuController@update')->name('backend.update_buku');
+        Route::get('show_buku/{id}', 'Backend\BukuController@show')->name('backend.show_buku');
+        Route::get('delete_buku/{id}', 'Backend\BukuController@destroy')->name('backend.delete_buku');
 
         // Route Penulis
         Route::get('penulis', 'Backend\PenulisController@index')->name('backend.penulis');
@@ -68,6 +81,15 @@ Route::group(['namespace' => 'App\Http\Controllers'], function () {
         Route::get('edit_peminjam/{id}', 'Backend\PeminjamBackendController@edit')->name('backend-edit-peminjam');
         Route::post('update_peminjam/{id}', 'Backend\PeminjamBackendController@update')->name('backend-update-peminjam');
         Route::get('delete_peminjam/{id}', 'Backend\PeminjamBackendController@destroy')->name('backend-delete-peminjam');
+
+        // Route Pesan
+        Route::get('pesan', 'Backend\PesanController@index')->name('backend-index-pesan');
+        Route::get('delete-pesan/{id}', 'Backend\PesanController@destroy')->name('delete_pesan');
+
+        // Route Peminjaman
+        Route::get('transaksi', 'Backend\PeminjamanBackendController@index')->name('backend-index-transaksi');
+        Route::get('show_peminjaman/{id}', 'Backend\PeminjamanBackendController@show')->name('backend-show-peminjaman');
+        Route::get('delete-peminjaman/{id}', 'Backend\PeminjamanBackendController@destroy')->name('delete_peminjaman');
     });
 });
 
