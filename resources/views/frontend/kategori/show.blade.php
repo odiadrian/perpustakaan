@@ -36,7 +36,7 @@
 								<div class="card" >
 									<div class="thumb-content">
 										<!-- <div class="price">$200</div> -->
-										<a href="">
+										<a href="{{ route('show.buku', $book->id) }}">
 											<img class="card-img-top img-fluid" src="{{ url('assets/backend/img/'. $book->image) }}" alt="Card image cap">
 										</a>
 									</div>
