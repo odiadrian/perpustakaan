@@ -7,6 +7,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use App\Http\Requests\PeminjamRequest;
 
 class PeminjamBackendController extends Controller
 {
@@ -20,7 +21,7 @@ class PeminjamBackendController extends Controller
     {
         return view('backend.peminjam.create');
     }
-    public function store(Request $request)
+    public function store(PeminjamRequest $request)
     {
         DB::beginTransaction();
         $imageName = null;
