@@ -17,6 +17,7 @@
             @csrf
             <div class="mb-3">
                 <label for="nama" class="form-label">Nama</label>
+               
                 <input type="text" class="form-control" value="{{ old('nama')}}" id="nama" name="nama" required>
             </div>
             <div class="mb-3">
@@ -36,7 +37,7 @@
                 <input type="text" class="form-control" value="{{ old('telphone')}}" name="telphone" id="telphone" required>
             </div>
             <div class="mb-3">
-                <label for="domsili" class="form-label">Domsili</label>
+                <label for="domsili" class="form-label">Domisili</label>
                 <input type="text" class="form-control" value="{{ old('domsili')}}" name="domsili" id="domsili">
             </div>
             <div class="mb-3">
@@ -85,5 +86,5 @@
         </form>
     </div>
 </div>
-
+</div>
 @endsection

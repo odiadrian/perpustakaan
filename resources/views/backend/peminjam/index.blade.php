@@ -1,7 +1,7 @@
 @extends('backend.app')
 
 @section('content')
-<!-- Blank Start -->
+
 <div class="container-fluid pt-4 px-4">
 <div class="col-12">
                         <div class="bg-secondary rounded h-100 p-4">
@@ -38,5 +38,4 @@
                         </div>
                     </div>
 </div>
-<!-- Blank End -->
 @endsection
