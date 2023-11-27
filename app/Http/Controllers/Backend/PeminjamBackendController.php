@@ -7,10 +7,12 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use App\Http\Requests\PeminjamRequest;
 
 class PeminjamBackendController extends Controller
 {
-    public function index(){
+    public function index()
+    {
         $peminjam = DB::table('peminjam')->paginate(5);
 
         return view('backend.peminjam.index', compact('peminjam'));
@@ -19,7 +21,7 @@ class PeminjamBackendController extends Controller
     {
         return view('backend.peminjam.create');
     }
-    public function store(Request $request)
+    public function store(PeminjamRequest $request)
     {
         DB::beginTransaction();
         $imageName = null;
@@ -38,8 +40,8 @@ class PeminjamBackendController extends Controller
                 'email' => $request->email,
                 'password' => bcrypt($request->password),
                 'image' => $imageName, // Make sure the image storage is configured properly
-                'created_at' => now(),
-                'updated_at' => now(),
+                'created_at' =>\Carbon\Carbon::now(),
+                
             ]);
 
             // Create a new penulis related to the user
@@ -65,15 +67,37 @@ class PeminjamBackendController extends Controller
     public function edit($id)
     {
         $datapeminjam = DB::table('peminjam')
-        ->select('peminjam.*', 'users.image', 'users.email')
-        ->join('users', 'peminjam.user_id', '=', 'users.id')
-        ->where('peminjam.id', $id)
-        ->first();
+            ->select('peminjam.*')
+            ->where('peminjam.id', $id)
+            ->first();
 
         if (!$datapeminjam) {
             return redirect()->route('backend-index-Peminjam')->with('error', 'Data peminjam tidak ditemukan');
         }
 
         return view('backend.peminjam.edit', compact('datapeminjam'));
+    }
+
+
+    // dd($request->all());
+    public function update(Request $request, $id)
+    {
+        DB::table('peminjam')
+            ->where('id', $id)
+            ->update([
+                'nama' => $request->nama,
+                'alamat' => $request->alamat,
+                'telphone' => $request->telphone,
+                'updated_at' => \Carbon\Carbon::now(),
+            ]);
+
+        return redirect()->route('backend-index-Peminjam')->with('message', 'Data peminjam berhasil diupdate');
+    }
+    
+    public function destroy($id)
+    {
+        DB::table('peminjam')->where('id', $id)->delete();
+
+        return redirect()->route('backend-index-Peminjam')->with('message', 'Data Peminjam Berhasil Dihapus');
     }
 }
