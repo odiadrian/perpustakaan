@@ -26,6 +26,7 @@ Route::group(['namespace' => 'App\Http\Controllers'], function () {
     Route::get('show-kategori/{slug_kategori}', 'Frontend\KategoriController@show')->name('frontend.show.kategori');
     Route::get('/show-buku/{id}', 'Frontend\KategoriController@showBuku')->name('show.buku');
     Route::get('detailbuku', 'Frontend\BukuController@show')->name('detailbuku.show');
+    Route::get('pinjambuku', 'Frontend\PinjamController@index')->name('frontend.pinjam');
 
 
     
