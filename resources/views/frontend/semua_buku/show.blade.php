@@ -16,8 +16,8 @@
 					<div class="widget category-list">
 						<h4 class="widget-header">Semua Kategori</h4>
 						<ul class="category-list">
-							@foreach($allCategorys as $category)
-							<li><a href="category.html">{{ $category->nama }} <span>93</span></a></li>
+							@foreach($buku as $book)
+							<li><a href="category.html">{{ $book->nama }} <span>93</span></a></li>
 							@endforeach						
 						</ul>
 					</div>

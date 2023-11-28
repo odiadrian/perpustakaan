@@ -14,13 +14,15 @@ class SemuaBukuController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $buku = DB::table('buku')->select('penulis.nama as nama_penulis','detail_buku.image','kategori_buku.nama','buku.created_at','detail_buku.sinopsis')
+        $buku = DB::table('buku')->select('detail_buku.image','kategori_buku.nama','buku.created_at','detail_buku.sinopsis','buku.rating','buku.judul')
         ->join('kategori_buku', 'kategori_buku.id', 'buku.kode_kategori')
         ->join('detail_buku','detail_buku.id_buku','buku.id')
         ->join('penulis','penulis.id','buku.id_penulis')
         // ->where()
+        ->where('judul', 'LIKE', '%'.$request->search.'%')
+
         ->get();
 
         return view('frontend.semua_buku.index', compact('buku'));
@@ -55,14 +57,14 @@ class SemuaBukuController extends Controller
      */
     public function show($slug_kategori)
     {
-        $buku = DB::table('buku')->select('penulis.nama as nama_penulis','detail_buku.image','kategori_buku.nama','buku.created_at','detail_buku.sinopsis')
+        $buku = DB::table('buku')->select('penulis.nama as nama_penulis','detail_buku.image','kategori_buku.nama','buku.created_at','detail_buku.sinopsis','buku.rating')
         ->join('kategori_buku', 'kategori_buku.id', 'buku.kode_kategori')
         ->join('detail_buku','detail_buku.id_buku','buku.id')
         ->join('penulis','penulis.id','buku.id_penulis')
         ->where('slug', $slug_kategori)
         ->get();
 
-    $allCategorys = DB::table('kategori_buku')->select('slug', 'nama')->get();
+        $allCategorys = DB::table('kategori_buku')->select('slug', 'nama')->get();
 
     return view('frontend.semua_buku.show', compact('buku', 'allCategorys'));
     }
