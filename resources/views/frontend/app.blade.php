@@ -57,7 +57,7 @@
   <script src="{{ url('assets/frontend/plugins/smoothscroll/SmoothScroll.min.js') }}"></script>
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCC72vZw-6tGqFyRhhg5CkF2fqfILn2Tsw"></script>
   <script src="{{ url('assets/frontend/js/scripts.js') }}"></script>
-
+  @yield('scripts')
 </body>
 
 </html>
