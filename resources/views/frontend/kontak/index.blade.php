@@ -75,7 +75,7 @@
 						<!-- Widget Header -->
 						<h5 class="widget-header">Email</h5>
 						<ul class="category-list">
-							<li><a href="">Pustaka@gmail900.com <span class="float-right"></span></a></li>
+							<li><a href="https://myaccount.google.com/">Pustaka900@gmail.com <span class="float-right"></span></a></li>
 
 						</ul>
 					</div>
@@ -85,7 +85,7 @@
 						<h5 class="widget-header"> No Telepon</h5>
 						<ul class="store-list md list-inline">
 							<ul class="category-list">
-								<li><a href="">0857 6789 0934 <span class="float-right"></span></a></li>
+								<li><a href="https://web.whatsapp.com/">0857 6789 0934 <span class="float-right"></span></a></li>
 								</li>
 							</ul>
 					</div>
@@ -94,7 +94,7 @@
 						<!-- Widget Header -->
 						<h5 class="widget-header">Alamat</h5>
 						<ul class="archive-list">
-							<li><a href="">Jl. Endro Suratmin No.52d, Way Dadi, Kec. Sukarame, Kota Bandar Lampung, Lampung 35131</a></li>
+							<li><a href="https://www.google.com/maps/place/PowerKomputer+Sukarame/@-5.3853472,105.2935287,17z/data=!3m1!4b1!4m6!3m5!1s0x2e40dbb96b252c91:0xb6ac4a1d1c2a84d9!8m2!3d-5.3853525!4d105.2961036!16s%2Fg%2F11rjz2zc1t?authuser=0&entry=ttu">Jl. Endro Suratmin No.52d, Way Dadi, Kec. Sukarame, Kota Bandar Lampung, Lampung 35131</a></li>
 						</ul>
 					</div>
 				</div>

@@ -33,18 +33,20 @@ public function show($slug_kategori)
 public function showBuku($id)
 {
     $bukudetail = DB::table('buku')
-        ->select('buku.*', 'detail_buku.*', 'penulis.nama as nama_penulis', 'kategori_buku.nama', 'buku.created_at')
+        ->select('buku.*', 'detail_buku.*', 'penulis.nama as nama_penulis', 'kategori_buku.nama as nama_kategori', 'buku.created_at')
         ->join('kategori_buku', 'kategori_buku.id', 'buku.kode_kategori')
         ->join('detail_buku', 'detail_buku.id_buku', 'buku.id')
         ->join('penulis', 'penulis.id', 'buku.id_penulis')
-        ->where('buku.id', $id)
+        ->where('detail_buku.id', $id)
         ->first();
 
-    if ($bukudetail) {
+
+        // dd($bukudetail);
+
+    
         return view('frontend.buku.show', compact('bukudetail'));
-    } else {
-        return view('frontend.buku.show');
+    
     }
 }
 
-}
+

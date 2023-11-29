@@ -8,7 +8,7 @@
 				<article class="single-post">
 					<h3>WELCOME TO THE LIBRARY .</h3>
 					<ul class="list-inline">
-						<li class="list-inline-item">by <a href="">Admin</a></li>
+						<li class="list-inline-item">by <a href="{{route ('login') }}">Admin</a></li>
 						<li class="list-inline-item">Nov 17, 2023</li>
 					</ul>
 					<img src="{{ url ('assets/frontend/images/perpus.jpg') }}" alt="article-01">
@@ -31,10 +31,10 @@
 					<p>Facebook: Temui akun Facebook resmi kami di sini.</p>
 					
 					<ul class="social-circle-icons list-inline">
-						<li class="list-inline-item text-center"><a class="fa fa-facebook" href=""></a></li>
-						<li class="list-inline-item text-center"><a class="fa fa-twitter" href=""></a></li>
-						<li class="list-inline-item text-center"><a class="fa fa-google-plus" href=""></a></li>
-						<li class="list-inline-item text-center"><a class="fa fa-pinterest-p" href=""></a></li>
+						<li class="list-inline-item text-center"><a class="fa fa-facebook" href="https://www.facebook.com/"></a></li>
+						<li class="list-inline-item text-center"><a class="fa fa-twitter" href="https://www.twitter.com/"></a></li>
+						<li class="list-inline-item text-center"><a class="fa fa-google-plus" href="https://www.google.com/"></a></li>
+						<li class="list-inline-item text-center"><a class="fa fa-pinterest-p" href="https://id.pinterest.com/"></a></li>
 						<li class="list-inline-item text-center"><a class="fa fa-linkedin" href=""></a></li>
 					</ul>
 				</article>

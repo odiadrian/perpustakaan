@@ -22,10 +22,13 @@ Route::group(['namespace' => 'App\Http\Controllers'], function () {
     Route::get('kontak', 'Frontend\KontakController@index')->name('frontend.kontak');
     Route::post('pesan', 'Frontend\KontakController@store')->name('frontend.pesan');
     Route::get('semua-buku', 'Frontend\SemuaBukuController@index')->name('frontend.semuabuku');
+    Route::get('search-buku', 'Frontend\BerandaController@searchResult')->name('frontend.search.buku');
+    // Route::get('tampilbuku', 'Frontend\BerandaController@show')->name('frontend.beranda.buku');
+
 
     Route::get('show-kategori/{slug_kategori}', 'Frontend\KategoriController@show')->name('frontend.show.kategori');
     Route::get('/show-buku/{id}', 'Frontend\KategoriController@showBuku')->name('show.buku');
-    Route::get('detailbuku', 'Frontend\BukuController@show')->name('detailbuku.show');
+    Route::get('detailbuku/{id}', 'Frontend\BukuController@show')->name('detailbuku.show');
     Route::get('pinjambuku', 'Frontend\PinjamController@index')->name('frontend.pinjam');
 
 
