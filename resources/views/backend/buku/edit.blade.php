@@ -22,6 +22,15 @@
 
     <div class="container-fluid pt-4 px-4">
         <div class="col-sm-12 col-xl-12">
+            @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+            @endif
             <div class="bg-secondary rounded h-100 p-4">
                 <form method="POST" action="{{route('backend.update_buku', $databuku->id)}}" enctype="multipart/form-data">
                     @csrf
@@ -39,7 +48,7 @@
                         <select class="form-select form-select-sm mt-2" id="penulis_id" name="penulis_id">
                             <option value="{{ old('penulis_id') }}" disabled selected>---Pilih penulis---</option>
                             @foreach($penulisBuku as $penulis)
-                            <option value="{{ $penulis->id }}"{{ $databuku->id_penulis == $penulis->id ? 'selected' : '' }}>{{ $penulis->nama }}</option>
+                            <option value="{{ $penulis->id }}" {{ $databuku->id_penulis == $penulis->id ? 'selected' : '' }}>{{ $penulis->nama }}</option>
                             @endforeach
                         </select>
                     </div>
@@ -60,25 +69,25 @@
                     </div>
                     <div class="form-group mb-4">
                         <label for="penerbit">Penerbit</label>
-                        <input type="text" name="penerbit" value="{{ old('penerbit', $databuku->penerbit) }}" id="penerbit" class="form-control mt-2" required>
+                        <input type="text" name="penerbit" value="{{ old('penerbit', $databuku->penerbit) }}" id="penerbit" class="form-control mt-2">
                     </div>
                     <div class="form-group mb-4">
                         <label for="jumlah_halaman">Jumlah Halaman</label>
-                        <input type="number" name="jumlah_halaman" value="{{ old('jumlah_halaman', $databuku->jumlah_halaman) }}" id="jumlah_halaman" class="form-control mt-2" required>
+                        <input type="number" name="jumlah_halaman" value="{{ old('jumlah_halaman', $databuku->jumlah_halaman) }}" id="jumlah_halaman" class="form-control mt-2">
                     </div>
                     <div class="form-group mb-4">
                         <label for="tahggal_terbit">Tanggal Terbit</label>
                         <span>
-                            <input type="date" name="tahggal_terbit" value="{{ old('tahggal_terbit', $databuku->tahggal_terbit) }}" id="tahggal_terbit" class="form-control fa fa-chart-date " required></i>
+                            <input type="date" name="tahggal_terbit" value="{{ old('tahggal_terbit', $databuku->tahggal_terbit) }}" id="tahggal_terbit" class="form-control fa fa-chart-date "></i>
                         </span>
                     </div>
                     <div class="form-group mb-4">
                         <label for="isbn">ISBN</label>
-                        <input type="text" name="isbn" value="{{ old('isbn', $databuku->isbn) }}" id="isbn" class="form-control mt-2" required>
+                        <input type="text" name="isbn" value="{{ old('isbn', $databuku->isbn) }}" id="isbn" class="form-control mt-2">
                     </div>
                     <div class="form-group mb-4">
                         <label for="bahasa">Bahasa</label>
-                        <input type="text" name="bahasa" value="{{ old('bahasa', $databuku->bahasa) }}" id="bahasa" class="form-control mt-2" required>
+                        <input type="text" name="bahasa" value="{{ old('bahasa', $databuku->bahasa) }}" id="bahasa" class="form-control mt-2">
                     </div>
                     <div class="form-group">
                         <label for="image">Gambar</label>

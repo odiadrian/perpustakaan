@@ -7,6 +7,7 @@ use App\Models\Buku;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\auth;
+use App\Http\Requests\BukuRequest;
 
 class BukuController extends Controller
 {
@@ -37,7 +38,7 @@ class BukuController extends Controller
         return view('backend.buku.create', compact('kategoriBuku', 'penulisBuku', 'totalBuku'));
     }
 
-    public function store(Request $request)
+    public function store(BukuRequest $request)
     {
 // dd($request->all());
 
@@ -56,6 +57,7 @@ class BukuController extends Controller
             $buku = DB::table('buku')->insertGetId([
                 'kode_kategori' => $request->kategori_id,
                 'judul' => $request->judul,
+                'stok_buku' => $request->stok_buku,
                 'rating' => $request->rating,
                 'id_penulis' => $request->penulis_id,
                 'created_by' => auth()->user()->id,
@@ -102,7 +104,7 @@ class BukuController extends Controller
 
         return view('backend.buku.edit', compact('databuku', 'kategoriBuku', 'penulisBuku'));
     }
-    public function update(Request $request, $id)
+    public function update(BukuRequest $request, $id)
     {
         DB::beginTransaction();
     
@@ -116,6 +118,7 @@ class BukuController extends Controller
             DB::table('buku')->where('id', $id)->update([
                 'kode_kategori' => $request->kategori_id,
                 'judul' => $request->judul,
+                'stok_buku' => $request->stok_buku,
                 'rating' => $request->rating,
                 'id_penulis' => $request->penulis_id,
                 'updated_by' => auth()->user()->id,

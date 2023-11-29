@@ -24,8 +24,11 @@ Route::group(['namespace' => 'App\Http\Controllers'], function () {
     Route::get('semua-buku', 'Frontend\SemuaBukuController@index')->name('frontend.semuabuku');
 
     Route::get('show-kategori/{slug_kategori}', 'Frontend\KategoriController@show')->name('frontend.show.kategori');
-    Route::get('/detail-buku', 'Frontend\BukuController@show')->name('detailbuku.show');
-    Route::get('/buku/{category}', [BukuController::class, 'show'])->name('buku.show');
+    Route::get('/show-buku/{id}', 'Frontend\KategoriController@showBuku')->name('show.buku');
+    Route::get('detailbuku', 'Frontend\BukuController@show')->name('detailbuku.show');
+
+
+    
 
     // SEMUA YANG ADA DI DALAM GROUP MIDDLEWARE ITU HARUS MELALUI PROSES LOGIN
     Route::group(['middleware' => ['auth']], function () {
@@ -37,7 +40,7 @@ Route::group(['namespace' => 'App\Http\Controllers'], function () {
         Route::post('/update_user/{id}', 'Backend\UserBackendController@update')->name('backend-update-user');
         Route::get('/delete_user/{id}', 'Backend\UserBackendController@destroy')->name('backend-delete-user');
 
-        // ROUTE BACKEND
+        // ROUTE home
         Route::get('home', 'Backend\HomeController@index')->name('backend.home');
         Route::get('profil', 'Backend\HomeController@profile')->name('backend.profil');
         // Route::get('my_profile', 'Backend\HomeController@profile')->name('backend.my_profile');
@@ -51,15 +54,7 @@ Route::group(['namespace' => 'App\Http\Controllers'], function () {
         Route::get('edit-kategori/{id}', 'Backend\KategoriController@edit')->name('edit_kategori');
         Route::post('/update-kategori/{id}', 'Backend\KategoriController@update')->name('update_kategori');
 
-         // Route Peminjam
-         Route::get('peminjam', 'Backend\PeminjamController@index')->name('backend.peminjam');
-         Route::get('tambah-peminjam', 'Backend\PeminjamController@create')->name('backend.tambah.peminjam');
-         Route::post('/store-peminjam', 'Backend\PeminjamController@store')->name('store_peminjam');
-         Route::get('delete-peminjam/{id}', 'Backend\PeminjamController@destroy')->name('delete_peminjam');
-         Route::get('edit-peminjam/{id}', 'Backend\PeminjamController@edit')->name('edit_peminjam');
-         Route::post('/update-peminjam/{id}', 'Backend\PeminjamController@update')->name('update_peminjam');
-
-         // Route Konfigurasi
+        // Route Konfigurasi
         Route::get('konfigurasi', 'Backend\KonfigurasiController@index')->name('backend-index-konfigurasi');
         Route::get('tambah-konfigurasi', 'Backend\KonfigurasiController@create')->name('backend.tambah.konfigurasi');
         Route::post('/store-konfigurasi', 'Backend\KonfigurasiController@store')->name('store_konfigurasi');
@@ -90,12 +85,17 @@ Route::group(['namespace' => 'App\Http\Controllers'], function () {
         Route::get('create_peminjam', 'Backend\PeminjamBackendController@create')->name('backend-create-peminjam');
         Route::post('store_peminjam', 'Backend\PeminjamBackendController@store')->name('backend-store-peminjam');
         Route::get('edit_peminjam/{id}', 'Backend\PeminjamBackendController@edit')->name('backend-edit-peminjam');
-        Route::post('update_peminjam', 'Backend\PeminjamBackendController@update')->name('backend-update-peminjam');
+        Route::post('update_peminjam/{id}', 'Backend\PeminjamBackendController@update')->name('backend-update-peminjam');
         Route::get('delete_peminjam/{id}', 'Backend\PeminjamBackendController@destroy')->name('backend-delete-peminjam');
 
-         // Route Pesan
-         Route::get('pesan', 'Backend\PesanController@index')->name('backend-index-pesan');
-         Route::get('delete-pesan/{id}', 'Backend\PesanController@destroy')->name('delete_pesan');
+        // Route Pesan
+        Route::get('pesan', 'Backend\PesanController@index')->name('backend-index-pesan');
+        Route::get('delete-pesan/{id}', 'Backend\PesanController@destroy')->name('delete_pesan');
+
+        // Route Peminjaman
+        Route::get('transaksi', 'Backend\PeminjamanBackendController@index')->name('backend-index-transaksi');
+        Route::get('show_peminjaman/{id}', 'Backend\PeminjamanBackendController@show')->name('backend-show-peminjaman');
+        Route::get('delete-peminjaman/{id}', 'Backend\PeminjamanBackendController@destroy')->name('delete_peminjaman');
     });
 });
 

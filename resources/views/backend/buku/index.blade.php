@@ -42,6 +42,7 @@
             <th scope="col">Judul</th>
             <th scope="col">Rating</th>
             <th scope="col">Penulis</th>
+            <th scope="col">Stok</th>
             <th scope="col">Aksi</th>
         </tr>
         </thead>
@@ -62,6 +63,7 @@
                     </span>
                 </td>
                 <td>{{$book->nama_penulis}}</td>
+                <td>{{$book->stok_buku}}</td>
 
                 <td>
                     <a href="{{ route('backend.edit_buku', $book->id)}}" class="btn btn-sm btn-warning">Edit</a>

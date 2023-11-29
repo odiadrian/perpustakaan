@@ -122,7 +122,7 @@
 	<div class="card">
 		<div class="thumb-content">
 			<!-- <div class="price">$200</div> -->
-			<a href="{{route('detailbuku.show')}}">
+			<a href="">
 				<img class="card-img-top img-fluid" src="{{ url('assets/frontend/images/buku1.jpg') }}" alt="Card image cap">
 			</a>
 		</div>

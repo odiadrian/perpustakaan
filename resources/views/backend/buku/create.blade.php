@@ -22,6 +22,15 @@
 
     <div class="container-fluid pt-4 px-4">
         <div class="col-sm-12 col-xl-12">
+            @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+            @endif
             <div class="bg-secondary rounded h-100 p-4">
                 <form method="POST" action="{{route('backend-buku-store')}}" enctype="multipart/form-data">
                     @csrf
@@ -54,32 +63,35 @@
                         <label for="rating">Rating</label>
                         <input type="text" class="form-control mt-2" value="{{ old('rating') }}" id="rating" name="rating" placeholder="">
                     </div>
-
+                    <div class="form-group mb-4">
+                        <label for="stok_buku">Stok</label>
+                        <input type="number" class="form-control mt-2" value="{{ old('stok_buku') }}" id="stok_buku" name="stok_buku" placeholder="">
+                    </div>
                     <div class="form-group mb-4">
                         <label for="sinopsis">sinopsis</label>
                         <textarea class="form-control mt-2" id="sinopsis" name="sinopsis" placeholder="">{{ old('sinopsis') }}</textarea>
                     </div>
                     <div class="form-group mb-4">
                         <label for="penerbit">Penerbit</label>
-                        <input type="text" name="penerbit" value="{{ old('penerbit') }}" id="penerbit" class="form-control mt-2" required>
+                        <input type="text" name="penerbit" value="{{ old('penerbit') }}" id="penerbit" class="form-control mt-2">
                     </div>
                     <div class="form-group mb-4">
                         <label for="jumlah_halaman">Jumlah Halaman</label>
-                        <input type="number" name="jumlah_halaman" value="{{ old('jumlah_halaman') }}" id="jumlah_halaman" class="form-control mt-2" required>
+                        <input type="number" name="jumlah_halaman" value="{{ old('jumlah_halaman') }}" id="jumlah_halaman" class="form-control mt-2">
                     </div>
                     <div class="form-group mb-4">
                         <label for="tahggal_terbit">Tanggal Terbit</label>
                         <span>
-                            <input type="date" name="tahggal_terbit" value="{{ old('tahggal_terbit') }}" id="tahggal_terbit" class="form-control fa fa-chart-date " required></i>
+                            <input type="date" name="tahggal_terbit" value="{{ old('tahggal_terbit') }}" id="tahggal_terbit" class="form-control fa fa-chart-date "></i>
                         </span>
                     </div>
                     <div class="form-group mb-4">
                         <label for="isbn">ISBN</label>
-                        <input type="text" name="isbn" value="{{ old('isbn') }}" id="isbn" class="form-control mt-2" required>
+                        <input type="text" name="isbn" value="{{ old('isbn') }}" id="isbn" class="form-control mt-2">
                     </div>
                     <div class="form-group mb-4">
                         <label for="bahasa">Bahasa</label>
-                        <input type="text" name="bahasa" value="{{ old('bahasa') }}" id="bahasa" class="form-control mt-2" required>
+                        <input type="text" name="bahasa" value="{{ old('bahasa') }}" id="bahasa" class="form-control mt-2">
                     </div>
                     <div class="mb-3">
                         <label for="formFile" class="form-label">Masukkan Foto</label>
