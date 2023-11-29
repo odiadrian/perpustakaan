@@ -9,7 +9,11 @@
             <div class="mb-3">
                 <label for="nama" class="form-label">Nama</label>
                 <input type="text" class="form-control" value="{{ old('nama',$datapenulis->nama)}}" name="nama" id="nama">
+<<<<<<< HEAD
                 
+=======
+               
+>>>>>>> upstream/main
             </div>
             <div class="mb-3">
                 <label for="alamat" class="form-label">Alamat</label>

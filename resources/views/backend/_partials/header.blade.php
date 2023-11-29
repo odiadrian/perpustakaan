@@ -40,7 +40,7 @@
                 <span class="d-none d-lg-inline-flex">{{ auth()->user()->name}}</span>
             </a>
             <div class="dropdown-menu dropdown-menu-end bg-secondary border-0 rounded-0 rounded-bottom m-0">
-                <a href="#" class="dropdown-item">My Profile</a>
+                <a href="{{route('backend.profil')}}" class="dropdown-item">My Profile</a>
                 <a href="{{ route('logout') }}" onclick="event.preventDefault();
                         document.getElementById('logout-form').submit();" class="dropdown-item">
                     Log Out

@@ -14,14 +14,14 @@
             <!-- Category list -->
             @foreach($kategori as $kate)
             <div class="col-lg-4 offset-lg-0 col-md-5 offset-md-1 col-sm-6 col-6">
+            <a href="{{ route('frontend.show.kategori', $kate->slug) }}">
                 <div class="category-block">
                     <div class="header">
                         <i class="fa fa-laptop icon-bg-1"></i>
-                        <a href="{{ route('frontend.show.kategori', $kate->slug) }}">
-                            <h4>{{($kate->nama)}} </h4>
-                        </a>
+                        <h4>{{($kate->nama)}} </h4>                           
                     </div>
                 </div>
+            </a>
             </div>
             @endforeach
         </div>

@@ -18,7 +18,7 @@
 						<h4 class="widget-header">Semua Kategori</h4>
 						<ul class="category-list">
 							@foreach($allCategorys as $category)
-							<li><a href="category.html">{{ $category->nama }} <span>93</span></a></li>
+							<li><a href="category.html">{{ $category->nama }}</a></li>
 							@endforeach						
 						</ul>
 					</div>
@@ -35,12 +35,12 @@
 								<div class="card" >
 									<div class="thumb-content">
 										<!-- <div class="price">$200</div> -->
-										<a href="">
+										<a href="{{ route('show.buku', $book->id) }}">
 											<img class="card-img-top img-fluid" src="{{ url('assets/backend/img/'. $book->image) }}" alt="Card image cap">
 										</a>
 									</div>
 									<div class="card-body">
-										<h4 class="card-title"><a href="">{{$book->nama_penulis}}</a></h4>
+										<h4 class="card-title"><a href="{{ route('show.buku', $book->id) }}">{{$book->nama_penulis}}</a></h4>
 										<ul class="list-inline product-meta">
 											<li class="list-inline-item">
 												<a href=""><i class="fa fa-folder-open-o"></i>{{$book->nama}}</a>

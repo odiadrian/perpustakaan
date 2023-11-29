@@ -16,7 +16,7 @@ class SemuaBukuController extends Controller
      */
     public function index(Request $request)
     {
-        $buku = DB::table('buku')->select('detail_buku.image','kategori_buku.nama','buku.created_at','detail_buku.sinopsis','buku.rating','buku.judul')
+        $buku = DB::table('buku')->select('buku.id','detail_buku.image','kategori_buku.nama','buku.created_at','detail_buku.sinopsis','buku.rating','buku.judul')
         ->join('kategori_buku', 'kategori_buku.id', 'buku.kode_kategori')
         ->join('detail_buku','detail_buku.id_buku','buku.id')
         ->join('penulis','penulis.id','buku.id_penulis')
@@ -24,8 +24,9 @@ class SemuaBukuController extends Controller
         ->where('judul', 'LIKE', '%'.$request->search.'%')
 
         ->get();
-
-        return view('frontend.semua_buku.index', compact('buku'));
+        $allCategorys = DB::table('kategori_buku')->select('slug', 'nama')->get();
+        
+        return view('frontend.semua_buku.index', compact('buku','allCategorys'));
     }
 
     /**
@@ -68,7 +69,22 @@ class SemuaBukuController extends Controller
 
     return view('frontend.semua_buku.show', compact('buku', 'allCategorys'));
     }
-
+    public function showBuku($id)
+    {
+        $bukudetail = DB::table('buku')
+            ->select('buku.*', 'detail_buku.*', 'penulis.nama as nama_penulis', 'kategori_buku.nama as nama_kategori', 'buku.created_at')
+            ->join('kategori_buku', 'kategori_buku.id', 'buku.kode_kategori')
+            ->join('detail_buku', 'detail_buku.id_buku', 'buku.id')
+            ->join('penulis', 'penulis.id', 'buku.id_penulis')
+            ->where('detail_buku.id', $id)
+            ->first();
+    
+    
+            // dd($bukudetail);
+    
+        
+            return view('frontend.buku.show', compact('bukudetail'));
+    }    
     /**
      * Show the form for editing the specified resource.
      *

@@ -14,14 +14,14 @@
 			</div>
 		</div>
 		<div class="row">
-        <div class="row">
-			<div class="col-md-3">
+        
+		<div class="col-md-3">
 				<div class="category-sidebar">
 					<div class="widget category-list">
 						<h4 class="widget-header">Semua Kategori</h4>
 						<ul class="category-list">
-							@foreach($buku as $book)
-							<li><a href="category.html">{{ $book->nama }} <span>93</span></a></li>
+							@foreach($allCategorys as $category)
+							<li><a href="category.html">{{ $category->nama }}</a></li>
 							@endforeach						
 						</ul>
 					</div>
@@ -35,12 +35,12 @@
                     <div class="card">
                         <div class="thumb-content">
                             <!-- <div class="price">$200</div> -->
-                            <a href="">
+                            <a href="{{route('detailbuku.show', $book->id)}}">
                                 <img class="card-img-top img-fluid" src="{{ url('assets/backend/img/'. $book->image) }}" alt="Card image cap">
                             </a>
                         </div>
                         <div class="card-body">
-                            <h4 class="card-title"><a href="">{{$book->judul}}</a></h4>
+                            <h4 class="card-title"><a href="{{route('detailbuku.show', $book->id)}}">{{$book->judul}}</a></h4>
                             <ul class="list-inline product-meta">
                                 <li class="list-inline-item">
                                     <a href=""><i class="fa fa-folder-open-o"></i>{{$book->nama}}</a>
@@ -72,9 +72,7 @@
 										<li class="list-inline-item selected"><i class="fa fa-star"></i></li>
 									@else 
 										<li class="list-inline-item selected"><i class="fa fa-star"></i></li>
-									
-									
-@endif                                    
+									@endif                                    
                                 </ul>
                             </div>
                         </div>

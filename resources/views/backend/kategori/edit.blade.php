@@ -22,12 +22,12 @@
                     @csrf
                     <div class="card-body">
                         <div class="form-group">
-                            <label for="nama">Nama Kategori</label>
-                            <input type="text" class="form-control" value="{{ $editKategori->nama }}" id="nama" name="nama" placeholder="">
+                            <label for="nama_kategori">Nama Kategori</label>
+                            <input type="text" class="form-control" value="{{ $editKategori->nama_kategori }}" id="nama_kategori" name="nama_kategori" placeholder="">
                         </div>
                         <div class="form-group">
-                            <label for="keterangan">Keterangan</label>
-                            <input type="text" class="form-control" value="{{ $editKategori->keterangan }}" id="keterangan" name="keterangan" placeholder="">
+                            <label for="deskripsi">Deskripsi</label>
+                            <input type="text" class="form-control" value="{{ $editKategori->deskripsi }}" id="deskripsi" name="deskripsi" placeholder="">
                         </div>
 
 
