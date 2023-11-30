@@ -1,11 +1,3 @@
-@extends('frontend.app')
-@section('style')
-<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"> -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-@endsection
-@section('title', 'Beranda')
-@section('content')
 <section>
 	<div class="container">
 		<div class="row">
@@ -35,62 +27,101 @@
 								<a class="nav-link" href="{{ route ('frontend.kontak') }}">Kontak</a>
 							</li>
 						</ul>
+						
 						<ul class="navbar-nav ml-auto mt-10">
-
-							<li class="nav-item">
-								<a class="nav-link add-button" href="{{route ('login') }}"><i class="fa fa-plus-circle"></i> Login</a>
-							</li>
-							<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                        Daftar
-						</button>
+							@if(Auth::check())
+							<a href="{{ route('frontend.logout') }}" class="btn btn-secondary fa fa-arrow-left">
+								Logout
+							</a>
+							@else
+							<button type="button" class="btn btn-primary fa fa-plus-circle mr-2" data-toggle="modal" data-target="#exampleModal">
+								Login
+							</button>
+							@endif
+							@if(!Auth::check())
+							<button type="button" class="btn btn-info fa fa-plus-circle" data-toggle="modal" data-target="#modalRegisterForm">
+								Register
+							</button>	
+							@endif					
 						</ul>
 					</div>
 				</nav>
 			</div>
 		</div>
 	</div>
+	<!-- Modal -->
 	<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
 		<div class="modal-dialog">
 			<div class="modal-content">
+				<div class="text-center mt-4">
+					<h5 class="modal-title" id="exampleModalLabel">Silahkan Login</h5>
+					<p><strong>Masukkan Email dan Password Anda </strong></p>				
+				</div>		
 				<div class="modal-body">
-					<div class="text-center">
-						<h4 id="exampleModalLabel">Silahkan Login</h4>
-						<!-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> -->
-						<!-- <p class="text-center">Login</p> -->
-						<p><strong>Masukkan Username, Email dan Password Anda untuk mengakses panel Diagnosa.</strong></p>
-					</div>
-					
-					<form action="#" class="pl-2 pr-2">
-						<div class="form-group mb-3">
-							<label for="name">Username </label>
-							<input class="form-control" type="name" id="name"
-								required="" placeholder="Masukan Username Anda">
-						</div>
+					<form method="post" action="{{route ('frontend.login')}}" class="pl-2 pr-2">
+						@csrf
 						<div class="form-group mb-3">
 							<label for="email">Email </label>
-							<input class="form-control" type="email" id="email"
+							<input class="form-control" type="email" name="email"id="email"
 								required="" placeholder="Masukan Email Anda">
 						</div>
 						<div class="form-group mb-3">
 							<label for="password1">Password</label>
-							<input class="form-control" type="password" required=""
+							<input class="form-control" type="password" name="password" required=""
 								id="password1" placeholder="Masukan Password Anda">
 						</div>
-						<div class="form-group mb-3">
-							<div class="custom-control custom-checkbox">
-								<input type="checkbox" class="custom-control-input"
-									id="customCheck2">
-								<label class="custom-control-label"
-									for="customCheck2">Remember me</label>
-							</div>
-						</div>
-						<div class="form-group text-center">
-							<button class="btn btn-rounded btn-primary" type="submit">Daftar</button>
-						</div>
-					</form>
-
-				</div>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary" data-dismiss="modal">Keluar</button>
+						<button type="submit" class="btn btn-primary">Login</a>
+					</div>
+				</form>			
 			</div>
+		</div>
+	</div>
+
+	<div class="modal fade" id="modalRegisterForm" tabindex="-1" aria-labelledby="myModalLabel"aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="text-center mt-4">
+					<h5 class="modal-title ">Silahkan Register</h5>
+					<p><strong>Masukkan Name, Username, Email dan Password Anda </strong></p>				
+				</div>
+				<div class="modal-body">
+					<form method="post" action="{{route ('frontend.register')}}" class="pl-2 pr-2">
+						@csrf
+						<div class="form-group mb-3">
+							<label for="name">Name </label>
+							<input class="form-control" type="name" name="name" id="name"
+								required="" placeholder="Masukan Name Anda">
+						</div>
+						<div class="form-group mb-3">
+							<label for="username">Username </label>
+							<input class="form-control" type="username" name="username" id="username"
+								required="" placeholder="Masukan Username Anda">
+						</div>
+						<div class="form-group mb-3">
+							<label for="email">Email </label>
+							<input class="form-control" type="email" name="email"id="email"
+								required="" placeholder="Masukan Email Anda">
+						</div>
+						<div class="form-group mb-3">
+							<label for="password1">Password</label>
+							<input class="form-control" type="password" name="password" required=""
+								id="password1" placeholder="Masukan Password Anda">
+						</div>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary" data-dismiss="modal">Keluar</button>
+						<button type="submit" class="btn btn-primary">Register</a>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+
+		
+	</div>
 		</div>
 	</div>
 </section>

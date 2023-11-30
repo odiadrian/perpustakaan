@@ -17,6 +17,9 @@ use Illuminate\Support\Facades\Route;
 Route::group(['namespace' => 'App\Http\Controllers'], function () {
     // ROUTE FRONTEND
     Route::get('/', 'Frontend\BerandaController@index')->name('frontend.home');
+    Route::post('registrasi', 'Frontend\LoginController@register')->name('frontend.register');
+    Route::post('front-login', 'Frontend\LoginController@login')->name('frontend.login');
+    Route::get('front-logout', 'Frontend\LoginController@logout')->name('frontend.logout');
     Route::get('tentang', 'Frontend\TentangController@index')->name('frontend.tentang');
     Route::get('kategoris', 'Frontend\KategoriController@index')->name('frontend.kategori');
     Route::get('kontak', 'Frontend\KontakController@index')->name('frontend.kontak');
@@ -29,9 +32,9 @@ Route::group(['namespace' => 'App\Http\Controllers'], function () {
     Route::get('show-kategori/{slug_kategori}', 'Frontend\KategoriController@show')->name('frontend.show.kategori');
     Route::get('/show-buku/{id}', 'Frontend\KategoriController@showBuku')->name('show.buku');
     Route::get('detailbuku/{id}', 'Frontend\BukuController@show')->name('detailbuku.show');
-    Route::get('pinjambuku', 'Frontend\PinjamController@index')->name('frontend.pinjam');
-
-
+    Route::get('pinjambuku/{id_buku}', 'Frontend\PinjamController@index')->name('frontend.pinjam');
+    Route::get('list-pinjaman/{id}', 'Frontend\PinjamController@show')->name('frontend.list.pinjaman');
+    Route::post('pinjam', 'Frontend\PinjamController@store')->name('frontend.pinjam.store');
     
 
     // SEMUA YANG ADA DI DALAM GROUP MIDDLEWARE ITU HARUS MELALUI PROSES LOGIN

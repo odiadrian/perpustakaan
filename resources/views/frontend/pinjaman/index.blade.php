@@ -5,8 +5,9 @@
 <div class="container-fluid pt-4 px-4">
     <div class=" rounded h-100 p-4 text-light">
         <h2 class="mb-4">Tambah Peminjam</h2>
-        <form method="post" action="" enctype="multipart/form-data">
+        <form method="post" action="{{route ('frontend.pinjam.store')}}" enctype="multipart/form-data">
             @csrf
+            <input type="hidden" value="{{ $id_buku }}" name="id_buku">
             <div class="mb-3">
                 <label for="tgl_peminjaman" class="form-label">Tanggal Peminjaman</label>
                 <input type="date" class="form-control" value="{{ old('tgl_peminjaman') }}" name="tgl_peminjaman" id="tgl_peminjaman" required oninput="tanggalKembali()">
@@ -20,7 +21,7 @@
                 <input type="number" class="form-control" value="{{ old('total_buku') }}" name="total_buku" id="total_buku" required>
             </div><br>
             <button type="submit" class="btn btn-primary">Simpan</button>
-            <a href="" class="btn btn-info">Kembali</a>
+            <a href="{{ url()->previous() }}" class="btn btn-info">Kembali</a>
         </form>
     </div>
 </div>

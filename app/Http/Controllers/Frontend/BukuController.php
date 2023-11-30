@@ -20,7 +20,7 @@ class BukuController extends Controller
             // dd($bukudetail);
 
             // if ($bukudetail) {
-                return view('frontend.buku.show', compact('bukudetail'));
+                return view('frontend.buku.show', compact('bukudetail', 'id_buku'));
             // } else {
 
         // return view('frontend.buku.show');

@@ -45,7 +45,7 @@
                 <a class="btn btn-primary mt-3" href="#">
                     Baca
                 </a>
-                <a class="btn btn-info mt-3" href="{{ route('frontend.pinjam') }}">
+                <a class="btn btn-info mt-3" href="{{ route('frontend.pinjam', $id_buku) }}">
                     Pinjam
                 </a>
 

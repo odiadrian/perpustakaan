@@ -2,7 +2,16 @@
 @section('title', 'Beranda')
 @section('content')
 <section class="hero-area bg-1 text-center overly" style="background: url('assets/frontend/images/perpus.jpg');">
-	<!-- Container Start -->
+	<!-- Container Start --> 
+	@if(Session::has('message'))
+        <div class="alert alert-success alert-dismissible" style="position: fixed; top: 10px; right: 10px; z-index: 1000;">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+            <h5>
+                <i class="icon fas fa-check"></i> Sukses!
+            </h5>
+            {{ Session('message')}}
+        </div>
+        @endif
 	<div class="container">
 		<div class="row">
 			<div class="col-md-12">
@@ -76,7 +85,7 @@
 								</a>
 							</div>
 							<div class="card-body">
-								<h4 class="card-title"><a href="">{{$rater->nama_penulis}}</a></h4>
+								<h4 class="card-title"><a href="{{ route('frontend.semuabuku')}}">{{$rater->nama_penulis}}</a></h4>
 								<ul class="list-inline product-meta">
 									<li class="list-inline-item">
 										<a href=""><i class="fa fa-folder-open-o"></i>{{$rater->nama}}</a>
@@ -134,13 +143,13 @@
         </div>
         <div class="row">
             <!-- Category list -->
-            @foreach($kategori as $kate)
+            @foreach($ratingTertinggi as $rater)
             <div class="col-lg-4 offset-lg-0 col-md-5 offset-md-1 col-sm-6 col-6">
             <a href="{{ route('frontend.show.kategori', $kate->slug) }}">
                 <div class="category-block">
                     <div class="header">
                         <i class="fa fa-laptop icon-bg-1"></i>
-                        <h4>{{($kate->nama)}} </h4>                           
+                        <h4>{{($rater->nama)}} </h4>                           
                     </div>
                 </div>
             </a>
