@@ -29,14 +29,17 @@ class BerandaController extends Controller
           ->join('penulis','penulis.id','buku.id_penulis')
           ->orderBy('rating', 'DESC')->take(3)->get();
 
+        // $ratingTertinggi = DB::table('buku')->select('slug', 'kategori_buku.nama')
+        // ->join('kategori_buku', 'kategori_buku.id', 'buku.kode_kategori')
+        // ->join('detail_buku','detail_buku.id_buku','buku.id')
+        // ->join('penulis','penulis.id','buku.id_penulis')
+        // ->orderBy('rating', 'DESC')->take(3)->get();
+
         // dd($ratingTertinggi);
 
         // dd($ratings);
         // return "OK";
-        return view('frontend.beranda.index', compact(
-          'buku',
-          'kategori',
-          'ratingTertinggi'
+        return view('frontend.beranda.index', compact('buku','kategori','ratingTertinggi'
         ));
       }
 
