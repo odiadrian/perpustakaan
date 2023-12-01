@@ -21,11 +21,11 @@
                     <div class="card-body">
                         <div class="form-group">
                             <label for="nama_kategori">Nama Kategori</label>
-                            <input type="text" class="form-control" id="nama" name="nama" placeholder="">
+                            <input type="text" class="form-control" id="nama_kategori" name="nama_kategori" placeholder="">
                         </div>
                         <div class="form-group">
-                            <label for="keterangan">Keterangan</label>
-                            <input type="text" class="form-control" id="keterangan" name="keterangan" placeholder="">
+                            <label for="deskripsi">Deskripsi</label>
+                            <input type="text" class="form-control" id="deskripsi" name="deskripsi" placeholder="">
                         </div>
 
 

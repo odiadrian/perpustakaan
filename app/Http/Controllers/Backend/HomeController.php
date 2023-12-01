@@ -43,4 +43,8 @@ class HomeController extends Controller
         return response()->json($chartData);
     }
 
+    public function profile()
+    {
+        return view('backend.home.profil');
+    }
 }

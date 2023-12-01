@@ -7,6 +7,7 @@ use App\Models\Konfigurasi;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Requests\KonfigurasiRequest;
 
 class KonfigurasiController extends Controller
 {
@@ -17,7 +18,7 @@ class KonfigurasiController extends Controller
     public function create() {
         return view('backend.konfigurasi.create');
     }
-    public function store(Request $request) {
+    public function store(KonfigurasiRequest $request) {
         // Tipe data $request adalah object
 
         // DD (die dump untuk memeriksa apakah ada value atau record di dalam variable $request yang diambil dari form inputan)
@@ -49,7 +50,7 @@ class KonfigurasiController extends Controller
 
         return view('backend.konfigurasi.edit', compact('editKonfigurasi'));
     }
-    public function update(Request $request,$id) {
+    public function update(KonfigurasiRequest $request,$id) {
         DB::table('konfigurasi')->where('id',$id)->update([
             'email' => $request->email,
             'no_telepon' => $request->no_telepon,

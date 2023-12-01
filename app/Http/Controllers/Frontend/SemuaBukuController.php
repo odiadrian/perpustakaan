@@ -14,10 +14,19 @@ class SemuaBukuController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $kategori = DB::table('kategori')->select('id', 'nama', 'slug')->get();
-        return view('frontend.semua_buku.index', compact('kategori'));
+        $buku = DB::table('buku')->select('buku.id','detail_buku.image','kategori_buku.nama','buku.created_at','detail_buku.sinopsis','buku.rating','buku.judul')
+        ->join('kategori_buku', 'kategori_buku.id', 'buku.kode_kategori')
+        ->join('detail_buku','detail_buku.id_buku','buku.id')
+        ->join('penulis','penulis.id','buku.id_penulis')
+        // ->where()
+        ->where('judul', 'LIKE', '%'.$request->search.'%')
+
+        ->get();
+        $allCategorys = DB::table('kategori_buku')->select('slug', 'nama')->get();
+        
+        return view('frontend.semua_buku.index', compact('buku','allCategorys'));
     }
 
     /**
@@ -49,16 +58,33 @@ class SemuaBukuController extends Controller
      */
     public function show($slug_kategori)
     {
-        $buku = DB::table('buku')
-            ->join('kategori', 'kategori.id', 'buku.kode_kategori')
-            ->where('slug', $slug_kategori)
-            ->get();
+        $buku = DB::table('buku')->select('penulis.nama as nama_penulis','detail_buku.image','kategori_buku.nama','buku.created_at','detail_buku.sinopsis','buku.rating')
+        ->join('kategori_buku', 'kategori_buku.id', 'buku.kode_kategori')
+        ->join('detail_buku','detail_buku.id_buku','buku.id')
+        ->join('penulis','penulis.id','buku.id_penulis')
+        ->where('slug', $slug_kategori)
+        ->get();
 
-        $allCategorys = DB::table('kategori')->select('slug', 'nama')->get();
+        $allCategorys = DB::table('kategori_buku')->select('slug', 'nama')->get();
 
-        return view('frontend.semua_buku.show', compact('buku', 'allCategorys'));
+    return view('frontend.semua_buku.show', compact('buku', 'allCategorys'));
     }
-
+    public function showBuku($id)
+    {
+        $bukudetail = DB::table('buku')
+            ->select('buku.*', 'detail_buku.*', 'penulis.nama as nama_penulis', 'kategori_buku.nama as nama_kategori', 'buku.created_at')
+            ->join('kategori_buku', 'kategori_buku.id', 'buku.kode_kategori')
+            ->join('detail_buku', 'detail_buku.id_buku', 'buku.id')
+            ->join('penulis', 'penulis.id', 'buku.id_penulis')
+            ->where('detail_buku.id', $id)
+            ->first();
+    
+    
+            // dd($bukudetail);
+    
+        
+            return view('frontend.buku.show', compact('bukudetail'));
+    }    
     /**
      * Show the form for editing the specified resource.
      *
