@@ -77,7 +77,7 @@ class UserBackendController extends Controller
         }
 
         // Simpan data ke database
-        $userData = [
+        $userData = [   
             'name' => $request->name,
             'username' => $request->username,
             'email' => $request->email,

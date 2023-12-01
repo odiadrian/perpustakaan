@@ -1,5 +1,5 @@
 @extends('backend.app')
-
+@section('title', 'Edit Role')
 @section('content')
 
 

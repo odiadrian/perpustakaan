@@ -1,5 +1,5 @@
 @extends('backend.app')
-
+@section('title', 'Dashboard')
 @section('style')
 <style>
     .botton-dashboard {
@@ -28,7 +28,7 @@
                     <div class="ms-3 col-md-12">
                         <div class="row">
                             <div class="col-md-8">
-                                <i class="fa fa-users fa-3x text-primary"></i>
+                                <i class="fa fa-user fa-3x text-primary"></i>
                                 <p class="mb-3 mt-3" style="font-weight: bold;">User Penulis</p>
                             </div>
                             <div class="col-md-4 mt-3">
@@ -91,7 +91,7 @@
                     <div class="ms-3 col-md-12">
                         <div class="row">
                             <div class="col-md-8">
-                                <i class="fa fa-book fa-3x text-primary"></i>
+                                <i class="fa fa-book-open fa-3x text-primary"></i>
                                 <p class="mb-3 mt-3" style="font-weight: bold;">Kategori</p>
                             </div>
                             <div class="col-md-4 mt-3">

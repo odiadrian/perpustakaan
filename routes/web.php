@@ -107,9 +107,8 @@ Route::group(['namespace' => 'App\Http\Controllers'], function () {
         Route::get('pengembalian_peminjaman/{id}', 'Backend\PeminjamanBackendController@pengembalian')->name('backend-pengembalian-peminjaman');
         Route::get('delete-peminjaman/{id}', 'Backend\PeminjamanBackendController@destroy')->name('delete_peminjaman');
 
-        //roles
-        Route::resource('roles', RoleController::class);
-        
+        // Route Roles
+        Route::resource('roles',RoleController::class);
     });
 });
 

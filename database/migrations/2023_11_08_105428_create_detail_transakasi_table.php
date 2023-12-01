@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('id_buku')->notNull()->references('id')->on('buku')->onUpdate('cascade')->onDelete('cascade');
             $table->string('telat_pengembalian');
-            $table->string('denda');
+            $table->integer('denda');
             $table->foreignId('id_transaksi')->notNull()->references('id')->on('transaksi')->onUpdate('cascade')->onDelete('cascade');
             $table->timestamps();
         });

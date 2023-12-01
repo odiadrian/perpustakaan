@@ -1,5 +1,5 @@
 @extends('backend.app')
-
+@section('title', 'Data Peminjaman')
 @section('content')
 <div class="container-fluid pt-4 px-4">
     <div class="bg-secondary rounded h-100 p-4">
@@ -15,6 +15,16 @@
                 <i class="icon fas fa-check"></i> Sukses!
             </h5>
             {{ Session('message') }}
+        </div>
+        @endif
+
+        @if(Session::has('error'))
+        <div class="alert alert-danger alert-dismissible">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+            <h5>
+                <i class="icon fas fa-check"></i> Error!
+            </h5>
+            {{ Session('error') }}
         </div>
         @endif
 

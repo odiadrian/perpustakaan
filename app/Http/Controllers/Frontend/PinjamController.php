@@ -80,14 +80,14 @@ class PinjamController extends Controller
         // dd($id_user);
         if (Auth::check()) {
             $detail_transaksi = DB::table('detail_transakasi')
-                ->where('transaksi.created_by', $id_user)
-                ->select('detail_transakasi.id', 'detail_transakasi.created_at', 'id_buku', 'judul',  'telat_pengembalian', 'denda', 'id_transaksi')
-                ->join('transaksi', 'transaksi.id', 'detail_transakasi.id_transaksi')
-                ->join('buku', 'buku.id', 'detail_transakasi.id_buku')
-                // ->join('users', 'users.id', 'peminjam.user_id')
-                ->paginate(10);
-
-            return view('frontend.pinjaman.listpinjaman', compact('detail_transaksi'));
+            ->where('transaksi.created_by', $id_user)
+            ->select('detail_transakasi.id','detail_transakasi.created_at', 'buku', 'judul',  'telat_pengembalian','denda','id_transaksi')
+            ->join('transaksi', 'transaksi.id', 'detail_transakasi.id_transaksi')
+            ->join('buku', 'buku.id', 'detail_transakasi.buku')
+            // ->join('users', 'users.id', 'peminjam.user_id')
+            ->paginate(10);
+    
+            return view ('frontend.pinjaman.listpinjaman', compact('detail_transaksi'));
         } else {
             return "Login Dulu gehh";
         }

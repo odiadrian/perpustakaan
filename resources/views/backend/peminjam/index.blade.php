@@ -1,10 +1,10 @@
 @extends('backend.app')
-
+@section('title', 'Data Peminjam')
 @section('content')
 
 <div class="container-fluid pt-4 px-4">
     <div class="bg-secondary rounded h-100 p-4">
-        <h6 class="mb-1">Data Buku</h6>
+        <h6 class="mb-1">Data Peminjam</h6>
         <div class="table-responsive">
             <table class="table table-bordered">
                 <style>
@@ -34,7 +34,9 @@
         @endif
 
         <div class="mt-4 mb-3">
+            @can('peminjam-create')
             <a href="{{route('backend-create-peminjam')}}" class="btn btn-primary">Tambah Peminjam</a>
+            @endcan
         </div>
         <tr>
             <th scope="col">No</th>
@@ -62,8 +64,9 @@
 
 
                 <td>
-                    
+                    @can('peminjam-edit')
                     <a href="{{ route('backend-edit-peminjam', $user->id) }}" class="btn btn-sm btn-warning">Edit</a>
+                    @endcan
                     <a href="{{ route('backend-delete-peminjam', $user->id) }}" onclick="return confirm('Are you sure?')" class="btn btn-sm btn-danger">Delete</a>
                 </td>
             </tr>

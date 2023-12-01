@@ -1,5 +1,5 @@
 @extends('backend.app')
-
+@section('title', 'Edit Penulis')
 @section('content')
 <div class="container-fluid pt-4 px-4">
     <div class="bg-secondary rounded h-100 p-4">
@@ -9,11 +9,7 @@
             <div class="mb-3">
                 <label for="nama" class="form-label">Nama</label>
                 <input type="text" class="form-control" value="{{ old('nama',$datapenulis->nama)}}" name="nama" id="nama">
-<<<<<<< HEAD
-                
-=======
-               
->>>>>>> upstream/main
+
             </div>
             <div class="mb-3">
                 <label for="alamat" class="form-label">Alamat</label>

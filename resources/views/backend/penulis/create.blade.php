@@ -1,8 +1,17 @@
 @extends('backend.app')
-
+@section('title', 'Tambah Penulis')
 @section('content')
 <div class="container-fluid pt-4 px-4">
     <div class="bg-secondary rounded h-100 p-4">
+        @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+        @endif
         <h6 class="mb-4">Tambah Penulis</h6>
         <style>
             /* Gaya untuk dark mode */
@@ -17,24 +26,24 @@
             @csrf
             <div class="mb-3">
                 <label for="nama" class="form-label">Nama</label>
-               
-                <input type="text" class="form-control" value="{{ old('nama')}}" id="nama" name="nama" required>
+
+                <input type="text" class="form-control" value="{{ old('nama')}}" id="nama" name="nama">
             </div>
             <div class="mb-3">
                 <label for="username" class="form-label">Username</label>
-                <input type="text" class="form-control" value="{{ old('username')}}" id="username" name="username" required>
+                <input type="text" class="form-control" value="{{ old('username')}}" id="username" name="username">
             </div>
             <div class="mb-3">
                 <label for="alamat" class="form-label">Alamat</label>
-                <input type="text" class="form-control" value="{{ old('alamat')}}" name="alamat" id="alamat" required>
+                <input type="text" class="form-control" value="{{ old('alamat')}}" name="alamat" id="alamat">
             </div>
             <div class="mb-3">
                 <label for="tanggal_lahir" class="form-label">Tanggal Lahir</label>
-                <input type="date" class="form-control fa fa-chart-date" value="{{ old('tanggal_lahir')}}" name="tanggal_lahir" id="tanggal_lahir" required>
+                <input type="date" class="form-control fa fa-chart-date" value="{{ old('tanggal_lahir')}}" name="tanggal_lahir" id="tanggal_lahir">
             </div>
             <div class="mb-3">
                 <label for="telphone" class="form-label">Telphone</label>
-                <input type="text" class="form-control" value="{{ old('telphone')}}" name="telphone" id="telphone" required>
+                <input type="number" class="form-control" value="{{ old('telphone')}}" name="telphone" id="telphone">
             </div>
             <div class="mb-3">
                 <label for="domsili" class="form-label">Domisili</label>
@@ -70,21 +79,20 @@
             </div>
             <div class="mb-3">
                 <label for="email" class="form-label">Email</label>
-                <input type="email" class="form-control" value="{{ old('email')}}" name="email" id="email" required>
+                <input type="email" class="form-control" value="{{ old('email')}}" name="email" id="email">
             </div>
             <div class="mb-3">
                 <label for="password" class="form-label">Password</label>
-                <input type="password" class="form-control" value="{{ old('password')}}" name="password" id="password" required>
+                <input type="password" class="form-control" value="{{ old('password')}}" name="password" id="password">
             </div>
             <div class="mb-3">
                 <label for="password_confirmation" class="form-label">Konfirmasi Password</label>
-                <input type="password" class="form-control" value="{{ old('password_confirmation')}}" name="password_confirmation" id="password_confirmation" required>
+                <input type="password" class="form-control" value="{{ old('password_confirmation')}}" name="password_confirmation" id="password_confirmation">
             </div>
 
             <button type="submit" class="btn btn-primary">Simpan</button>
             <a href="{{ route('backend.penulis')}}" class="btn btn-info">Kembali</a>
         </form>
     </div>
-</div>
 </div>
 @endsection

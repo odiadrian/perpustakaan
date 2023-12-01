@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Requests\PenulisRequest;
 
 class PenulisController extends Controller
 {
@@ -22,7 +23,7 @@ class PenulisController extends Controller
     {
         return view('backend.penulis.create');
     }
-    public function store(Request $request)
+    public function store(PenulisRequest $request)
     {
         DB::beginTransaction();
 
@@ -90,7 +91,7 @@ class PenulisController extends Controller
         return view('backend.penulis.edit', compact('datapenulis'));
     }
 
-    public function update(Request $request, $id)
+    public function update(PenulisRequest $request, $id)
     {
         DB::beginTransaction();
 
