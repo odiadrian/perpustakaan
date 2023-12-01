@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Kotak dengan Gambar dan Keterangan PHP</title>
+    <title>Profil</title>
     <style>
         /* CSS untuk pusatkan kotak */
         body {

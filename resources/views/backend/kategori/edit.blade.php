@@ -1,5 +1,5 @@
 @extends('backend.app')
-
+@section('title', 'Edit Kategori')
 @section('content')
 
 <!-- Table Start -->

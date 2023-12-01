@@ -1,4 +1,5 @@
 @extends('backend.app')
+@section('title', 'Tambah Buku')
 @section('content')
 <div class="content-wrapper">
     <section class="content-header">

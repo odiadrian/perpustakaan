@@ -33,7 +33,7 @@ class BukuRequest extends FormRequest
             'penerbit' => 'required|string',
             'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'jumlah_halaman' => 'required|numeric|min:1',
-            'tanggal_terbit' => 'required|date',
+            'tahggal_terbit' => 'required|date',
             'isbn' => 'required|string|max:255',
             'bahasa' => 'required',
         ];
@@ -61,8 +61,8 @@ class BukuRequest extends FormRequest
             'jumlah_halaman.required' => 'Jumlah halaman buku wajib diisi.',
             'jumlah_halaman.numeric' => 'Jumlah halaman buku harus berupa angka.',
             'jumlah_halaman.min' => 'Jumlah halaman buku minimal 1.',
-            'tanggal_terbit.required' => 'Tanggal terbit buku wajib diisi.',
-            'tanggal_terbit.date' => 'Tanggal terbit buku harus dalam format tanggal yang valid.',
+            'tahggal_terbit.required' => 'Tanggal terbit buku wajib diisi.',
+            'tahggal_terbit.date' => 'Tanggal terbit buku harus dalam format tanggal yang valid.',
             'isbn.required' => 'ISBN buku wajib diisi.',
             'bahasa.required' => 'Bahasa buku wajib diisi.',
         ];

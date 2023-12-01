@@ -29,7 +29,7 @@ class PenulisController extends Controller
 
         try {
             // Create a new user
-            $user = User::insertGetId([
+            $user = DB::table('users')->insertGetId([
                 'name' => $request->nama,
                 'username' => $request->username,
                 'email' => $request->email,

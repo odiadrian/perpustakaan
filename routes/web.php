@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Backend\RoleController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,17 +18,24 @@ use Illuminate\Support\Facades\Route;
 Route::group(['namespace' => 'App\Http\Controllers'], function () {
     // ROUTE FRONTEND
     Route::get('/', 'Frontend\BerandaController@index')->name('frontend.home');
+    Route::post('registrasi', 'Frontend\LoginController@register')->name('frontend.register');
+    Route::post('front-login', 'Frontend\LoginController@login')->name('frontend.login');
+    Route::get('front-logout', 'Frontend\LoginController@logout')->name('frontend.logout');
     Route::get('tentang', 'Frontend\TentangController@index')->name('frontend.tentang');
     Route::get('kategoris', 'Frontend\KategoriController@index')->name('frontend.kategori');
     Route::get('kontak', 'Frontend\KontakController@index')->name('frontend.kontak');
     Route::post('pesan', 'Frontend\KontakController@store')->name('frontend.pesan');
     Route::get('semua-buku', 'Frontend\SemuaBukuController@index')->name('frontend.semuabuku');
+    Route::get('search-buku', 'Frontend\BerandaController@searchResult')->name('frontend.search.buku');
+    // Route::get('tampilbuku', 'Frontend\BerandaController@show')->name('frontend.beranda.buku');
+
 
     Route::get('show-kategori/{slug_kategori}', 'Frontend\KategoriController@show')->name('frontend.show.kategori');
     Route::get('/show-buku/{id}', 'Frontend\KategoriController@showBuku')->name('show.buku');
-    Route::get('detailbuku', 'Frontend\BukuController@show')->name('detailbuku.show');
-
-
+    Route::get('detailbuku/{id}', 'Frontend\BukuController@show')->name('detailbuku.show');
+    Route::get('pinjambuku/{id_buku}', 'Frontend\PinjamController@index')->name('frontend.pinjam');
+    Route::get('list-pinjaman/{id}', 'Frontend\PinjamController@show')->name('frontend.list.pinjaman');
+    Route::post('pinjam', 'Frontend\PinjamController@store')->name('frontend.pinjam.store');
     
 
     // SEMUA YANG ADA DI DALAM GROUP MIDDLEWARE ITU HARUS MELALUI PROSES LOGIN
@@ -42,6 +50,7 @@ Route::group(['namespace' => 'App\Http\Controllers'], function () {
 
         // ROUTE home
         Route::get('home', 'Backend\HomeController@index')->name('backend.home');
+        Route::get('/char', 'Backend\HomeController@handleChart')->name('char');
         Route::get('profil', 'Backend\HomeController@profile')->name('backend.profil');
         // Route::get('my_profile', 'Backend\HomeController@profile')->name('backend.my_profile');
 
@@ -95,8 +104,10 @@ Route::group(['namespace' => 'App\Http\Controllers'], function () {
         // Route Peminjaman
         Route::get('transaksi', 'Backend\PeminjamanBackendController@index')->name('backend-index-transaksi');
         Route::get('show_peminjaman/{id}', 'Backend\PeminjamanBackendController@show')->name('backend-show-peminjaman');
-        Route::get('delete-peminjaman/{id}', 'Backend\PeminjamanBackendController@destroy')->name('backend.delete_peminjaman');
-        Route::get('show_peminjaman/{id}', 'Backend\PeminjamanBackendController@show')->name('backend.show_peminjaman');
+        Route::get('delete-peminjaman/{id}', 'Backend\PeminjamanBackendController@destroy')->name('delete_peminjaman');
+
+        // Route Roles
+        Route::resource('roles',RoleController::class);
     });
 });
 

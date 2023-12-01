@@ -1,5 +1,5 @@
 @extends('backend.app')
-
+@section('title', 'Data User')
 @section('content')
 <div class="container-fluid pt-4 px-4">
     <div class="bg-secondary rounded h-100 p-4">
@@ -24,7 +24,9 @@
         @endif
 
         <div class="mt-4 mb-3">
+            @can('user-create')
             <a href="{{route('backend-create-user')}}" class="btn btn-primary">Tambah User</a>
+            @endcan
         </div>
         <tr>
             <th scope="col">No</th>
@@ -52,8 +54,12 @@
 
 
                 <td>
+                    @can('user-edit')
                     <a href="{{ route('backend-edit-user', $user->id) }}" class="btn btn-sm btn-warning">Edit</a>
+                    @endcan
+                    @can('user-delete')
                     <a href="{{ route('backend-delete-user', $user->id) }}" onclick="return confirm('Are you sure?')" class="btn btn-sm btn-danger">Delete</a>
+                    @endcan
                 </td>
             </tr>
             @endforeach

@@ -1,4 +1,5 @@
 @extends('backend.app')
+@section('title', 'Edit User')
 @section('content')
 <div class="content-wrapper">
     <section class="content-header">
@@ -24,11 +25,11 @@
             </div>
             @endif
             <div class="bg-secondary rounded h-100 p-4">
-                <form method="POST" action="{{ route('backend-update-user', $edituser->id) }}" enctype="multipart/form-data">
+                <form method="POST" action="{{ route('backend-update-user', $editUser->id) }}" enctype="multipart/form-data">
                     @csrf
                     <div class="form-group">
                         <label for="nama">Nama Lengkap</label>
-                        <input type="text" class="form-control mb-3" id="name" value="{{ old('name', $edituser->name ) }}" name="name" placeholder="">
+                        <input type="text" class="form-control mb-3" id="name" value="{{ old('name', $editUser->name ) }}" name="name" placeholder="">
                         @error('name')
                         <div class="text-danger">{{ $message }}</div>
                         @enderror
@@ -36,12 +37,12 @@
 
                     <div class="form-group">
                         <label for="deskripsi">Username</label>
-                        <input type="text" class="form-control mb-3" value="{{ old('username', $edituser->username)}}" id="username" name="username" placeholder="">
+                        <input type="text" class="form-control mb-3" value="{{ old('username', $editUser->username)}}" id="username" name="username" placeholder="">
                     </div>
 
                     <div class="form-group">
                         <label for="deskripsi">Email</label>
-                        <input type="text" class="form-control mb-3" value="{{ old('email', $edituser->email) }}" id="email" name="email" placeholder="">
+                        <input type="text" class="form-control mb-3" value="{{ old('email', $editUser->email) }}" id="email" name="email" placeholder="">
                     </div>
 
                     <div class="form-group">
@@ -54,14 +55,28 @@
                         <label for="password_confirmation">Konfirmasi Password</label>
                         <input type="password" name="password_confirmation" value="{{ old('password_confirmation') }}" id="password_confirmation" class="form-control mb-3">
                     </div>
+
+                    <div class="form-group mb-4">
+                        <label>Role User <strong style="color: red;">*</strong></label>
+                        <select class="form-select form-select-sm mt-2" id="roles" name="roles[]">
+                            <option value="{{ old('name') }}" disabled selected>---Pilih Kategori Buku---</option>
+                            @foreach($roles as $roleId => $roleName)
+                            <option value="{{ $roleId }}" {{ in_array($roleId, $userRole) ? 'selected' : '' }}>
+                                {{ $roleName }}
+                            </option>
+                            @endforeach
+                        </select>
+                    </div>
+
+                    
                     <div class="form-group">
                         <label for="image">Gambar</label>
                         <input type="file" class="form-control form-control-sm bg-dark" id="image" name="image" accept="image/*">
                     </div><br>
 
                     <div class="form-group">
-                        @if(!empty($edituser->image))
-                        <img id="image-preview" src="{{ asset('assets/backend/img/' . $edituser->image) }}" alt="{{ $edituser->name }}" class="img-thumbnail" style="width: 150px;">
+                        @if(!empty($editUser->image))
+                        <img id="image-preview" src="{{ asset('assets/backend/img/' . $editUser->image) }}" alt="{{ $editUser->name }}" class="img-thumbnail" style="width: 150px;">
                         @else
                         <div class="text-center py-4">No Image</div>
                         @endif

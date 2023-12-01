@@ -1,5 +1,5 @@
 @extends('backend.app')
-
+@section('title', 'Data Peminjaman')
 @section('content')
 <div class="container-fluid pt-4 px-4">
     <div class="bg-secondary rounded h-100 p-4">
@@ -18,8 +18,18 @@
         </div>
         @endif
 
+        @if(Session::has('error'))
+        <div class="alert alert-danger alert-dismissible">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+            <h5>
+                <i class="icon fas fa-check"></i> Error!
+            </h5>
+            {{ Session('error') }}
+        </div>
+        @endif
+
         <div class="mt-4 mb-3">
-           
+
         </div>
         <tr>
             <th scope="col">No</th>
@@ -33,14 +43,16 @@
             @forelse($peminjaman as $pinjam)
             <tr>
                 <td>{{ $loop->iteration }}</td>
-                <td>{{ $pinjam->tanggal_pengembalian}}</td>
+                <td>{{ $pinjam->tanggal_kembali}}</td>
                 <td>{{ $pinjam->nama}}</td>
                 <td>{{ $pinjam->total}}</td>
-                
+
 
                 <td>
-                    <a href="{{ route('backend.show_peminjaman', $pinjam->id)}}" class="btn btn-sm btn-info">Show</a>
-                    <a href="{{ route('backend.delete_peminjaman', $pinjam->id)}}" onclick="return confirm('Are you sure?')" class="btn btn-sm btn-danger">Delete</a>
+                    @can('peminjaman-detail')
+                    <a href="{{ route('backend-show-peminjaman', $pinjam->id)}}" class="btn btn-sm btn-info">Show</a>
+                    @endcan
+                    <a href="{{ route('delete_peminjaman', $pinjam->id)}}" onclick="return confirm('Are you sure?')" class="btn btn-sm btn-danger">Delete</a>
                 </td>
             </tr>
             @empty

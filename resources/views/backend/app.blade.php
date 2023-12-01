@@ -3,13 +3,13 @@
 
 <head>
     <meta charset="utf-8">
-    <title>DarkPan - Bootstrap 5 Admin Template</title>
+    <title>Perpustakaan | @yield('title')</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
 
     <!-- Favicon -->
-    <link href="img/favicon.ico" rel="icon">
+    <!-- <link href="img/favicon.ico" rel="icon"> -->
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -29,6 +29,7 @@
 
     <!-- Template Stylesheet -->
     <link href="{{ url('assets/backend/css/style.css') }}" rel="stylesheet">
+    @yield('style')
 </head>
 
 <body>
@@ -80,7 +81,21 @@
     <script src="{{ url('assets/backend/lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js') }}"></script>
 
     <!-- Template Javascript -->
-    <script src="{{ url('assets/backend/js/main.js') }}"></script>
+    <!-- <script src="{{ url('assets/backend/js/main.js') }}"></script> -->
+    <script>
+        "use strict";
+
+        // Spinner
+        var spinner = function() {
+            setTimeout(function() {
+                if ($('#spinner').length > 0) {
+                    $('#spinner').removeClass('show');
+                }
+            }, 1);
+        };
+        spinner();
+    </script>
+    @yield('scripts')
 </body>
 
 </html>

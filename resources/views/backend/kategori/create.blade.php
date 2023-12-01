@@ -1,5 +1,5 @@
 @extends('backend.app')
-
+@section('title', 'Tambah Kategori')
 @section('content')
 <div class="container-fluid pt-4 px-4">
     <div class="row g-4">
@@ -26,6 +26,10 @@
                         <div class="form-group">
                             <label for="deskripsi">Deskripsi</label>
                             <input type="text" class="form-control" id="deskripsi" name="deskripsi" placeholder="">
+                        </div>
+                        <div class="form-group">
+                            <label for="nama"> Slug</label>
+                            <input type="text" class="form-control" id="nama" name="nama" placeholder="">
                         </div>
 
 

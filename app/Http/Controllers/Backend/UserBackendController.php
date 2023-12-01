@@ -7,25 +7,49 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Requests\UsersUpdateRequest;
+use App\Models\User;
 use Illuminate\Support\Arr;
+use Illuminate\Support\Facades\Hash;
+use Spatie\Permission\Models\Role;
 
 class UserBackendController extends Controller
 {
+    function __construct()
+    {
+        $this->middleware('permission:user-list|user-create|user-edit|user-delete', ['only' => ['index', 'store']]);
+        $this->middleware('permission:user-create', ['only' => ['create', 'store']]);
+        $this->middleware('permission:user-edit', ['only' => ['edit', 'update']]);
+        $this->middleware('permission:user-delete', ['only' => ['deleteUser']]);
+    }
+    // public function index()
+    // {
+    //     $users = DB::table('users')
+    //         ->select(
+    //             'users.*',
+    //         )
+    //         ->orderBy('users.id', 'DESC')
+    //         ->paginate(5);
+
+    //     return view('backend.user.index', compact('users'));
+    // }
+
     public function index()
     {
-        $users = DB::table('users')
-            ->select(
-                'users.*',
-            )
-            ->orderBy('users.id', 'DESC')
-            ->paginate(5);
+        $users = User::with('roles')->paginate(5);
+
+        // Menggunakan metode map untuk membuat alias role_name
+        $users->map(function ($user) {
+            $user->role_name = $user->roles->pluck('name')->implode(', ');
+            return $user;
+        });
 
         return view('backend.user.index', compact('users'));
     }
 
     public function create()
     {
-        return view('backend.user.create');
+        $roles = DB::table('roles')->get();
+        return view('backend.user.create', compact('roles'));
     }
 
     public function store(Request $request)
@@ -44,8 +68,8 @@ class UserBackendController extends Controller
             return redirect()->back()->withErrors($validator)->withInput();
         }
 
+        // Tangani upload gambar
         $imageName = null;
-
         if ($request->hasFile('image')) {
             $image = $request->file('image');
             $imageName = time() . '.' . $image->getClientOriginalExtension();
@@ -53,67 +77,101 @@ class UserBackendController extends Controller
         }
 
         // Simpan data ke database
-        DB::table('users')->insert([
+        $userData = [   
             'name' => $request->name,
             'username' => $request->username,
             'email' => $request->email,
             'password' => bcrypt($request->password),
             'image' => $imageName,
-            'created_at' => \Carbon\Carbon::now(),
-            'updated_at' => \Carbon\Carbon::now(),
-        ]);
+        ];
+
+        $user = User::create($userData);
+        $user->assignRole($request->input('roles'));
 
         return redirect()->route('backend-index-user')->with('message', 'Users Berhasil Disimpan!');
     }
 
     public function edit($id)
     {
-        $edituser = DB::table('users')->where('id', $id)->first();
+        // Mengambil data user yang akan diedit berdasarkan ID menggunakan model User
+        $editUser = User::find($id);
 
-        if (!$edituser) {
-            return redirect()->route('backend-index-user')->with('error', 'User tidak ditemukan.');
-        }
+        // Mengambil semua roles yang tersedia
+        $roles = Role::pluck('name', 'id'); // Menggunakan id sebagai value
 
-        return view('backend.user.edit', compact('edituser'));
+        // Mengambil roles yang dimiliki oleh pengguna yang akan diedit
+        $userRole = $editUser->roles->pluck('id')->all();
+
+        // Arahkan ke halaman edit dengan data pengguna, roles, dan userRole
+        return view('backend.user.edit', compact('editUser', 'roles', 'userRole'));
     }
 
     public function update(UsersUpdateRequest $request, $id)
     {
-        $data = [
-            'name' => $request->name,
-            'username' => $request->username,
-            'email' => $request->email,
-            'created_at' => \Carbon\Carbon::now(),
-            'updated_at' => \Carbon\Carbon::now(),
-        ];
 
-        if (!empty($request->password)) {
-            $data['password'] = bcrypt($request->password);
-        } else {
-            unset($data['password']);
-        }
+        // dd($request->input('roles'));
+        $data = $request->all();
+        // dd($data);
+        //  [
+        //     'name' => $request->name,
+        //     'username' => $request->username,
+        //     'email' => $request->email,
+        //     'updated_at' => now(),
+        // ];
 
+        // Tangani upload gambar
         if ($request->hasFile('image')) {
-            $edituser = DB::table('users')->where('id', $id)->first();
-            $oldImageName = $edituser->image;
+            $editUser = DB::table('users')->where('id', $id)->select('image')->first();
+            $oldImageName = $editUser->image;
 
             $image = $request->file('image');
             $imageName = time() . '.' . $image->getClientOriginalExtension();
             $image->move(public_path('assets/backend/img'), $imageName);
 
-            if ($oldImageName) {
+            // Hapus gambar lama jika ada
+            if ($oldImageName !== null) {
                 $oldImagePath = public_path('assets/backend/img') . '/' . $oldImageName;
                 if (file_exists($oldImagePath)) {
                     unlink($oldImagePath);
                 }
             }
 
+
             $data['image'] = $imageName;
+
+            // dd($data);
+
+            // Cek apakah password diubah
+            if (!empty($request->password)) {
+                $data['password'] = bcrypt($request->password);
+            } else {
+                $data = Arr::except($data, array('password'));
+            }
+
+            $user = User::find($id);
+            $user->update($data);
+            $user->roles()->detach();
+            DB::table('model_has_roles')->where('model_id', $id)->delete();
+            $user->roles()->sync($request->input('roles'));
+
+            return redirect()->route('backend-index-user')->with('message', 'User berhasil diperbarui!');
+        } else {
+            // Cek apakah password diubah
+            if (!empty($request->password)) {
+                $data['password'] = bcrypt($request->password);
+            } else {
+                $data = Arr::except($data, array('password'));
+            }
+
+            $user = User::find($id);
+            $user->update($data);
+            $user->roles()->detach();
+            DB::table('model_has_roles')->where('model_id', $id)->delete();
+            $user->roles()->sync($request->input('roles'));
+
+
+            return redirect()->route('backend-index-user')->with('message', 'User berhasil diperbarui!');
         }
-
-        DB::table('users')->where('id', $id)->update($data);
-
-        return redirect()->route('backend-index-user')->with('message', 'User berhasil diperbarui!');
     }
 
     public function destroy($id)
