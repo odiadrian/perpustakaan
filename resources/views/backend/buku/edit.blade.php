@@ -62,7 +62,10 @@
                         <label for="rating">Rating</label>
                         <input type="text" class="form-control mt-2" value="{{ old('rating', $databuku->rating) }}" id="rating" name="rating" placeholder="">
                     </div>
-
+                    <div class="form-group mb-4">
+                        <label for="stok_buku">Stok</label>
+                        <input type="number" class="form-control mt-2" value="{{ old('stok_buku', $databuku->stok_buku }}" id="stok_buku" name="stok_buku" placeholder="">
+                    </div>
                     <div class="form-group mb-4">
                         <label for="sinopsis">sinopsis</label>
                         <textarea class="form-control mt-2" id="sinopsis" name="sinopsis" placeholder="">{{ old('sinopsis', $databuku->sinopsis) }}</textarea>

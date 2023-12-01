@@ -27,7 +27,7 @@ class KategoriController extends Controller
         DB::table('kategori_buku')->insert([
             'nama_kategori' => $request->nama_kategori,
             'deskripsi' => $request->deskripsi,
-            //'slug' => $request->nama,
+            'slug' => $request->nama,
             'created_at' => \Carbon\Carbon::now(),
             'updated_at' => \Carbon\Carbon::now(),
             'created_by' => Auth()->user()->id,

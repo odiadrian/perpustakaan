@@ -39,8 +39,8 @@
                 
 
                 <td>
-                    <a href="{{ route('backend.show_penulis', $pinjam->id)}}" class="btn btn-sm btn-info">Show</a>
-                    <a href="{{ route('backend.delete_penulis', $pinjam->id)}}" onclick="return confirm('Are you sure?')" class="btn btn-sm btn-danger">Delete</a>
+                    <a href="{{ route('backend.show_peminjaman', $pinjam->id)}}" class="btn btn-sm btn-info">Show</a>
+                    <a href="{{ route('backend.delete_peminjaman', $pinjam->id)}}" onclick="return confirm('Are you sure?')" class="btn btn-sm btn-danger">Delete</a>
                 </td>
             </tr>
             @empty
