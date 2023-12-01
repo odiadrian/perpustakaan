@@ -94,6 +94,10 @@
                         <label for="bahasa">Bahasa</label>
                         <input type="text" name="bahasa" value="{{ old('bahasa') }}" id="bahasa" class="form-control mt-2">
                     </div>
+                    <div class="form-group mb-4">
+                        <label for="stok">Stok Buku</label>
+                        <input type="text" class="form-control mt-2" value="{{ old('stok') }}" id="stok" name="stok" placeholder="">
+                    </div>
                     <div class="mb-3">
                         <label for="formFile" class="form-label">Masukkan Foto</label>
                         <input class="form-control mt-2 form-control-sm bg-dark" id="image" name="image" accept="image/*" type="file">

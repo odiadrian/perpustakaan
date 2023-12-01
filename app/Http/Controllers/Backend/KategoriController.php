@@ -30,7 +30,8 @@ class KategoriController extends Controller
             'slug' => $request->nama,
             'created_at' => \Carbon\Carbon::now(),
             'updated_at' => \Carbon\Carbon::now(),
-
+            // 'created_by' => Auth()->user()->id,
+            // 'updated_by' => Auth()->user()->id,
         ]);
 
         return redirect()->route('backend.kategori')->with('message', 'Kategori Berhasil Disimpan');

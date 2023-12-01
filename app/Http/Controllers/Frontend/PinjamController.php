@@ -42,13 +42,14 @@ class PinjamController extends Controller
         $getIdPeminjam = DB::table('peminjam')->select('id')->where('user_id', Auth::user()->id)->first();
 
         // counter rating setiap ada peminjaman
-        DB::table('buku')->where('id',$request->id_buku)->increment('rating');
+        DB::table('buku')->where('id', $request->id_buku)->increment('rating');
 
         $id_transaksi = DB::table('transaksi')->insertGetId([
-            'tanggal_pinjam' =>$request->tgl_peminjaman,
-            'tanggal_kembali' =>$request->tgl_pengembalian,
-            'total' =>$request->total_buku,
-            'id_peminjam' =>$getIdPeminjam->id,
+            'tanggal_pinjam' => $request->tgl_peminjaman,
+            'tanggal_kembali' => $request->tgl_pengembalian,
+            'total' => $request->total_buku,
+            'status' => 0,
+            'id_peminjam' => $getIdPeminjam->id,
             'created_by' => Auth::user()->id ?? 1,
             'updated_by' => Auth::user()->id ?? 1,
             'created_at' => \Carbon\Carbon::now(),
@@ -64,9 +65,8 @@ class PinjamController extends Controller
             'created_at' => now(),
             'updated_at' => now(),
         ]);
-        
+
         return redirect()->route('frontend.list.pinjaman', Auth::user()->id);
-    
     }
 
     /**;
@@ -81,9 +81,9 @@ class PinjamController extends Controller
         if (Auth::check()) {
             $detail_transaksi = DB::table('detail_transakasi')
             ->where('transaksi.created_by', $id_user)
-            ->select('detail_transakasi.id','detail_transakasi.created_at', 'id_buku', 'judul',  'telat_pengembalian','denda','id_transaksi')
+            ->select('detail_transakasi.id','detail_transakasi.created_at', 'buku', 'judul',  'telat_pengembalian','denda','id_transaksi')
             ->join('transaksi', 'transaksi.id', 'detail_transakasi.id_transaksi')
-            ->join('buku', 'buku.id', 'detail_transakasi.id_buku')
+            ->join('buku', 'buku.id', 'detail_transakasi.buku')
             // ->join('users', 'users.id', 'peminjam.user_id')
             ->paginate(10);
     
