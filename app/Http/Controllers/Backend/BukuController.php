@@ -56,6 +56,7 @@ class BukuController extends Controller
             $buku = DB::table('buku')->insertGetId([
                 'kode_kategori' => $request->kategori_id,
                 'judul' => $request->judul,
+                'stok_buku' => $request->stok,
                 'rating' => $request->rating,
                 'id_penulis' => $request->penulis_id,
                 'created_by' => auth()->user()->id,
@@ -116,6 +117,7 @@ class BukuController extends Controller
             DB::table('buku')->where('id', $id)->update([
                 'kode_kategori' => $request->kategori_id,
                 'judul' => $request->judul,
+                'stok_buku' => $request->stok,
                 'rating' => $request->rating,
                 'id_penulis' => $request->penulis_id,
                 'updated_by' => auth()->user()->id,
