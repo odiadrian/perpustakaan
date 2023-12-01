@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('kode_kategori')->notNull()->references('id')->on('kategori_buku')->onUpdate('cascade')->onDelete('cascade');
             $table->string('judul');
+            $table->integer('stok_buku');
             $table->integer('rating')->nullable()->default(0);
             $table->foreignId('id_penulis')->notNull()->references('id')->on('penulis')->onUpdate('cascade')->onDelete('cascade');
             $table->foreignId('created_by')->notNull()->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');

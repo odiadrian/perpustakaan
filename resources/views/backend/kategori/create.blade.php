@@ -27,6 +27,10 @@
                             <label for="deskripsi">Deskripsi</label>
                             <input type="text" class="form-control" id="deskripsi" name="deskripsi" placeholder="">
                         </div>
+                        <div class="form-group">
+                            <label for="nama">Slug</label>
+                            <input type="text" class="form-control" id="nama" name="nama" placeholder="">
+                        </div>
 
 
                         <div class="card-footer">

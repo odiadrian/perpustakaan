@@ -25,13 +25,13 @@ class KategoriController extends Controller
          // dd($request->all());
 
         DB::table('kategori_buku')->insert([
-            'nama_kategori' => $request->nama_kategori,
-            'deskripsi' => $request->deskripsi,
-            //'slug' => $request->nama,
+            'nama' => $request->nama_kategori,
+            'keterangan' => $request->deskripsi,
+            'slug' => $request->nama,
             'created_at' => \Carbon\Carbon::now(),
             'updated_at' => \Carbon\Carbon::now(),
-            'created_by' => Auth()->user()->id,
-            'updated_by' => Auth()->user()->id,
+            // 'created_by' => Auth()->user()->id,
+            // 'updated_by' => Auth()->user()->id,
         ]);
 
         return redirect()->route('backend.kategori')->with('message', 'Kategori Berhasil Disimpan');
@@ -52,8 +52,8 @@ class KategoriController extends Controller
     }
     public function update(KategoriRequest $request,$id) {
         DB::table('kategori_buku')->where('id',$id)->update([
-            'nama_kategori' => $request->nama_kategori,
-            'deskripsi' => $request->deskripsi,
+            'nama' => $request->nama_kategori,
+            'keterangan' => $request->deskripsi,
             'updated_at' => \Carbon\Carbon::now(),
         ]);
 

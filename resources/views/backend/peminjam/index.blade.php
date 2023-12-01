@@ -62,6 +62,7 @@
 
 
                 <td>
+                    
                     <a href="{{ route('backend-edit-peminjam', $user->id) }}" class="btn btn-sm btn-warning">Edit</a>
                     <a href="{{ route('backend-delete-peminjam', $user->id) }}" onclick="return confirm('Are you sure?')" class="btn btn-sm btn-danger">Delete</a>
                 </td>

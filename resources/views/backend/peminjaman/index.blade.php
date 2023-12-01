@@ -25,7 +25,7 @@
             <th scope="col">No</th>
             <th scope="col">Tanggal Pengembalian</th>
             <th scope="col">Nama</th>
-            <th scope="col">Total Buku</th>
+            <th scope="col">Buku Yang Dipinjam</th>
             <th scope="col">Aksi</th>
         </tr>
         </thead>
@@ -36,9 +36,10 @@
                 <td>{{ $pinjam->tanggal_kembali}}</td>
                 <td>{{ $pinjam->nama}}</td>
                 <td>{{ $pinjam->total}}</td>
-
-
                 <td>
+                    @if($pinjam->status == 0)
+                    <a href="{{ route('backend-pengembalian-peminjaman', $pinjam->id) }}" onclick="return confirm('Are you sure?')" class="btn btn-sm btn-success">Cek</a>
+                    @endif
                     <a href="{{ route('backend.show_penulis', $pinjam->id)}}" class="btn btn-sm btn-info">Show</a>
                     <a href="{{ route('backend.delete_penulis', $pinjam->id)}}" onclick="return confirm('Are you sure?')" class="btn btn-sm btn-danger">Delete</a>
                 </td>

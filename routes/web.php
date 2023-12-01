@@ -104,6 +104,7 @@ Route::group(['namespace' => 'App\Http\Controllers'], function () {
         // Route Peminjaman
         Route::get('transaksi', 'Backend\PeminjamanBackendController@index')->name('backend-index-transaksi');
         Route::get('show_peminjaman/{id}', 'Backend\PeminjamanBackendController@show')->name('backend-show-peminjaman');
+        Route::get('pengembalian_peminjaman/{id}', 'Backend\PeminjamanBackendController@pengembalian')->name('backend-pengembalian-peminjaman');
         Route::get('delete-peminjaman/{id}', 'Backend\PeminjamanBackendController@destroy')->name('delete_peminjaman');
 
         //roles
