@@ -64,12 +64,6 @@
 
 			<div class="col-md-10 offset-md-1 col-lg-3 offset-lg-0">
 				<div class="sidebar">
-					<!-- Search Widget -->
-					<div class="widget search p-0">
-						<div class="input-group">
-
-						</div>
-					</div>
 					<!-- Category Widget -->
 					<div class="widget category">
 						<!-- Widget Header -->
