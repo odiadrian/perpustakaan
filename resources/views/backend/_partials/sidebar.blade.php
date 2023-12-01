@@ -24,6 +24,7 @@
             <a href="{{route('backend-index-pesan')}}" class="nav-item nav-link {{ (request()->is('pesan*')) ? 'active' : '' }}"><i class="fa fa-user me-2"></i>Data Pesan</a>
             <a href="{{route('backend-index-konfigurasi')}}" class="nav-item nav-link {{ (request()->is('konfigurasi*')) ? 'active' : '' }}"><i class="fa fa-user me-2"></i>Konfigurasi</a>
             <a href="{{route('backend-index-user')}}" class="nav-item nav-link {{ (request()->is('user*')) ? 'active' : '' }}"><i class="fa fa-user me-2"></i>User</a>
+            <a href="{{route('roles.index')}}" class="nav-item nav-link {{ (request()->is('roles*')) ? 'active' : '' }}"><i class="fa fa-user me-2"></i>Roles</a>
         </div>
 </div>
 </nav>

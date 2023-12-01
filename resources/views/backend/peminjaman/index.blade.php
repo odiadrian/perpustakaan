@@ -19,7 +19,7 @@
         @endif
 
         <div class="mt-4 mb-3">
-           
+
         </div>
         <tr>
             <th scope="col">No</th>
@@ -33,10 +33,10 @@
             @forelse($peminjaman as $pinjam)
             <tr>
                 <td>{{ $loop->iteration }}</td>
-                <td>{{ $pinjam->tanggal_pengembalian}}</td>
+                <td>{{ $pinjam->tanggal_kembali}}</td>
                 <td>{{ $pinjam->nama}}</td>
                 <td>{{ $pinjam->total}}</td>
-                
+
 
                 <td>
                     <a href="{{ route('backend.show_penulis', $pinjam->id)}}" class="btn btn-sm btn-info">Show</a>

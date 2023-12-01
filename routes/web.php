@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Backend\RoleController;
 
 /*
 |--------------------------------------------------------------------------
@@ -49,6 +50,7 @@ Route::group(['namespace' => 'App\Http\Controllers'], function () {
 
         // ROUTE home
         Route::get('home', 'Backend\HomeController@index')->name('backend.home');
+        Route::get('/char', 'Backend\HomeController@handleChart')->name('char');
         Route::get('profil', 'Backend\HomeController@profile')->name('backend.profil');
         // Route::get('my_profile', 'Backend\HomeController@profile')->name('backend.my_profile');
 
@@ -103,6 +105,10 @@ Route::group(['namespace' => 'App\Http\Controllers'], function () {
         Route::get('transaksi', 'Backend\PeminjamanBackendController@index')->name('backend-index-transaksi');
         Route::get('show_peminjaman/{id}', 'Backend\PeminjamanBackendController@show')->name('backend-show-peminjaman');
         Route::get('delete-peminjaman/{id}', 'Backend\PeminjamanBackendController@destroy')->name('delete_peminjaman');
+
+        //roles
+        Route::resource('roles', RoleController::class);
+        
     });
 });
 
