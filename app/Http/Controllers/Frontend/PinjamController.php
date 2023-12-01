@@ -44,6 +44,8 @@ class PinjamController extends Controller
         // counter rating setiap ada peminjaman
         DB::table('buku')->where('id', $request->id_buku)->increment('rating');
 
+        DB::table('buku')->where('id', $request->id_buku)->decrement('stok_buku', (int) $request->total_buku);
+
         $id_transaksi = DB::table('transaksi')->insertGetId([
             'tanggal_pinjam' => $request->tgl_peminjaman,
             'tanggal_kembali' => $request->tgl_pengembalian,
