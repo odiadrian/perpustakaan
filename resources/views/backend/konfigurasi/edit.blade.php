@@ -37,10 +37,13 @@
                             <label for="maps">Maps</label>
                             <input type="text" class="form-control" value="{{ $editKonfigurasi->maps }}" id="maps" name="maps" placeholder="">
                         </div>
-                        <div class="form-group">
-                            <label for="logo_perpus">Logo Perpus</label>
-                            <input type="text" class="form-control" value="{{ $editKonfigurasi->logo_perpus }}" id="logo_perpus" name="logo_perpus" placeholder="">
-                        </div>
+                        <div class="mb-3">
+                        <label for="formFile" class="form-label">Logo Perpus</label>
+                        <input class="form-control mt-2 form-control-sm bg-dark" id="logo" name="logo" accept="logo/*" type="file">
+                        @error('image')
+                        <div class="text-danger">{{ $message }}</div>
+                        @enderror
+                    </div><br>
 
 
                         <div class="card-footer">
