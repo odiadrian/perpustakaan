@@ -23,8 +23,8 @@ Route::group(['namespace' => 'App\Http\Controllers'], function () {
     Route::get('front-logout', 'Frontend\LoginController@logout')->name('frontend.logout');
     Route::get('tentang', 'Frontend\TentangController@index')->name('frontend.tentang');
     Route::get('kategoris', 'Frontend\KategoriController@index')->name('frontend.kategori');
-    Route::get('kontak', 'Frontend\KontakController@index')->name('frontend.kontak');
-    Route::post('pesan', 'Frontend\KontakController@store')->name('frontend.pesan');
+    Route::get('kontak', 'Frontend\kontakController@index')->name('frontend.kontak');
+    Route::post('pesan', 'Frontend\kontakController@store')->name('frontend.pesan');
     Route::get('semua-buku', 'Frontend\SemuaBukuController@index')->name('frontend.semuabuku');
     Route::get('search-buku', 'Frontend\BerandaController@searchResult')->name('frontend.search.buku');
     // Route::get('tampilbuku', 'Frontend\BerandaController@show')->name('frontend.beranda.buku');

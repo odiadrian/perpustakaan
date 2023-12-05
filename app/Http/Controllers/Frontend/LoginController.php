@@ -69,7 +69,7 @@ class LoginController extends Controller
             $user = Auth::user();
             return redirect()->route('frontend.home')->with('message', 'Anda Berhasil Login');
         }else{
-            dd('login mu salah coba cek lagi yaa');
+            return redirect()->route('frontend.home')->with('message', 'Anda Gagal Login');
         }
 
     }
