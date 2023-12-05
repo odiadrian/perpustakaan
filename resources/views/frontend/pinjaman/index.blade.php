@@ -20,8 +20,9 @@
                 <label for="total_buku" class="form-label">Total Buku yang Dipinjam</label>
                 <input type="number" class="form-control" value="{{ old('total_buku') }}" name="total_buku" id="total_buku" required>
             </div><br>
-            <button type="submit" class="btn btn-primary">Simpan</button>
             <a href="{{ url()->previous() }}" class="btn btn-info">Kembali</a>
+            <button type="submit" class="btn btn-primary">Simpan</button>
+            
         </form>
     </div>
 </div>

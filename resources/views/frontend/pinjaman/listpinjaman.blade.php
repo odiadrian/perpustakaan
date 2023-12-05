@@ -19,7 +19,7 @@
                                     <th class="text-center">Telat Pengembalian</th>
                                     <th class="text-center">Denda</th>
                                     <th class="text-center">Dipinjam Pada</th>
-                                    <th class="text-center">Aksi</th>
+                                    <!-- <th class="text-center">Aksi</th> -->
                                 </tr>
                             </thead>
                        
@@ -32,11 +32,11 @@
                             <td class="text-center">{{ $detail_trans->telat_pengembalian }}</td>
                             <td class="text-center">{{ $detail_trans->denda }}</td>
                             <td class="text-center">{{ $detail_trans->created_at }}</td>
-                            <td class="text-center">
+                            <!-- <td class="text-center">
                                 <a href="" class="btn btn-sm btn-info">Edit</a>
                                 <a href=""
                                     onclick="return confirm('Apa kamu yakin')" class="btn btn-sm btn-danger">Hapus</a>
-                            </td>
+                            </td> -->
                         </tr>
                         @empty
                         @endforelse

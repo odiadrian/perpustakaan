@@ -83,9 +83,9 @@ class PinjamController extends Controller
         if (Auth::check()) {
             $detail_transaksi = DB::table('detail_transakasi')
             ->where('transaksi.created_by', $id_user)
-            ->select('detail_transakasi.id','detail_transakasi.created_at', 'buku', 'judul',  'telat_pengembalian','denda','id_transaksi')
+            ->select('detail_transakasi.id','detail_transakasi.created_at', 'judul',  'telat_pengembalian','denda','id_transaksi')
             ->join('transaksi', 'transaksi.id', 'detail_transakasi.id_transaksi')
-            ->join('buku', 'buku.id', 'detail_transakasi.buku')
+            ->join('buku', 'buku.id', 'detail_transakasi.id_buku')
             // ->join('users', 'users.id', 'peminjam.user_id')
             ->paginate(10);
     
