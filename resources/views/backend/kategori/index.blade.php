@@ -22,7 +22,7 @@
                                         <tr>
                                             <th scope="row">{{$kategori->firstItem() + $loop->index}}</th>
                                             <td>{{ $kat->nama_kategori }}</td>
-                                            <td>{{ $kat->deskripsi }}</td>
+                                            <td>{{ $kat->keterangan }}</td>
                                             <td>
                                                 <a href=" {{ route('edit_kategori', $kat->id) }}" class="btn btn-sm btn-primary">Edit</a>
                                                 <a href=" {{ route('delete_kategori', $kat->id) }}" onclick="return confirm('Are you sure?')" class="btn btn-sm btn-danger">Hapus</a>
